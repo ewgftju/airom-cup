@@ -1,0 +1,717 @@
+.section {
+    position: relative;
+  
+    overflow: hidden;
+  
+    padding: 120px 54px 70px;
+  
+    background:
+      radial-gradient(
+        circle at 15% 25%,
+        rgba(39, 169, 196, 0.08),
+        transparent 28%
+      ),
+      radial-gradient(
+        circle at 90% 80%,
+        rgba(255, 132, 24, 0.08),
+        transparent 30%
+      ),
+      #f3f0e9;
+  
+    color: #071b34;
+  }
+  
+  /* -------------------------------- */
+  /* ДЕКОР */
+  /* -------------------------------- */
+  
+  .section::before {
+    content: "";
+  
+    position: absolute;
+    inset: 0;
+  
+    opacity: 0.16;
+  
+    background-image:
+      linear-gradient(
+        rgba(7, 27, 52, 0.07) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(7, 27, 52, 0.07) 1px,
+        transparent 1px
+      );
+  
+    background-size: 80px 80px;
+  
+    pointer-events: none;
+  }
+  
+  .section::after {
+    content: "";
+  
+    position: absolute;
+  
+    top: -90px;
+    left: -5%;
+  
+    width: 110%;
+    height: 130px;
+  
+    background: #071b34;
+  
+    transform: rotate(-1.4deg);
+  
+    pointer-events: none;
+  }
+  
+  .sectionNumber {
+    position: absolute;
+  
+    top: 80px;
+    right: 2%;
+  
+    color: rgba(7, 27, 52, 0.045);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 280px;
+    line-height: 1;
+  
+    pointer-events: none;
+  }
+  
+  /* -------------------------------- */
+  /* ОСНОВНОЙ КОНТЕЙНЕР */
+  /* -------------------------------- */
+  
+  .inner {
+    position: relative;
+    z-index: 2;
+  
+    width: 100%;
+    max-width: 1500px;
+  
+    margin: 0 auto;
+  }
+  
+  /* -------------------------------- */
+  /* ЗАГОЛОВОК */
+  /* -------------------------------- */
+  
+  .heading {
+    display: grid;
+  
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 480px);
+  
+    gap: 80px;
+  
+    align-items: end;
+  
+    margin-bottom: 70px;
+  }
+  
+  .eyebrow {
+    margin: 0 0 18px;
+  
+    color: #219db9;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+  }
+  
+  .title {
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(60px, 6vw, 110px);
+    font-weight: 900;
+    line-height: 0.88;
+  
+    letter-spacing: -0.025em;
+  
+    text-transform: uppercase;
+  }
+  
+  .title span {
+    color: #ff8318;
+  }
+  
+  .description {
+    max-width: 470px;
+  
+    margin: 0 0 8px;
+  
+    color: rgba(7, 27, 52, 0.65);
+  
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  
+  /* -------------------------------- */
+  /* КАРТОЧКИ */
+  /* -------------------------------- */
+  
+  .cards {
+    display: grid;
+  
+    grid-template-columns:
+      minmax(0, 1.08fr)
+      minmax(0, 0.92fr);
+  
+    gap: 22px;
+  
+    align-items: stretch;
+  }
+  
+  /* -------------------------------- */
+  /* КАРТОЧКА ТУРНИРА */
+  /* -------------------------------- */
+  
+  .tournamentCard {
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+  
+    overflow: hidden;
+  
+    min-height: 650px;
+  
+    padding: 34px;
+  
+    background:
+      radial-gradient(
+        circle at 90% 5%,
+        rgba(39, 169, 196, 0.2),
+        transparent 35%
+      ),
+      linear-gradient(
+        145deg,
+        #081e39,
+        #061426
+      );
+  
+    color: #f5f1e8;
+  
+    box-shadow:
+      0 35px 80px rgba(7, 27, 52, 0.16);
+  }
+  
+  .cardNoise {
+    position: absolute;
+    inset: 0;
+  
+    opacity: 0.08;
+  
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.08) 21px
+      );
+  
+    pointer-events: none;
+  }
+  
+  .cardHeader {
+    position: relative;
+    z-index: 2;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .cardNumber {
+    color: rgba(255, 255, 255, 0.16);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 56px;
+    line-height: 1;
+  }
+  
+  .badge {
+    padding: 10px 14px;
+  
+    background: #249fb9;
+  
+    color: #ffffff;
+  
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  
+  .cardMain {
+    position: relative;
+    z-index: 2;
+  
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  
+    padding: 40px 0;
+  }
+  
+  .cardEyebrow {
+    margin: 0 0 8px;
+  
+    color: #249fb9;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.23em;
+  }
+  
+  .cardTitle {
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(82px, 8vw, 150px);
+    font-weight: 900;
+    line-height: 0.82;
+  
+    text-transform: uppercase;
+  }
+  
+  .orangeLine {
+    width: 90px;
+    height: 8px;
+  
+    margin: 30px 0;
+  
+    background: #ff8318;
+  }
+  
+  .category {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .category span {
+    color: rgba(255, 255, 255, 0.45);
+  
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+  }
+  
+  .category strong {
+    color: #ff8318;
+  
+    font-size: clamp(28px, 3vw, 54px);
+    line-height: 1;
+  }
+  
+  .age {
+    margin-top: 10px;
+  
+    color: #ffffff;
+  
+    font-size: clamp(20px, 2vw, 34px);
+    font-weight: 900;
+  }
+  
+  /* -------------------------------- */
+  /* ДАННЫЕ ТУРНИРА */
+  /* -------------------------------- */
+  
+  .cardFooter {
+    position: relative;
+    z-index: 2;
+  
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+    gap: 20px;
+  
+    padding: 24px 0;
+  
+    border-top:
+      1px solid rgba(255, 255, 255, 0.14);
+  }
+  
+  .cardFooter > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  
+  .metaLabel {
+    color: rgba(255, 255, 255, 0.4);
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+  }
+  
+  .metaValue {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  
+  .applyButton {
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    width: 100%;
+  
+    padding: 20px 22px;
+  
+    background: #ff8318;
+    color: #071b34;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  
+    cursor: pointer;
+  
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+  
+  .applyButton span {
+    font-size: 22px;
+  }
+  
+  .applyButton:hover {
+    transform: translateY(-3px);
+  
+    background: #ff972f;
+  }
+  
+  /* -------------------------------- */
+  /* СВОЙ ВАРИАНТ */
+  /* -------------------------------- */
+  
+  .customCard {
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+  
+    overflow: hidden;
+  
+    min-height: 650px;
+  
+    padding: 42px;
+  
+    background: #249fb9;
+    color: #061426;
+  
+    box-shadow:
+      0 35px 80px rgba(7, 27, 52, 0.12);
+  }
+  
+  .customCircle {
+    position: absolute;
+  
+    top: -150px;
+    right: -150px;
+  
+    width: 480px;
+    height: 480px;
+  
+    border:
+      80px solid rgba(255, 255, 255, 0.08);
+  
+    border-radius: 50%;
+  }
+  
+  .customNumber {
+    position: absolute;
+  
+    top: 0;
+    right: 25px;
+  
+    color: rgba(255, 255, 255, 0.13);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 240px;
+    line-height: 1;
+  }
+  
+  .customEyebrow {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0 0 18px;
+  
+    color: rgba(6, 20, 38, 0.6);
+  
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+  }
+  
+  .customTitle {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(60px, 6vw, 105px);
+    font-weight: 900;
+    line-height: 0.86;
+  
+    text-transform: uppercase;
+  }
+  
+  .customTitle span {
+    color: #ffffff;
+  }
+  
+  .customDescription {
+    position: relative;
+    z-index: 2;
+  
+    max-width: 430px;
+  
+    margin: 26px 0 0;
+  
+    color: rgba(6, 20, 38, 0.68);
+  
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  
+  /* -------------------------------- */
+  /* ПРЕДПОЧТЕНИЯ */
+  /* -------------------------------- */
+  
+  .preferences {
+    position: relative;
+    z-index: 2;
+  
+    display: grid;
+    gap: 0;
+  
+    margin: auto 0 28px;
+  }
+  
+  .preferences > div {
+    display: grid;
+  
+    grid-template-columns: 55px 1fr;
+  
+    align-items: center;
+  
+    min-height: 58px;
+  
+    border-bottom:
+      1px solid rgba(6, 20, 38, 0.18);
+  }
+  
+  .preferences span {
+    color: rgba(6, 20, 38, 0.45);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 22px;
+  }
+  
+  .preferences p {
+    margin: 0;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+  }
+  
+  .customButton {
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    width: 100%;
+  
+    padding: 20px 22px;
+  
+    background: #061426;
+    color: #ffffff;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  
+    cursor: pointer;
+  
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
+  }
+  
+  .customButton span {
+    color: #ff8318;
+  
+    font-size: 22px;
+  }
+  
+  .customButton:hover {
+    transform: translateY(-3px);
+  
+    background: #0b294d;
+  }
+  
+  /* -------------------------------- */
+  /* НИЖНЯЯ СТРОКА */
+  /* -------------------------------- */
+  
+  .bottomLine {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  
+    margin-top: 38px;
+    padding-top: 20px;
+  
+    border-top:
+      1px solid rgba(7, 27, 52, 0.18);
+  
+    color: rgba(7, 27, 52, 0.45);
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+  }
+  
+  /* -------------------------------- */
+  /* ПЛАНШЕТ */
+  /* -------------------------------- */
+  
+  @media (max-width: 1100px) {
+    .section {
+      padding:
+        110px
+        30px
+        60px;
+    }
+  
+    .heading {
+      grid-template-columns: 1fr;
+  
+      gap: 30px;
+    }
+  
+    .description {
+      max-width: 620px;
+    }
+  
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* -------------------------------- */
+  /* МОБИЛЬНАЯ ВЕРСИЯ */
+  /* -------------------------------- */
+  
+  @media (max-width: 700px) {
+    .section {
+      padding:
+        90px
+        18px
+        40px;
+    }
+  
+    .sectionNumber {
+      top: 80px;
+  
+      font-size: 150px;
+    }
+  
+    .heading {
+      margin-bottom: 42px;
+    }
+  
+    .title {
+      font-size: clamp(48px, 14vw, 72px);
+    }
+  
+    .description {
+      font-size: 15px;
+    }
+  
+    .tournamentCard,
+    .customCard {
+      min-height: 590px;
+  
+      padding: 26px;
+    }
+  
+    .cardTitle {
+      font-size: clamp(76px, 24vw, 120px);
+    }
+  
+    .cardFooter {
+      grid-template-columns: 1fr;
+    }
+  
+    .customTitle {
+      font-size: clamp(52px, 16vw, 78px);
+    }
+  
+    .customNumber {
+      font-size: 180px;
+    }
+  
+    .bottomLine {
+      flex-direction: column;
+  
+      gap: 10px;
+    }
+  }

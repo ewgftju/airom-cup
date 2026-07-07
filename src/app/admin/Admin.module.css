@@ -1,0 +1,430 @@
+.page {
+  min-height: 100vh;
+
+  padding: 42px 48px 28px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(36, 159, 185, 0.12),
+      transparent 28%
+    ),
+    #06182d;
+
+  color: #ffffff;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  max-width: 1700px;
+
+  margin: 0 auto 48px;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  margin: 0 0 14px;
+
+  color: #249fb9;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(64px, 7vw, 112px);
+  line-height: 0.82;
+
+  text-transform: uppercase;
+}
+
+.title span {
+  display: block;
+
+  color: #ff8318;
+}
+
+.adminActions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.adminIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  text-align: right;
+}
+
+.adminIdentity span {
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.adminIdentity strong {
+  font-size: 10px;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  min-height: 48px;
+
+  padding: 0 17px;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+}
+
+.logoutButton span {
+  color: #ff8318;
+
+  font-size: 18px;
+}
+
+/* STATS */
+
+.stats {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  max-width: 1700px;
+
+  margin: 0 auto 65px;
+}
+
+.statCard {
+  min-height: 220px;
+
+  padding: 24px;
+
+  background: #f3f0e9;
+  color: #061426;
+}
+
+.statCardAccent {
+  background: #ff8318;
+}
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+
+  color:
+    rgba(6, 20, 38, 0.42);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.statValue {
+  display: block;
+
+  margin-top: 35px;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 92px;
+  line-height: 0.8;
+}
+
+.statLabel {
+  margin: 28px 0 0;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+}
+
+/* APPLICATIONS */
+
+.applications {
+  max-width: 1700px;
+
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 25px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(50px, 5vw, 82px);
+  line-height: 0.86;
+}
+
+.sectionHeader h2 span {
+  display: block;
+
+  color: #ff8318;
+}
+
+.resultCount {
+  color:
+    rgba(255, 255, 255, 0.35);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+/* TABLE */
+
+.tableWrapper {
+  overflow-x: auto;
+
+  background: #f3f0e9;
+}
+
+.table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  color: #061426;
+}
+
+.table th {
+  padding: 16px;
+
+  background: #249fb9;
+
+  color: #061426;
+
+  text-align: left;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+
+  white-space: nowrap;
+}
+
+.table td {
+  min-height: 72px;
+
+  padding: 17px 16px;
+
+  border-bottom:
+    1px solid
+    rgba(6, 20, 38, 0.1);
+
+  font-size: 10px;
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background:
+    rgba(36, 159, 185, 0.07);
+}
+
+.table td strong {
+  display: block;
+}
+
+.subText {
+  display: block;
+
+  margin-top: 5px;
+
+  color:
+    rgba(6, 20, 38, 0.48);
+
+  font-size: 8px;
+}
+
+.date,
+.timing {
+  color:
+    rgba(6, 20, 38, 0.65);
+
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.typeTournament,
+.typeCustom,
+.status {
+  display: inline-flex;
+
+  padding: 7px 9px;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+
+  white-space: nowrap;
+}
+
+.typeTournament {
+  background: #061426;
+  color: #ffffff;
+}
+
+.typeCustom {
+  background: #249fb9;
+  color: #061426;
+}
+
+.status {
+  background:
+    rgba(255, 131, 24, 0.16);
+
+  color: #a65000;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 70px 30px;
+
+  background: #f3f0e9;
+  color: #061426;
+
+  text-align: center;
+}
+
+.emptyState strong {
+  font-size: 20px;
+}
+
+.emptyState span {
+  color:
+    rgba(6, 20, 38, 0.5);
+
+  font-size: 12px;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 1700px;
+
+  margin: 45px auto 0;
+  padding-top: 18px;
+
+  border-top:
+    1px solid
+    rgba(255, 255, 255, 0.1);
+
+  color:
+    rgba(255, 255, 255, 0.3);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .page {
+    padding: 30px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .adminActions {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .adminIdentity {
+    text-align: left;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    min-height: 175px;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

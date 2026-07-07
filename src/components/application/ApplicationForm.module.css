@@ -1,0 +1,1483 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 42px;
+
+  background: #f3f0e9;
+  color: #061426;
+}
+
+/* -------------------------------- */
+/* PROGRESS */
+/* -------------------------------- */
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+
+  color: rgba(6, 20, 38, 0.45);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.progressHeader strong {
+  color: #ff8318;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 4px;
+
+  margin-top: 12px;
+
+  background: rgba(6, 20, 38, 0.1);
+}
+
+.progressValue {
+  height: 100%;
+
+  background: #ff8318;
+
+  transition: width 0.35s ease;
+}
+
+/* -------------------------------- */
+/* HEADING */
+/* -------------------------------- */
+
+.eyebrow {
+  margin: 60px 0 13px;
+
+  color: #249fb9;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(52px, 4vw, 80px);
+  line-height: 0.88;
+
+  text-transform: uppercase;
+}
+
+.title span {
+  color: #ff8318;
+}
+
+.description {
+  max-width: 440px;
+
+  margin: 20px 0 30px;
+
+  color: rgba(6, 20, 38, 0.55);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* -------------------------------- */
+/* FIELDS */
+/* -------------------------------- */
+
+.fields {
+  display: grid;
+  gap: 12px;
+
+  margin-top: auto;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  color: rgba(6, 20, 38, 0.52);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.field input {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 0 18px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field input::placeholder {
+  color: rgba(6, 20, 38, 0.28);
+
+  font-weight: 500;
+}
+
+.field input:hover {
+  border-color:
+    rgba(6, 20, 38, 0.3);
+}
+
+.field input:focus {
+  border-color: #249fb9;
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(36, 159, 185, 0.09);
+}
+
+/* -------------------------------- */
+/* NEXT BUTTON */
+/* -------------------------------- */
+
+.nextButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 18px;
+  padding: 18px 20px;
+
+  border: 0;
+
+  background: #061426;
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.nextButton span {
+  color: #ff8318;
+
+  font-size: 22px;
+}
+
+.nextButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #0b294d;
+}
+
+.nextButton:disabled {
+  opacity: 0.28;
+
+  cursor: not-allowed;
+}
+
+/* -------------------------------- */
+/* STEP 2 TEMPORARY SUMMARY */
+/* -------------------------------- */
+
+.summary {
+  display: grid;
+  gap: 0;
+
+  margin-top: auto;
+
+  border-top:
+    1px solid rgba(6, 20, 38, 0.12);
+}
+
+.summary > div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+
+  gap: 20px;
+  align-items: center;
+
+  min-height: 58px;
+
+  border-bottom:
+    1px solid rgba(6, 20, 38, 0.12);
+}
+
+.summary span {
+  color: rgba(6, 20, 38, 0.42);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.summary strong {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: max-content;
+
+  margin-top: 26px;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+}
+
+.backButton span {
+  color: #ff8318;
+
+  font-size: 20px;
+
+  transition: transform 0.2s ease;
+}
+
+.backButton:hover span {
+  transform: translateX(-4px);
+}
+
+/* -------------------------------- */
+/* STEP TWO */
+/* -------------------------------- */
+
+.stepTwoContent {
+  display: grid;
+  gap: 28px;
+
+  margin-top: auto;
+}
+
+.questionBlock {
+  display: grid;
+  gap: 12px;
+}
+
+.questionLabel {
+  margin: 0;
+
+  color: rgba(6, 20, 38, 0.5);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+/* -------------------------------- */
+/* GENDER */
+/* -------------------------------- */
+
+.genderOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.genderCard {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+
+  min-height: 82px;
+
+  padding: 16px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  background: transparent;
+  color: #061426;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.genderCard:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(6, 20, 38, 0.35);
+}
+
+.genderCardActive {
+  border-color: #ff8318;
+
+  background: #ff8318;
+  color: #061426;
+}
+
+.optionNumber {
+  margin-right: 14px;
+
+  color: rgba(6, 20, 38, 0.3);
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 25px;
+}
+
+.genderCard strong {
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.optionMark {
+  color: #ff8318;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.genderCardActive .optionMark {
+  color: #061426;
+}
+
+/* -------------------------------- */
+/* BIRTH YEAR */
+/* -------------------------------- */
+
+.yearOptions {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.yearButton {
+  min-height: 48px;
+
+  padding: 0 8px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.yearButton:hover {
+  transform: translateY(-2px);
+
+  border-color: #249fb9;
+}
+
+.yearButtonActive {
+  border-color: #061426;
+
+  background: #061426;
+  color: #ffffff;
+}
+
+/* -------------------------------- */
+/* CUSTOM YEAR */
+/* -------------------------------- */
+
+.customYearField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 2px;
+}
+
+.customYearField span {
+  color: rgba(6, 20, 38, 0.5);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.customYearField input {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 0 18px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.customYearField input:focus {
+  border-color: #249fb9;
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(36, 159, 185, 0.09);
+}
+
+/* -------------------------------- */
+/* FORM NAVIGATION */
+/* -------------------------------- */
+
+.formNavigation {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.previousButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-width: 105px;
+
+  padding: 0 16px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.16);
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.previousButton span {
+  color: #ff8318;
+
+  font-size: 18px;
+}
+
+.previousButton:hover {
+  transform: translateX(-2px);
+
+  border-color:
+    rgba(6, 20, 38, 0.4);
+}
+
+.nextButtonCompact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 18px 20px;
+
+  border: 0;
+
+  background: #061426;
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.nextButtonCompact span {
+  color: #ff8318;
+
+  font-size: 22px;
+}
+
+.nextButtonCompact:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #0b294d;
+}
+
+.nextButtonCompact:disabled {
+  opacity: 0.28;
+
+  cursor: not-allowed;
+}
+
+/* -------------------------------- */
+/* STEP THREE */
+/* -------------------------------- */
+
+.stepThreeContent {
+  display: grid;
+  gap: 20px;
+
+  margin-top: auto;
+}
+
+/* -------------------------------- */
+/* TOURNAMENT CONFIRMATION */
+/* -------------------------------- */
+
+.confirmationCard {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 24px;
+
+  background: #061426;
+  color: #ffffff;
+}
+
+.confirmationCard::after {
+  content: "03";
+
+  position: absolute;
+
+  top: -35px;
+  right: 5px;
+
+  color: rgba(255, 255, 255, 0.06);
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 150px;
+  line-height: 1;
+
+  pointer-events: none;
+}
+
+.confirmationEyebrow {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 8px;
+
+  color: #249fb9;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+}
+
+.confirmationTitle {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: 52px;
+  line-height: 0.9;
+
+  text-transform: uppercase;
+}
+
+.confirmationMeta {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0;
+
+  margin-top: 22px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.confirmationMeta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  min-height: 65px;
+
+  padding: 14px 12px 10px 0;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.confirmationMeta span {
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.confirmationMeta strong {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+/* -------------------------------- */
+/* CONFIRM BUTTON */
+/* -------------------------------- */
+
+.confirmButton {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: 100%;
+
+  min-height: 54px;
+
+  padding: 0 18px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.15);
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.confirmButton:hover {
+  transform: translateY(-2px);
+
+  border-color: #249fb9;
+}
+
+.confirmButton span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.2);
+
+  font-size: 13px;
+}
+
+.confirmButtonActive {
+  border-color: #ff8318;
+
+  background: #ff8318;
+}
+
+.confirmButtonActive span {
+  border-color: #061426;
+}
+
+/* -------------------------------- */
+/* CUSTOM TIMING */
+/* -------------------------------- */
+
+.timingSection {
+  display: grid;
+  gap: 10px;
+}
+
+.timingHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.timingHint {
+  color: #249fb9;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+/* -------------------------------- */
+/* PREFERRED YEAR */
+/* -------------------------------- */
+
+.preferredYearOptions {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 7px;
+}
+
+.preferredYearButton {
+  min-height: 44px;
+
+  padding: 0 6px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.preferredYearButton:hover {
+  transform: translateY(-2px);
+
+  border-color: #249fb9;
+}
+
+.preferredYearButtonActive {
+  border-color: #061426;
+
+  background: #061426;
+  color: #ffffff;
+}
+
+/* -------------------------------- */
+/* PERIODS */
+/* -------------------------------- */
+
+.periodOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 7px;
+}
+
+.periodButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 46px;
+
+  padding: 0 13px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  background: transparent;
+  color: #061426;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.periodButton:hover {
+  transform: translateY(-2px);
+
+  border-color: #249fb9;
+}
+
+.periodButton span {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.periodButton strong {
+  color: #ff8318;
+
+  font-size: 15px;
+}
+
+.periodButtonActive {
+  border-color: #ff8318;
+
+  background: #ff8318;
+}
+
+.periodButtonActive strong {
+  color: #061426;
+}
+
+/* -------------------------------- */
+/* CUSTOM DATES */
+/* -------------------------------- */
+
+.customDatesField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.customDatesField > span {
+  color: rgba(6, 20, 38, 0.5);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.customDatesField input {
+  width: 100%;
+  min-height: 54px;
+
+  padding: 0 18px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.customDatesField input::placeholder {
+  color: rgba(6, 20, 38, 0.28);
+}
+
+.customDatesField input:focus {
+  border-color: #249fb9;
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(36, 159, 185, 0.09);
+}
+
+/* -------------------------------- */
+/* STEP FOUR */
+/* -------------------------------- */
+
+.contactContent {
+  display: grid;
+  gap: 16px;
+
+  margin-top: auto;
+}
+
+.contactFields {
+  display: grid;
+  gap: 10px;
+}
+
+.commentField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.commentField > span {
+  color: rgba(6, 20, 38, 0.52);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.commentField textarea {
+  width: 100%;
+  min-height: 90px;
+
+  padding: 15px 18px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  border-radius: 0;
+  outline: none;
+
+  resize: vertical;
+
+  background: transparent;
+  color: #061426;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.commentField textarea::placeholder {
+  color: rgba(6, 20, 38, 0.28);
+}
+
+.commentField textarea:focus {
+  border-color: #249fb9;
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(36, 159, 185, 0.09);
+}
+
+/* -------------------------------- */
+/* CONSENT */
+/* -------------------------------- */
+
+.consentButton {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+
+  gap: 12px;
+  align-items: center;
+
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.14);
+
+  background: transparent;
+  color: #061426;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.consentButton:hover {
+  border-color:
+    rgba(6, 20, 38, 0.35);
+}
+
+.consentMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 26px;
+  height: 26px;
+
+  border:
+    1px solid rgba(6, 20, 38, 0.22);
+
+  color: #061426;
+
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.consentText {
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.07em;
+}
+
+.consentButtonActive {
+  border-color: #ff8318;
+
+  background:
+    rgba(255, 131, 24, 0.12);
+}
+
+.consentButtonActive .consentMark {
+  border-color: #ff8318;
+
+  background: #ff8318;
+}
+
+/* -------------------------------- */
+/* SUBMIT */
+/* -------------------------------- */
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  padding: 18px 20px;
+
+  border: 0;
+
+  background: #ff8318;
+  color: #061426;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.submitButton span {
+  font-size: 22px;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #ff972f;
+}
+
+.submitButton:disabled {
+  opacity: 0.28;
+
+  cursor: not-allowed;
+}
+
+/* -------------------------------- */
+/* SUCCESS */
+/* -------------------------------- */
+
+.successScreen {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.successMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  margin-bottom: 28px;
+
+  background: #ff8318;
+  color: #061426;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.successTitle {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(62px, 5vw, 92px);
+  line-height: 0.86;
+
+  text-transform: uppercase;
+}
+
+.successTitle span {
+  color: #ff8318;
+}
+
+.successDescription {
+  max-width: 430px;
+
+  margin: 24px 0 30px;
+
+  color: rgba(6, 20, 38, 0.58);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.successSummary {
+  display: grid;
+
+  border-top:
+    1px solid rgba(6, 20, 38, 0.12);
+}
+
+.successSummary > div {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+
+  gap: 20px;
+  align-items: center;
+
+  min-height: 52px;
+
+  border-bottom:
+    1px solid rgba(6, 20, 38, 0.12);
+}
+
+.successSummary span {
+  color: rgba(6, 20, 38, 0.42);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.successSummary strong {
+  font-size: 11px;
+}
+
+.newApplicationButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 24px;
+  padding: 18px 20px;
+
+  border: 0;
+
+  background: #061426;
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.newApplicationButton span {
+  color: #ff8318;
+
+  font-size: 22px;
+}
+
+.testNotice {
+  margin: 16px 0 0;
+
+  color: rgba(6, 20, 38, 0.32);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+/* -------------------------------- */
+/* SUBMIT ERROR */
+/* -------------------------------- */
+
+.submitError {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 13px 15px;
+
+  border:
+    1px solid rgba(190, 45, 45, 0.35);
+
+  background:
+    rgba(190, 45, 45, 0.07);
+}
+
+.submitError strong {
+  color: #a72b2b;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.submitError span {
+  color:
+    rgba(120, 20, 20, 0.75);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* -------------------------------- */
+/* LOCKED TOURNAMENT CATEGORY */
+/* -------------------------------- */
+
+.lockedCategoryCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 88px;
+
+  padding: 16px 18px;
+
+  background: #061426;
+  color: #ffffff;
+}
+
+.lockedCategoryMain {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.lockedCategoryMain span {
+  color: #249fb9;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.lockedCategoryMain strong {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.lockedCategoryMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  background: #ff8318;
+  color: #061426;
+
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.tournamentAgeRule {
+  margin: 0;
+
+  color: rgba(6, 20, 38, 0.48);
+
+  font-size: 8px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.tournamentAgeRule strong {
+  color: #061426;
+}
+
+/* -------------------------------- */
+/* SUBMIT ERROR */
+/* -------------------------------- */
+
+.submitError {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 13px 15px;
+
+  border:
+    1px solid rgba(190, 45, 45, 0.35);
+
+  background:
+    rgba(190, 45, 45, 0.07);
+}
+
+.submitError strong {
+  color: #a72b2b;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.submitError span {
+  color:
+    rgba(120, 20, 20, 0.75);
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* -------------------------------- */
+/* MOBILE */
+/* -------------------------------- */
+
+@media (max-width: 760px) {
+  .form {
+    min-height: 650px;
+
+    padding: 28px;
+  }
+
+  .eyebrow {
+    margin-top: 48px;
+  }
+
+  .title {
+    font-size: clamp(52px, 15vw, 76px);
+  }
+
+  .summary > div {
+    grid-template-columns: 90px 1fr;
+  }
+
+    .genderOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .yearOptions {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+  .formNavigation {
+    grid-template-columns: 1fr;
+  }
+
+  .previousButton {
+    min-height: 52px;
+  }
+
+    .preferredYearOptions {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .periodOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .confirmationMeta {
+    grid-template-columns: 1fr;
+  }
+  
+}

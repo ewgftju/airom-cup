@@ -1,0 +1,857 @@
+.page {
+    position: relative;
+  
+    min-height: 100vh;
+    overflow: hidden;
+  
+    padding: 28px 54px 24px;
+  
+    background:
+      radial-gradient(
+        circle at 12% 85%,
+        rgba(255, 131, 24, 0.16),
+        transparent 30%
+      ),
+      radial-gradient(
+        circle at 90% 15%,
+        rgba(36, 159, 185, 0.15),
+        transparent 32%
+      ),
+      linear-gradient(
+        135deg,
+        #061426,
+        #092747 55%,
+        #061426
+      );
+  
+    color: #f4f0e7;
+  }
+  
+  /* -------------------------------- */
+  /* BACKGROUND */
+  /* -------------------------------- */
+  
+  .grid {
+    position: absolute;
+    inset: 0;
+  
+    opacity: 0.045;
+  
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.2) 1px,
+        transparent 1px
+      );
+  
+    background-size: 70px 70px;
+  
+    pointer-events: none;
+  }
+  
+  .orangeGlow {
+    position: absolute;
+  
+    left: -250px;
+    bottom: -350px;
+  
+    width: 650px;
+    height: 650px;
+  
+    border-radius: 50%;
+  
+    background: #ff8318;
+  
+    opacity: 0.18;
+    filter: blur(150px);
+  
+    pointer-events: none;
+  }
+  
+  .blueGlow {
+    position: absolute;
+  
+    top: -300px;
+    right: -250px;
+  
+    width: 700px;
+    height: 700px;
+  
+    border-radius: 50%;
+  
+    background: #249fb9;
+  
+    opacity: 0.16;
+    filter: blur(160px);
+  
+    pointer-events: none;
+  }
+  
+  /* -------------------------------- */
+  /* HEADER */
+  /* -------------------------------- */
+  
+  .header {
+    position: relative;
+    z-index: 10;
+  
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  
+    min-height: 55px;
+  }
+  
+  .backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  
+    width: max-content;
+  
+    color: rgba(255, 255, 255, 0.65);
+  
+    text-decoration: none;
+  
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+  
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+  
+  .backLink span {
+    color: #ff8318;
+  
+    font-size: 20px;
+  }
+  
+  .backLink:hover {
+    color: #ffffff;
+  
+    transform: translateX(-3px);
+  }
+  
+  .brand {
+    color: #ffffff;
+  
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.22em;
+  }
+  
+  .stepIndicator {
+    text-align: right;
+  
+    color: #249fb9;
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+  
+  /* -------------------------------- */
+  /* MAIN CONTAINER */
+  /* -------------------------------- */
+  
+  .container {
+    position: relative;
+    z-index: 5;
+  
+    display: grid;
+    grid-template-columns:
+      minmax(340px, 0.72fr)
+      minmax(600px, 1.28fr);
+  
+    gap: clamp(40px, 6vw, 110px);
+  
+    align-items: center;
+  
+    width: 100%;
+    max-width: 1500px;
+    min-height: calc(100vh - 150px);
+  
+    margin: 0 auto;
+  }
+  
+  /* -------------------------------- */
+  /* INTRO */
+  /* -------------------------------- */
+  
+  .intro {
+    max-width: 580px;
+  }
+  
+  .eyebrow {
+    margin: 0 0 22px;
+  
+    color: #249fb9;
+  
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.24em;
+  }
+  
+  .title {
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(62px, 5.5vw, 108px);
+    font-weight: 900;
+    line-height: 0.86;
+  
+    letter-spacing: -0.025em;
+  
+    text-transform: uppercase;
+  }
+  
+  .title span {
+    color: #ff8318;
+  }
+  
+  .description {
+    max-width: 520px;
+  
+    margin: 30px 0 0;
+  
+    color: rgba(255, 255, 255, 0.62);
+  
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  
+  /* -------------------------------- */
+  /* MODE SWITCH */
+  /* -------------------------------- */
+  
+  .modeSwitch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  
+    gap: 10px;
+  
+    margin-top: 38px;
+  }
+  
+  .modeButton {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+    align-items: center;
+  
+    min-height: 82px;
+  
+    padding: 14px;
+  
+    border:
+      1px solid rgba(255, 255, 255, 0.14);
+  
+    background:
+      rgba(255, 255, 255, 0.035);
+  
+    color: rgba(255, 255, 255, 0.55);
+  
+    text-decoration: none;
+  
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+  
+    transition:
+      background 0.2s ease,
+      border 0.2s ease,
+      transform 0.2s ease;
+  }
+  
+  .modeButton:hover {
+    transform: translateY(-3px);
+  
+    border-color:
+      rgba(255, 255, 255, 0.3);
+  }
+  
+  .modeButtonActive {
+    border-color: #ff8318;
+  
+    background: #ff8318;
+    color: #061426;
+  }
+  
+  .modeNumber {
+    color: rgba(255, 255, 255, 0.25);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 28px;
+  }
+  
+  .modeButtonActive .modeNumber {
+    color: rgba(6, 20, 38, 0.4);
+  }
+  
+  /* -------------------------------- */
+  /* FORM AREA */
+  /* -------------------------------- */
+  
+  .formArea {
+    display: grid;
+    grid-template-columns:
+      minmax(280px, 0.82fr)
+      minmax(360px, 1.18fr);
+  
+    min-height: 670px;
+  
+    box-shadow:
+      0 45px 120px rgba(0, 0, 0, 0.28);
+  }
+  
+  /* -------------------------------- */
+  /* SELECTED TOURNAMENT */
+  /* -------------------------------- */
+  
+  .selectedTournament {
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    overflow: hidden;
+  
+    padding: 34px;
+  
+    background:
+      radial-gradient(
+        circle at 100% 0%,
+        rgba(36, 159, 185, 0.22),
+        transparent 40%
+      ),
+      #06182d;
+  
+    color: #ffffff;
+  }
+  
+  .selectedTournament::after {
+    content: "AIROM";
+  
+    position: absolute;
+  
+    right: -115px;
+    bottom: 70px;
+  
+    transform: rotate(90deg);
+  
+    color: rgba(255, 255, 255, 0.025);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 170px;
+  }
+  
+  .selectedHeader {
+    position: absolute;
+  
+    top: 28px;
+    left: 30px;
+    right: 30px;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    color: rgba(255, 255, 255, 0.4);
+  
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+  
+  .selectedHeader strong {
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 50px;
+  
+    color: rgba(255, 255, 255, 0.09);
+  }
+  
+  .international {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0 0 10px;
+  
+    color: #249fb9;
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+  
+  .tournamentTitle {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(58px, 5vw, 96px);
+    line-height: 0.83;
+  
+    text-transform: uppercase;
+  }
+  
+  .tournamentLine {
+    position: relative;
+    z-index: 2;
+  
+    width: 75px;
+    height: 7px;
+  
+    margin: 28px 0;
+  
+    background: #ff8318;
+  }
+  
+  .tournamentInfo {
+    position: relative;
+    z-index: 2;
+  
+    display: grid;
+    gap: 18px;
+  }
+  
+  .tournamentInfo > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  
+    padding-bottom: 14px;
+  
+    border-bottom:
+      1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .tournamentInfo span {
+    color: rgba(255, 255, 255, 0.35);
+  
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+  
+  .tournamentInfo strong {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+  
+  /* -------------------------------- */
+  /* CUSTOM SUMMARY */
+  /* -------------------------------- */
+  
+  .customSummary {
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    overflow: hidden;
+  
+    padding: 34px;
+  
+    background: #249fb9;
+    color: #061426;
+  }
+  
+  .questionMark {
+    position: absolute;
+  
+    top: -35px;
+    right: 5px;
+  
+    color: rgba(255, 255, 255, 0.11);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 260px;
+    line-height: 1;
+  }
+  
+  .customEyebrow {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0 0 16px;
+  
+    color: rgba(6, 20, 38, 0.55);
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+  
+  .customTitle {
+    position: relative;
+    z-index: 2;
+  
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(47px, 4vw, 76px);
+    line-height: 0.87;
+  
+    text-transform: uppercase;
+  }
+  
+  .customTitle span {
+    color: #ffffff;
+  }
+  
+  .customList {
+    position: relative;
+    z-index: 2;
+  
+    display: grid;
+  
+    margin-top: 38px;
+  }
+  
+  .customList > div {
+    display: grid;
+    grid-template-columns: 45px 1fr;
+  
+    align-items: center;
+  
+    min-height: 50px;
+  
+    border-bottom:
+      1px solid rgba(6, 20, 38, 0.18);
+  }
+  
+  .customList span {
+    color: rgba(6, 20, 38, 0.45);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 20px;
+  }
+  
+  .customList p {
+    margin: 0;
+  
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+  
+  /* -------------------------------- */
+  /* FORM PREVIEW */
+  /* -------------------------------- */
+  
+  .formPreview {
+    display: flex;
+    flex-direction: column;
+  
+    padding: 42px;
+  
+    background: #f3f0e9;
+    color: #061426;
+  }
+  
+  .progressHeader {
+    display: flex;
+    justify-content: space-between;
+  
+    color: rgba(6, 20, 38, 0.45);
+  
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+  }
+  
+  .progressHeader strong {
+    color: #ff8318;
+  }
+  
+  .progressTrack {
+    width: 100%;
+    height: 4px;
+  
+    margin-top: 12px;
+  
+    background:
+      rgba(6, 20, 38, 0.1);
+  }
+  
+  .progressValue {
+    width: 25%;
+    height: 100%;
+  
+    background: #ff8318;
+  }
+  
+  .formEyebrow {
+    margin: 60px 0 13px;
+  
+    color: #249fb9;
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+  }
+  
+  .formTitle {
+    margin: 0;
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: clamp(52px, 4vw, 80px);
+    line-height: 0.88;
+  
+    text-transform: uppercase;
+  }
+  
+  .formDescription {
+    max-width: 440px;
+  
+    margin: 20px 0 30px;
+  
+    color: rgba(6, 20, 38, 0.55);
+  
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  
+  .fakeFields {
+    display: grid;
+    gap: 10px;
+  
+    margin-top: auto;
+  }
+  
+  .fakeFields div {
+    display: flex;
+    align-items: center;
+  
+    min-height: 55px;
+  
+    padding: 0 18px;
+  
+    border:
+      1px solid rgba(6, 20, 38, 0.12);
+  
+    color: rgba(6, 20, 38, 0.35);
+  
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+  }
+  
+  .nextButton {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    width: 100%;
+  
+    margin-top: 18px;
+    padding: 18px 20px;
+  
+    background: #061426;
+    color: #ffffff;
+  
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  
+    opacity: 0.35;
+  
+    cursor: not-allowed;
+  }
+  
+  .nextButton span {
+    color: #ff8318;
+  
+    font-size: 22px;
+  }
+  
+  /* -------------------------------- */
+  /* FOOTER */
+  /* -------------------------------- */
+  
+  .footer {
+    position: relative;
+    z-index: 10;
+  
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  
+    align-items: center;
+  
+    padding-top: 18px;
+  
+    border-top:
+      1px solid rgba(255, 255, 255, 0.1);
+  
+    color: rgba(255, 255, 255, 0.35);
+  
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+  }
+  
+  .footer span:last-child {
+    text-align: right;
+  }
+  
+  .footer span:nth-child(2) {
+    color: #249fb9;
+  }
+  
+  .pageNumber {
+    position: absolute;
+  
+    right: -30px;
+    bottom: -60px;
+  
+    color: rgba(255, 255, 255, 0.025);
+  
+    font-family:
+      Impact,
+      Haettenschweiler,
+      "Arial Narrow Bold",
+      sans-serif;
+  
+    font-size: 300px;
+  
+    pointer-events: none;
+  }
+  
+  /* -------------------------------- */
+  /* TABLET */
+  /* -------------------------------- */
+  
+  @media (max-width: 1200px) {
+    .page {
+      padding: 26px 30px 22px;
+    }
+  
+    .container {
+      grid-template-columns: 1fr;
+  
+      padding: 70px 0;
+    }
+  
+    .intro {
+      max-width: 760px;
+    }
+  
+    .formArea {
+      min-height: 650px;
+    }
+  }
+  
+  /* -------------------------------- */
+  /* MOBILE */
+  /* -------------------------------- */
+  
+  @media (max-width: 760px) {
+    .page {
+      padding: 18px;
+    }
+  
+    .header {
+      grid-template-columns: 1fr auto;
+    }
+  
+    .brand {
+      display: none;
+    }
+  
+    .container {
+      padding: 55px 0;
+    }
+  
+    .title {
+      font-size: clamp(56px, 17vw, 80px);
+    }
+  
+    .modeSwitch {
+      grid-template-columns: 1fr;
+    }
+  
+    .formArea {
+      grid-template-columns: 1fr;
+  
+      min-height: auto;
+    }
+  
+    .selectedTournament,
+    .customSummary {
+      min-height: 580px;
+    }
+  
+    .formPreview {
+      min-height: 650px;
+  
+      padding: 28px;
+    }
+  
+    .footer {
+      grid-template-columns: 1fr auto;
+    }
+  
+    .footer span:nth-child(2) {
+      display: none;
+    }
+  
+    .pageNumber {
+      display: none;
+    }
+  }

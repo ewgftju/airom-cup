@@ -1,0 +1,266 @@
+.page {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  overflow: hidden;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(255, 131, 24, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(36, 159, 185, 0.16),
+      transparent 30%
+    ),
+    #06182d;
+
+  color: #ffffff;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.045;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.2) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+.backLink {
+  position: absolute;
+
+  top: 30px;
+  left: 40px;
+
+  z-index: 5;
+
+  color:
+    rgba(255, 255, 255, 0.55);
+
+  text-decoration: none;
+
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 520px);
+
+  padding: 46px;
+
+  background: #f3f0e9;
+  color: #061426;
+
+  box-shadow:
+    0 50px 140px
+    rgba(0, 0, 0, 0.35);
+}
+
+.brand {
+  color: #061426;
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+}
+
+.eyebrow {
+  margin: 65px 0 12px;
+
+  color: #249fb9;
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+
+.title {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(72px, 7vw, 110px);
+  line-height: 0.82;
+
+  text-transform: uppercase;
+}
+
+.title span {
+  color: #ff8318;
+}
+
+.description {
+  max-width: 370px;
+
+  margin: 24px 0 34px;
+
+  color:
+    rgba(6, 20, 38, 0.55);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span {
+  color:
+    rgba(6, 20, 38, 0.48);
+
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.field input {
+  width: 100%;
+  min-height: 58px;
+
+  padding: 0 18px;
+
+  border:
+    1px solid
+    rgba(6, 20, 38, 0.16);
+
+  border-radius: 0;
+  outline: none;
+
+  background: transparent;
+  color: #061426;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field input:focus {
+  border-color: #249fb9;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(36, 159, 185, 0.09);
+}
+
+.error {
+  padding: 13px 15px;
+
+  border:
+    1px solid
+    rgba(190, 45, 45, 0.35);
+
+  background:
+    rgba(190, 45, 45, 0.07);
+
+  color: #a72b2b;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 19px 20px;
+
+  border: 0;
+
+  background: #061426;
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+}
+
+.button span {
+  color: #ff8318;
+
+  font-size: 22px;
+}
+
+.number {
+  position: absolute;
+
+  right: -50px;
+  bottom: -170px;
+
+  color:
+    rgba(255, 255, 255, 0.025);
+
+  font-family:
+    Impact,
+    sans-serif;
+
+  font-size: 600px;
+}
+
+.footer {
+  position: absolute;
+
+  bottom: 25px;
+
+  color:
+    rgba(255, 255, 255, 0.25);
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 30px 24px;
+  }
+
+  .backLink {
+    top: 20px;
+    left: 20px;
+  }
+
+  .eyebrow {
+    margin-top: 50px;
+  }
+}
