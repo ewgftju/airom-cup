@@ -6,21 +6,21 @@ import styles from "./ApplicationForm.module.css";
 type ApplicationFormProps = {
   mode: "tournament" | "custom";
 
-tournament?: {
-  id: string;
+  tournament?: {
+    id: string;
 
-  title: string;
+    title: string;
 
-  category: "boys" | "girls";
-  categoryLabel: string;
+    allowedCategories: ("boys" | "girls")[];
+    categoryLabel: string;
 
-  age: string;
+    age: string;
 
-  eligibleBirthYears: string[];
+    eligibleBirthYears: string[];
 
-  dates: string;
+    dates: string;
 
-  location: string;
+    location: string;
   };
 };
 
@@ -68,6 +68,14 @@ const initialFormData: ApplicationData = {
   consentAccepted: false,
   
   tournamentConfirmed: false,
+};
+
+const categoryLabels: Record<
+  "boys" | "girls",
+  string
+> = {
+  boys: "ЮНОШИ",
+  girls: "ДЕВУШКИ",
 };
 
 const birthYears = [
@@ -146,16 +154,17 @@ export default function ApplicationForm({
   tournament,
 }: ApplicationFormProps) {
 
-    const createInitialFormData =
-    (): ApplicationData => ({
-      ...initialFormData,
+  const createInitialFormData =
+  (): ApplicationData => ({
+    ...initialFormData,
 
-      gender:
-        mode === "tournament" &&
-        tournament
-          ? tournament.category
-          : "",
-    });
+    gender:
+      mode === "tournament" &&
+      tournament &&
+      tournament.allowedCategories.length === 1
+        ? tournament.allowedCategories[0]
+        : "",
+  });
 
   const [step, setStep] = useState(1);
 
@@ -207,10 +216,19 @@ const [formData, setFormData] =
         )
       : formData.birthYear.length > 0;
 
-  const isStepTwoValid =
+const isAllowedTournamentGender =
+  mode === "tournament" &&
+  tournament
+    ? tournament.allowedCategories.includes(
+        formData.gender as "boys" | "girls"
+      )
+    : true;
+
+const isStepTwoValid =
   mode === "tournament"
     ? Boolean(
         tournament &&
+        isAllowedTournamentGender &&
         hasValidBirthYear
       )
     : Boolean(
@@ -656,185 +674,100 @@ const startNewApplication = () => {
         </>
       )}
 
-           {/* ================================= */}
-      {/* ШАГ 2 — КАТЕГОРИЯ И ВОЗРАСТ */}
       {/* ================================= */}
+{/* ШАГ 2 — КАТЕГОРИЯ И ВОЗРАСТ */}
+{/* ================================= */}
 
-      {step === 2 && (
+{step === 2 && (
+  <>
+    <p className={styles.eyebrow}>
+      STEP TWO
+    </p>
+
+    <h2 className={styles.title}>
+      {mode === "tournament" ? (
         <>
-          <p className={styles.eyebrow}>
-            STEP TWO
-          </p>
+          ВАША
+          <br />
+          <span>КОМАНДА.</span>
+        </>
+      ) : (
+        <>
+          КТО
+          <br />
+          <span>ПРИЕДЕТ?</span>
+        </>
+      )}
+    </h2>
 
-          <h2 className={styles.title}>
-            {mode === "tournament" ? (
-              <>
-                ВАША
-                <br />
-                <span>КОМАНДА.</span>
-              </>
-            ) : (
-              <>
-                КТО
-                <br />
-                <span>ПРИЕДЕТ?</span>
-              </>
-            )}
-          </h2>
+    <p className={styles.description}>
+      {mode === "tournament"
+        ? "Выберите категорию и год рождения команды согласно условиям выбранного турнира."
+        : "Выберите категорию команды и год рождения игроков."}
+    </p>
 
-          <p className={styles.description}>
-            {mode === "tournament"
-              ? "Категория определяется условиями выбранного турнира. Укажите фактический год рождения игроков вашей команды."
-              : "Выберите категорию команды и год рождения игроков."}
-          </p>
+    <div className={styles.stepTwoContent}>
+      {mode === "tournament" &&
+      tournament ? (
+        <>
+          {/* КАТЕГОРИИ ВЫБРАННОГО ТУРНИРА */}
 
-          <div className={styles.stepTwoContent}>
-            {mode === "tournament" &&
-            tournament ? (
-              <>
-                {/* ------------------------- */}
-                {/* ЗАКРЕПЛЁННАЯ КАТЕГОРИЯ */}
-                {/* ------------------------- */}
+          <div className={styles.questionBlock}>
+            <p className={styles.questionLabel}>
+              КАТЕГОРИЯ КОМАНДЫ
+            </p>
 
+            {tournament.allowedCategories.length ===
+            1 ? (
+              <div
+                className={
+                  styles.lockedCategoryCard
+                }
+              >
                 <div
                   className={
-                    styles.questionBlock
+                    styles.lockedCategoryMain
                   }
                 >
-                  <p
-                    className={
-                      styles.questionLabel
+                  <span>
+                    ЗАДАНО УСЛОВИЯМИ ТУРНИРА
+                  </span>
+
+                  <strong>
+                    {
+                      categoryLabels[
+                        tournament
+                          .allowedCategories[0]
+                      ]
                     }
-                  >
-                    КАТЕГОРИЯ КОМАНДЫ
-                  </p>
-
-                  <div
-                    className={
-                      styles.lockedCategoryCard
-                    }
-                  >
-                    <div
-                      className={
-                        styles.lockedCategoryMain
-                      }
-                    >
-                      <span>
-                        ЗАДАНО УСЛОВИЯМИ
-                        ТУРНИРА
-                      </span>
-
-                      <strong>
-                        {
-                          tournament.categoryLabel
-                        }
-                      </strong>
-                    </div>
-
-                    <span
-                      className={
-                        styles.lockedCategoryMark
-                      }
-                    >
-                      ✓
-                    </span>
-                  </div>
-
-                  <p
-                    className={
-                      styles.tournamentAgeRule
-                    }
-                  >
-                    УСЛОВИЕ ТУРНИРА ·{" "}
-                    <strong>
-                      {tournament.age}
-                    </strong>
-                  </p>
+                  </strong>
                 </div>
 
-                {/* ------------------------- */}
-                {/* ДОСТУПНЫЕ ГОДЫ */}
-                {/* ------------------------- */}
-
-                <div
+                <span
                   className={
-                    styles.questionBlock
+                    styles.lockedCategoryMark
                   }
                 >
-                  <p
-                    className={
-                      styles.questionLabel
-                    }
-                  >
-                    ГОД РОЖДЕНИЯ ВАШЕЙ
-                    КОМАНДЫ
-                  </p>
-
-                  <div
-                    className={
-                      styles.yearOptions
-                    }
-                  >
-                    {tournament.eligibleBirthYears.map(
-                      (year) => (
-                        <button
-                          key={year}
-                          type="button"
-                          className={`${styles.yearButton} ${
-                            formData.birthYear ===
-                            year
-                              ? styles.yearButtonActive
-                              : ""
-                          }`}
-                          onClick={() =>
-                            selectBirthYear(
-                              year
-                            )
-                          }
-                        >
-                          {year}
-                        </button>
-                      )
-                    )}
-                  </div>
-                </div>
-              </>
+                  ✓
+                </span>
+              </div>
             ) : (
-              <>
-                {/* ------------------------- */}
-                {/* СВОЙ ВАРИАНТ */}
-                {/* ------------------------- */}
-
-                <div
-                  className={
-                    styles.questionBlock
-                  }
-                >
-                  <p
-                    className={
-                      styles.questionLabel
-                    }
-                  >
-                    КАТЕГОРИЯ КОМАНДЫ
-                  </p>
-
-                  <div
-                    className={
-                      styles.genderOptions
-                    }
-                  >
+              <div className={styles.genderOptions}>
+                {tournament.allowedCategories.map(
+                  (category, index) => (
                     <button
+                      key={category}
                       type="button"
                       className={`${styles.genderCard} ${
                         formData.gender ===
-                        "boys"
+                        category
                           ? styles.genderCardActive
                           : ""
                       }`}
                       onClick={() =>
                         updateField(
                           "gender",
-                          "boys"
+                          category
                         )
                       }
                     >
@@ -843,11 +776,14 @@ const startNewApplication = () => {
                           styles.optionNumber
                         }
                       >
-                        01
+                        {String(index + 1).padStart(
+                          2,
+                          "0"
+                        )}
                       </span>
 
                       <strong>
-                        ЮНОШИ
+                        {categoryLabels[category]}
                       </strong>
 
                       <span
@@ -856,182 +792,211 @@ const startNewApplication = () => {
                         }
                       >
                         {formData.gender ===
-                        "boys"
+                        category
                           ? "✓"
                           : "→"}
                       </span>
                     </button>
-
-                    <button
-                      type="button"
-                      className={`${styles.genderCard} ${
-                        formData.gender ===
-                        "girls"
-                          ? styles.genderCardActive
-                          : ""
-                      }`}
-                      onClick={() =>
-                        updateField(
-                          "gender",
-                          "girls"
-                        )
-                      }
-                    >
-                      <span
-                        className={
-                          styles.optionNumber
-                        }
-                      >
-                        02
-                      </span>
-
-                      <strong>
-                        ДЕВУШКИ
-                      </strong>
-
-                      <span
-                        className={
-                          styles.optionMark
-                        }
-                      >
-                        {formData.gender ===
-                        "girls"
-                          ? "✓"
-                          : "→"}
-                      </span>
-                    </button>
-                  </div>
-                </div>
-
-                <div
-                  className={
-                    styles.questionBlock
-                  }
-                >
-                  <p
-                    className={
-                      styles.questionLabel
-                    }
-                  >
-                    ГОД РОЖДЕНИЯ ИГРОКОВ
-                  </p>
-
-                  <div
-                    className={
-                      styles.yearOptions
-                    }
-                  >
-                    {birthYears.map(
-                      (year) => (
-                        <button
-                          key={year}
-                          type="button"
-                          className={`${styles.yearButton} ${
-                            formData.birthYear ===
-                            year
-                              ? styles.yearButtonActive
-                              : ""
-                          }`}
-                          onClick={() =>
-                            selectBirthYear(
-                              year
-                            )
-                          }
-                        >
-                          {year}
-                        </button>
-                      )
-                    )}
-
-                    <button
-                      type="button"
-                      className={`${styles.yearButton} ${
-                        formData.birthYear ===
-                        "other"
-                          ? styles.yearButtonActive
-                          : ""
-                      }`}
-                      onClick={() =>
-                        selectBirthYear(
-                          "other"
-                        )
-                      }
-                    >
-                      ДРУГОЙ
-                    </button>
-                  </div>
-
-                  {formData.birthYear ===
-                    "other" && (
-                    <label
-                      className={
-                        styles.customYearField
-                      }
-                    >
-                      <span>
-                        УКАЖИТЕ ГОД
-                        РОЖДЕНИЯ
-                      </span>
-
-                      <input
-                        type="text"
-                        inputMode="numeric"
-                        maxLength={4}
-                        value={
-                          formData.customBirthYear
-                        }
-                        onChange={(
-                          event
-                        ) =>
-                          updateField(
-                            "customBirthYear",
-                            event.target.value.replace(
-                              /\D/g,
-                              ""
-                            )
-                          )
-                        }
-                        placeholder="Например: 2017"
-                      />
-                    </label>
-                  )}
-                </div>
-              </>
+                  )
+                )}
+              </div>
             )}
+
+            <p
+              className={
+                styles.tournamentAgeRule
+              }
+            >
+              УСЛОВИЕ ТУРНИРА ·{" "}
+              <strong>{tournament.age}</strong>
+            </p>
           </div>
 
-          <div
-            className={
-              styles.formNavigation
-            }
-          >
-            <button
-              type="button"
-              className={
-                styles.previousButton
-              }
-              onClick={goBack}
-            >
-              <span>←</span>
+          {/* ГОДЫ ВЫБРАННОГО ТУРНИРА */}
 
-              НАЗАД
-            </button>
+          <div className={styles.questionBlock}>
+            <p className={styles.questionLabel}>
+              ГОД РОЖДЕНИЯ ВАШЕЙ КОМАНДЫ
+            </p>
 
-            <button
-              type="button"
-              className={
-                styles.nextButtonCompact
-              }
-              disabled={!isStepTwoValid}
-              onClick={goToStepThree}
-            >
-              ПРОДОЛЖИТЬ
+            <div className={styles.yearOptions}>
+              {tournament.eligibleBirthYears.map(
+                (year) => (
+                  <button
+                    key={year}
+                    type="button"
+                    className={`${styles.yearButton} ${
+                      formData.birthYear === year
+                        ? styles.yearButtonActive
+                        : ""
+                    }`}
+                    onClick={() =>
+                      selectBirthYear(year)
+                    }
+                  >
+                    {year}
+                  </button>
+                )
+              )}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* СВОЙ ВАРИАНТ */}
 
-              <span>→</span>
-            </button>
+          <div className={styles.questionBlock}>
+            <p className={styles.questionLabel}>
+              КАТЕГОРИЯ КОМАНДЫ
+            </p>
+
+            <div className={styles.genderOptions}>
+              <button
+                type="button"
+                className={`${styles.genderCard} ${
+                  formData.gender === "boys"
+                    ? styles.genderCardActive
+                    : ""
+                }`}
+                onClick={() =>
+                  updateField("gender", "boys")
+                }
+              >
+                <span className={styles.optionNumber}>
+                  01
+                </span>
+
+                <strong>ЮНОШИ</strong>
+
+                <span className={styles.optionMark}>
+                  {formData.gender === "boys"
+                    ? "✓"
+                    : "→"}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                className={`${styles.genderCard} ${
+                  formData.gender === "girls"
+                    ? styles.genderCardActive
+                    : ""
+                }`}
+                onClick={() =>
+                  updateField("gender", "girls")
+                }
+              >
+                <span className={styles.optionNumber}>
+                  02
+                </span>
+
+                <strong>ДЕВУШКИ</strong>
+
+                <span className={styles.optionMark}>
+                  {formData.gender === "girls"
+                    ? "✓"
+                    : "→"}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className={styles.questionBlock}>
+            <p className={styles.questionLabel}>
+              ГОД РОЖДЕНИЯ ИГРОКОВ
+            </p>
+
+            <div className={styles.yearOptions}>
+              {birthYears.map((year) => (
+                <button
+                  key={year}
+                  type="button"
+                  className={`${styles.yearButton} ${
+                    formData.birthYear === year
+                      ? styles.yearButtonActive
+                      : ""
+                  }`}
+                  onClick={() =>
+                    selectBirthYear(year)
+                  }
+                >
+                  {year}
+                </button>
+              ))}
+
+              <button
+                type="button"
+                className={`${styles.yearButton} ${
+                  formData.birthYear ===
+                  "other"
+                    ? styles.yearButtonActive
+                    : ""
+                }`}
+                onClick={() =>
+                  selectBirthYear("other")
+                }
+              >
+                ДРУГОЙ
+              </button>
+            </div>
+
+            {formData.birthYear === "other" && (
+              <label
+                className={
+                  styles.customYearField
+                }
+              >
+                <span>
+                  УКАЖИТЕ ГОД РОЖДЕНИЯ
+                </span>
+
+                <input
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={4}
+                  value={formData.customBirthYear}
+                  onChange={(event) =>
+                    updateField(
+                      "customBirthYear",
+                      event.target.value.replace(
+                        /\D/g,
+                        ""
+                      )
+                    )
+                  }
+                  placeholder="Например: 2017"
+                />
+              </label>
+            )}
           </div>
         </>
       )}
+    </div>
+
+    <div className={styles.formNavigation}>
+      <button
+        type="button"
+        className={styles.previousButton}
+        onClick={goBack}
+      >
+        <span>←</span>
+
+        НАЗАД
+      </button>
+
+      <button
+        type="button"
+        className={styles.nextButtonCompact}
+        disabled={!isStepTwoValid}
+        onClick={goToStepThree}
+      >
+        ПРОДОЛЖИТЬ
+
+        <span>→</span>
+      </button>
+    </div>
+  </>
+)}
 
       {/* ================================= */}
       {/* ШАГ 3 — ГОТОВЫЙ ТУРНИР */}
@@ -1564,11 +1529,11 @@ const startNewApplication = () => {
     </h2>
 
     <p className={styles.successDescription}>
-      Спасибо, {formData.contactName}.
-      Заявка вашей команды успешно отправлена.
-      Мы получили данные и свяжемся
-      с вашим представителем.
-    </p>
+  Спасибо, {formData.contactName}.
+  Заявка вашей команды успешно отправлена.
+  Мы получили данные и свяжемся
+  с вашим представителем.
+</p>
 
     <div className={styles.successSummary}>
       <div>

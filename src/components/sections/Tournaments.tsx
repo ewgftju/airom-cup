@@ -3,7 +3,13 @@ import { tournaments } from "@/data/tournaments";
 import styles from "./Tournaments.module.css";
 
 export default function Tournaments() {
+  const activeTournaments =
+    tournaments.filter(
+      (tournament) => tournament.isActive
+    );
+
   return (
+
     <section id="tournaments" className={styles.section}>
       <div className={styles.sectionNumber} aria-hidden="true">
         02
@@ -31,7 +37,8 @@ export default function Tournaments() {
         </div>
 
         <div className={styles.cards}>
-          {tournaments.map((tournament, index) => (
+          {activeTournaments.map(
+            (tournament, index) => (
             <article
               key={tournament.id}
               className={styles.tournamentCard}
