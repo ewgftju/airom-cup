@@ -166,17 +166,16 @@
   /* КАРТОЧКИ */
   /* -------------------------------- */
   
-  .cards {
-    display: grid;
-  
-    grid-template-columns:
-      minmax(0, 1.08fr)
-      minmax(0, 0.92fr);
-  
-    gap: 22px;
-  
-    align-items: stretch;
-  }
+.cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px;
+
+  align-items: stretch;
+}
   
   /* -------------------------------- */
   /* КАРТОЧКА ТУРНИРА */
@@ -285,21 +284,24 @@
     letter-spacing: 0.23em;
   }
   
-  .cardTitle {
-    margin: 0;
-  
-    font-family:
-      Impact,
-      Haettenschweiler,
-      "Arial Narrow Bold",
-      sans-serif;
-  
-    font-size: clamp(82px, 8vw, 150px);
-    font-weight: 900;
-    line-height: 0.82;
-  
-    text-transform: uppercase;
-  }
+.cardTitle {
+  margin: 0;
+
+  font-family:
+    Impact,
+    Haettenschweiler,
+    "Arial Narrow Bold",
+    sans-serif;
+
+  font-size: clamp(68px, 6vw, 118px);
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.02em;
+
+  white-space: nowrap;
+
+  text-transform: uppercase;
+}
   
   .orangeLine {
     width: 90px;
