@@ -15,9 +15,9 @@ body {
   padding: 0;
 }
 
-html:lang(kk) h1,
-html:lang(kk) h2,
-html:lang(kk) h3 {
+h1[class],
+h2[class],
+h3[class] {
   font-family:
     "Roboto Condensed Variable",
     Arial,

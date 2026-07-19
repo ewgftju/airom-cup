@@ -192,6 +192,8 @@
   /* -------------------------------- */
   
   .intro {
+    width: 100%;
+    min-width: 0;
     max-width: 580px;
   }
   
@@ -206,6 +208,7 @@
   }
   
   .title {
+    max-width: 100%;
     margin: 0;
   
     font-family:
@@ -221,6 +224,9 @@
     letter-spacing: -0.025em;
   
     text-transform: uppercase;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
   }
   
   .title span {
@@ -228,6 +234,7 @@
   }
   
   .description {
+    width: 100%;
     max-width: 520px;
   
     margin: 30px 0 0;
@@ -236,6 +243,7 @@
   
     font-size: 15px;
     line-height: 1.7;
+    overflow-wrap: break-word;
   }
   
   /* -------------------------------- */
@@ -252,6 +260,7 @@
   }
   
   .modeButton {
+    min-width: 0;
     display: grid;
     grid-template-columns: 38px 1fr;
     gap: 10px;
@@ -317,6 +326,8 @@
   /* -------------------------------- */
   
   .formArea {
+    width: 100%;
+    min-width: 0;
     display: grid;
     grid-template-columns:
       minmax(280px, 0.82fr)
@@ -333,6 +344,7 @@
   /* -------------------------------- */
   
   .selectedTournament {
+    min-width: 0;
     position: relative;
   
     display: flex;
@@ -434,6 +446,9 @@
     line-height: 0.83;
   
     text-transform: uppercase;
+    max-width: 100%;
+    overflow-wrap: normal;
+    word-break: normal;
   }
   
   .tournamentLine {
@@ -485,6 +500,7 @@
   /* -------------------------------- */
   
   .customSummary {
+    min-width: 0;
     position: relative;
   
     display: flex;
@@ -546,6 +562,10 @@
     line-height: 0.87;
   
     text-transform: uppercase;
+    max-width: 100%;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
   }
   
   .customTitle span {
@@ -814,7 +834,8 @@
     }
   
     .header {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
     }
   
     .brand {
@@ -822,11 +843,14 @@
     }
   
     .container {
+      width: 100%;
+      min-width: 0;
       padding: 55px 0;
     }
   
     .title {
-      font-size: clamp(56px, 17vw, 80px);
+      font-size: clamp(44px, 12.5vw, 64px);
+      line-height: 0.92;
     }
   
     .modeSwitch {
@@ -842,6 +866,15 @@
     .selectedTournament,
     .customSummary {
       min-height: 580px;
+    }
+
+    .tournamentTitle {
+      font-size: clamp(46px, 13vw, 62px);
+    }
+
+    .customTitle {
+      font-size: clamp(40px, 11.5vw, 54px);
+      line-height: 0.94;
     }
   
     .formPreview {
@@ -860,5 +893,29 @@
   
     .pageNumber {
       display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .page {
+      padding: 16px;
+    }
+
+    .stepIndicator {
+      display: none;
+    }
+
+    .applyHeaderActions {
+      gap: 7px;
+    }
+
+    .backLink {
+      gap: 7px;
+      font-size: 8px;
+      letter-spacing: 0.09em;
+    }
+
+    .container {
+      padding: 46px 0;
     }
   }

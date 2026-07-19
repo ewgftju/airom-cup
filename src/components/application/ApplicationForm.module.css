@@ -3,6 +3,7 @@
   flex-direction: column;
 
   min-width: 0;
+  width: 100%;
 
   padding: 42px;
 
@@ -61,6 +62,7 @@
 }
 
 .title {
+  max-width: 100%;
   margin: 0;
 
   font-family:
@@ -73,6 +75,9 @@
   line-height: 0.88;
 
   text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .title span {
@@ -80,6 +85,7 @@
 }
 
 .description {
+  width: 100%;
   max-width: 440px;
 
   margin: 20px 0 30px;
@@ -88,6 +94,7 @@
 
   font-size: 13px;
   line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 /* -------------------------------- */
@@ -95,6 +102,7 @@
 /* -------------------------------- */
 
 .fields {
+  min-width: 0;
   display: grid;
   gap: 12px;
 
@@ -102,6 +110,7 @@
 }
 
 .field {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -116,6 +125,7 @@
 }
 
 .field input {
+  min-width: 0;
   width: 100%;
   min-height: 58px;
 
@@ -1205,6 +1215,10 @@
   line-height: 0.86;
 
   text-transform: uppercase;
+  max-width: 100%;
+  text-wrap: balance;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .successTitle span {
@@ -1443,7 +1457,17 @@
   }
 
   .title {
-    font-size: clamp(52px, 15vw, 76px);
+    font-size: clamp(42px, 11.5vw, 54px);
+    line-height: 0.94;
+  }
+
+  .confirmationTitle {
+    font-size: clamp(40px, 11vw, 50px);
+  }
+
+  .successTitle {
+    font-size: clamp(44px, 12vw, 58px);
+    line-height: 0.92;
   }
 
   .summary > div {
@@ -1480,4 +1504,31 @@
     grid-template-columns: 1fr;
   }
   
+}
+
+@media (max-width: 420px) {
+  .form {
+    min-height: 620px;
+    padding: 24px;
+  }
+
+  .eyebrow {
+    margin-top: 42px;
+  }
+
+  .title {
+    font-size: clamp(40px, 11vw, 46px);
+  }
+
+  .field input,
+  .customYearField input,
+  .customDatesField input {
+    padding-inline: 14px;
+  }
+
+  .timingHeading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
 }

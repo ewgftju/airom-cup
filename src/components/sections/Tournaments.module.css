@@ -684,7 +684,12 @@
     }
   
     .title {
-      font-size: clamp(48px, 14vw, 72px);
+      max-width: 100%;
+      font-size: clamp(42px, 11.5vw, 60px);
+      line-height: 0.94;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
     }
   
     .description {
@@ -712,6 +717,7 @@
       font-size: clamp(36px, 11.5vw, 60px);
       line-height: 0.9;
       letter-spacing: -0.035em;
+      text-wrap: balance;
     }
   
     .customNumber {

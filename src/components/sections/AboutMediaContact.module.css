@@ -436,7 +436,12 @@
 
   .title,
   .contactTitle {
-    font-size: clamp(46px, 13vw, 68px);
+    max-width: 100%;
+    font-size: clamp(42px, 11.5vw, 60px);
+    line-height: 0.94;
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .title:lang(kk),
@@ -466,7 +471,11 @@
 
   .archiveTitle,
   .archiveTitle:lang(kk) {
-    font-size: clamp(38px, 11vw, 54px);
+    max-width: 100%;
+    font-size: clamp(36px, 10vw, 50px);
+    text-wrap: balance;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .videoGrid {

@@ -577,7 +577,17 @@ text-decoration: none;
     }
   
     .title {
-      font-size: clamp(52px, 15vw, 78px);
+      max-width: 100%;
+      font-size: clamp(42px, 11.5vw, 60px);
+      line-height: 0.92;
+      text-wrap: balance;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .title:lang(kk) {
+      font-size: clamp(42px, 11.5vw, 60px);
+      line-height: 0.92;
     }
   
     .description {
