@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource-variable/roboto-condensed";
 
 * {
   box-sizing: border-box;
@@ -12,6 +13,17 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+html:lang(kk) h1,
+html:lang(kk) h2,
+html:lang(kk) h3 {
+  font-family:
+    "Roboto Condensed Variable",
+    Arial,
+    sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.045em;
 }
 
 body {

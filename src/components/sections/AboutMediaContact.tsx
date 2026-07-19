@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { homeCopy } from "@/i18n/translations";
 import styles from "./AboutMediaContact.module.css";
@@ -18,20 +19,25 @@ export default function AboutMediaContact() {
   return (
     <>
       <section id="about" className={styles.aboutSection}>
+        <div className={styles.grid} aria-hidden="true" />
+        <div className={styles.glow} aria-hidden="true" />
         <div className={styles.number} aria-hidden="true">03</div>
-        <div className={styles.inner}>
-          <div className={styles.aboutHeading}>
-            <p className={styles.eyebrow}>{copy.about.eyebrow}</p>
-            <h2 className={styles.title}>
-              {copy.about.title1}
-              <br />
-              <span>{copy.about.title2}</span>
-            </h2>
-          </div>
 
-          <div className={styles.aboutText}>
-            <p className={styles.lead}>{copy.about.lead}</p>
-            <p>{copy.about.body}</p>
+        <div className={styles.inner}>
+          <div className={styles.aboutIntro}>
+            <div className={styles.aboutHeading}>
+              <p className={styles.eyebrow}>{copy.about.eyebrow}</p>
+              <h2 className={styles.title}>
+                {copy.about.title1}
+                <br />
+                <span>{copy.about.title2}</span>
+              </h2>
+            </div>
+
+            <div className={styles.aboutText}>
+              <p className={styles.lead}>{copy.about.lead}</p>
+              <p>{copy.about.body}</p>
+            </div>
           </div>
 
           <div className={styles.facts}>
@@ -42,53 +48,61 @@ export default function AboutMediaContact() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      <section id="videos" className={styles.videosSection}>
-        <div className={styles.inner}>
-          <div className={styles.videosHeading}>
-            <div>
-              <p className={styles.eyebrow}>{copy.videos.eyebrow}</p>
-              <h2 className={styles.title}>
-                {copy.videos.title1}
-                <br />
-                <span>{copy.videos.title2}</span>
-              </h2>
+          <div id="videos" className={styles.archive}>
+            <div className={styles.archiveHeading}>
+              <div>
+                <p className={styles.eyebrow}>{copy.videos.eyebrow}</p>
+                <h3 className={styles.archiveTitle}>
+                  {copy.videos.title1} <span>{copy.videos.title2}</span>
+                </h3>
+              </div>
+              <p>{copy.videos.description}</p>
             </div>
-            <p className={styles.videosDescription}>{copy.videos.description}</p>
-          </div>
 
-          <div className={styles.videoGrid}>
-            {pastVideos.map((videoUrl, index) => {
-              const item = copy.videos.items[index];
+            <div className={styles.videoGrid}>
+              {pastVideos.map((videoUrl, index) => {
+                const item = copy.videos.items[index];
 
-              return (
-              <article key={videoUrl} className={styles.videoCard}>
-                <div className={styles.videoVisual}>
-                  <iframe
-                    src={`${videoUrl}embed/`}
-                    title={item}
-                    className={styles.instagramEmbed}
-                    loading="lazy"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-                <div className={styles.videoMeta}>
-                  <strong>{item}</strong>
-                  <a href={videoUrl} target="_blank" rel="noreferrer">
-                    {copy.videos.watch} ↗
+                return (
+                  <a
+                    key={videoUrl}
+                    href={videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${styles.videoCard} ${index === 1 ? styles.videoCardAlt : ""}`}
+                    aria-label={`${copy.videos.watch}: ${item}`}
+                  >
+                    <span className={styles.videoTopline}>
+                      <b>RECAP {String(index + 1).padStart(2, "0")}</b>
+                      <i>INSTAGRAM ↗</i>
+                    </span>
+
+                    <div className={styles.logoMark}>
+                      <Image
+                        src="/images/logos/airom-cup-logo.png"
+                        alt=""
+                        width={360}
+                        height={360}
+                      />
+                    </div>
+
+                    <span className={styles.play} aria-hidden="true">▶</span>
+
+                    <span className={styles.videoBottom}>
+                      <strong>{item}</strong>
+                      <b>{copy.videos.watch}</b>
+                    </span>
                   </a>
-                </div>
-              </article>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
       <footer id="contacts" className={styles.contactSection}>
+        <div className={styles.grid} aria-hidden="true" />
         <div className={styles.contactGlow} aria-hidden="true" />
         <div className={styles.inner}>
           <div className={styles.contactHeading}>

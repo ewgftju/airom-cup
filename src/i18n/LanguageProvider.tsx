@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useMemo, useSyncExternalStore } from "react";
+import { createContext, useContext, useEffect, useMemo, useSyncExternalStore } from "react";
 import type { Language } from "./translations";
 
 type LanguageContextValue = {
@@ -32,6 +32,10 @@ export default function LanguageProvider({ children }: { children: React.ReactNo
     document.documentElement.lang = nextLanguage;
     window.dispatchEvent(new Event("airom-language-change"));
   };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const value = useMemo(() => ({ language, setLanguage }), [language]);
 

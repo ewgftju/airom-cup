@@ -250,6 +250,12 @@ text-decoration: none;
   .title span {
     color: #ff8418;
   }
+
+  .title:lang(kk) {
+    font-size: clamp(54px, 5vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+  }
   
   .description {
     max-width: 630px;
