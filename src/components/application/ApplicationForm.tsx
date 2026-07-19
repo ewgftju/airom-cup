@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { applyCopy } from "@/i18n/translations";
 import styles from "./ApplicationForm.module.css";
 
 type ApplicationFormProps = {
@@ -70,14 +72,6 @@ const initialFormData: ApplicationData = {
   tournamentConfirmed: false,
 };
 
-const categoryLabels: Record<
-  "boys" | "girls",
-  string
-> = {
-  boys: "ЮНОШИ",
-  girls: "ДЕВУШКИ",
-};
-
 const birthYears = [
   "2009",
   "2010",
@@ -89,51 +83,8 @@ const birthYears = [
   "2016",
 ];
 
-const preferredYears = [
-  {
-    value: "2026",
-    label: "2026",
-  },
-  {
-    value: "2027",
-    label: "2027",
-  },
-  {
-    value: "2028",
-    label: "2028",
-  },
-  {
-    value: "flexible",
-    label: "НЕ ВАЖНО",
-  },
-];
-
-const periodOptions = [
-  {
-    value: "jan-feb",
-    label: "ЯНВАРЬ — ФЕВРАЛЬ",
-  },
-  {
-    value: "mar-apr",
-    label: "МАРТ — АПРЕЛЬ",
-  },
-  {
-    value: "may-jun",
-    label: "МАЙ — ИЮНЬ",
-  },
-  {
-    value: "jul-aug",
-    label: "ИЮЛЬ — АВГУСТ",
-  },
-  {
-    value: "sep-oct",
-    label: "СЕНТЯБРЬ — ОКТЯБРЬ",
-  },
-  {
-    value: "nov-dec",
-    label: "НОЯБРЬ — ДЕКАБРЬ",
-  },
-];
+const preferredYearValues = ["2026", "2027", "2028", "flexible"];
+const periodValues = ["jan-feb", "mar-apr", "may-jun", "jul-aug", "sep-oct", "nov-dec"];
 
 type TextField =
   | "teamName"
@@ -153,6 +104,11 @@ export default function ApplicationForm({
   mode,
   tournament,
 }: ApplicationFormProps) {
+  const { language } = useLanguage();
+  const copy = applyCopy[language].form;
+  const categoryLabels: Record<"boys" | "girls", string> = { boys: copy.boys, girls: copy.girls };
+  const preferredYears = preferredYearValues.map((value) => ({ value, label: value === "flexible" ? copy.flexible : value }));
+  const periodOptions = periodValues.map((value, index) => ({ value, label: copy.periods[index] }));
 
   const createInitialFormData =
   (): ApplicationData => ({
@@ -397,24 +353,10 @@ const toggleConsent = () => {
 
   const genderLabel =
     formData.gender === "boys"
-      ? "ЮНОШИ"
+      ? copy.boys
       : formData.gender === "girls"
-        ? "ДЕВУШКИ"
+        ? copy.girls
         : "";
-
-  const preferredYearLabel =
-    formData.preferredYear === "flexible"
-      ? "НЕ ВАЖНО"
-      : formData.preferredYear;
-
-  const selectedPeriodLabels =
-    periodOptions
-      .filter((period) =>
-        formData.preferredPeriods.includes(
-          period.value
-        )
-      )
-      .map((period) => period.label);
 
    /* -------------------------------- */
   /* ОТПРАВКА */
@@ -516,7 +458,7 @@ const toggleConsent = () => {
       if (!response.ok) {
         throw new Error(
           result.error ||
-            "Не удалось отправить заявку"
+            copy.sendErrorDetail
         );
       }
 
@@ -535,7 +477,7 @@ const toggleConsent = () => {
       setSubmitError(
         error instanceof Error
           ? error.message
-          : "Не удалось отправить заявку"
+          : copy.sendErrorDetail
       );
     } finally {
       setIsSubmitting(false);
@@ -570,7 +512,7 @@ const startNewApplication = () => {
 
       <div className={styles.progressHeader}>
         <span>
-          ШАГ {String(step).padStart(2, "0")} / 04
+          {copy.step} {String(step).padStart(2, "0")} / 04
         </span>
 
         <strong>{progress}%</strong>
@@ -592,24 +534,23 @@ const startNewApplication = () => {
       {step === 1 && (
         <>
           <p className={styles.eyebrow}>
-            STEP ONE
+            {copy.stepOne}
           </p>
 
           <h2 className={styles.title}>
-            РАССКАЖИТЕ
+            {copy.teamTitle[0]}
             <br />
-            О КОМАНДЕ
+            {copy.teamTitle[1]}
           </h2>
 
           <p className={styles.description}>
-            Начнём с основной информации
-            о вашей команде.
+            {copy.teamDescription}
           </p>
 
           <div className={styles.fields}>
             <label className={styles.field}>
               <span>
-                НАЗВАНИЕ КОМАНДЫ
+                {copy.teamName}
               </span>
 
               <input
@@ -621,13 +562,13 @@ const startNewApplication = () => {
                     event.target.value
                   )
                 }
-                placeholder="Например: Barsy Atyrau"
+                placeholder={copy.teamPlaceholder}
                 autoComplete="organization"
               />
             </label>
 
             <label className={styles.field}>
-              <span>СТРАНА</span>
+              <span>{copy.country}</span>
 
               <input
                 type="text"
@@ -638,13 +579,13 @@ const startNewApplication = () => {
                     event.target.value
                   )
                 }
-                placeholder="Например: Казахстан"
+                placeholder={copy.countryPlaceholder}
                 autoComplete="country-name"
               />
             </label>
 
             <label className={styles.field}>
-              <span>ГОРОД</span>
+              <span>{copy.city}</span>
 
               <input
                 type="text"
@@ -655,7 +596,7 @@ const startNewApplication = () => {
                     event.target.value
                   )
                 }
-                placeholder="Например: Атырау"
+                placeholder={copy.cityPlaceholder}
                 autoComplete="address-level2"
               />
             </label>
@@ -667,7 +608,7 @@ const startNewApplication = () => {
             disabled={!isStepOneValid}
             onClick={goToStepTwo}
           >
-            ПРОДОЛЖИТЬ
+            {copy.continue}
 
             <span>→</span>
           </button>
@@ -681,29 +622,29 @@ const startNewApplication = () => {
 {step === 2 && (
   <>
     <p className={styles.eyebrow}>
-      STEP TWO
+      {copy.stepTwo}
     </p>
 
     <h2 className={styles.title}>
       {mode === "tournament" ? (
         <>
-          ВАША
+          {copy.tournamentTeamTitle[0]}
           <br />
-          <span>КОМАНДА.</span>
+          <span>{copy.tournamentTeamTitle[1]}</span>
         </>
       ) : (
         <>
-          КТО
+          {copy.customTeamTitle[0]}
           <br />
-          <span>ПРИЕДЕТ?</span>
+          <span>{copy.customTeamTitle[1]}</span>
         </>
       )}
     </h2>
 
     <p className={styles.description}>
       {mode === "tournament"
-        ? "Выберите категорию и год рождения команды согласно условиям выбранного турнира."
-        : "Выберите категорию команды и год рождения игроков."}
+        ? copy.tournamentTeamDescription
+        : copy.customTeamDescription}
     </p>
 
     <div className={styles.stepTwoContent}>
@@ -714,7 +655,7 @@ const startNewApplication = () => {
 
           <div className={styles.questionBlock}>
             <p className={styles.questionLabel}>
-              КАТЕГОРИЯ КОМАНДЫ
+              {copy.teamCategory}
             </p>
 
             {tournament.allowedCategories.length ===
@@ -730,7 +671,7 @@ const startNewApplication = () => {
                   }
                 >
                   <span>
-                    ЗАДАНО УСЛОВИЯМИ ТУРНИРА
+                    {copy.setByTournament}
                   </span>
 
                   <strong>
@@ -807,7 +748,7 @@ const startNewApplication = () => {
                 styles.tournamentAgeRule
               }
             >
-              УСЛОВИЕ ТУРНИРА ·{" "}
+              {copy.tournamentRule} ·{" "}
               <strong>{tournament.age}</strong>
             </p>
           </div>
@@ -816,7 +757,7 @@ const startNewApplication = () => {
 
           <div className={styles.questionBlock}>
             <p className={styles.questionLabel}>
-              ГОД РОЖДЕНИЯ ВАШЕЙ КОМАНДЫ
+              {copy.teamBirthYear}
             </p>
 
             <div className={styles.yearOptions}>
@@ -847,7 +788,7 @@ const startNewApplication = () => {
 
           <div className={styles.questionBlock}>
             <p className={styles.questionLabel}>
-              КАТЕГОРИЯ КОМАНДЫ
+              {copy.teamCategory}
             </p>
 
             <div className={styles.genderOptions}>
@@ -866,7 +807,7 @@ const startNewApplication = () => {
                   01
                 </span>
 
-                <strong>ЮНОШИ</strong>
+                <strong>{copy.boys}</strong>
 
                 <span className={styles.optionMark}>
                   {formData.gender === "boys"
@@ -890,7 +831,7 @@ const startNewApplication = () => {
                   02
                 </span>
 
-                <strong>ДЕВУШКИ</strong>
+                <strong>{copy.girls}</strong>
 
                 <span className={styles.optionMark}>
                   {formData.gender === "girls"
@@ -903,7 +844,7 @@ const startNewApplication = () => {
 
           <div className={styles.questionBlock}>
             <p className={styles.questionLabel}>
-              ГОД РОЖДЕНИЯ ИГРОКОВ
+              {copy.playersBirthYear}
             </p>
 
             <div className={styles.yearOptions}>
@@ -936,7 +877,7 @@ const startNewApplication = () => {
                   selectBirthYear("other")
                 }
               >
-                ДРУГОЙ
+                {copy.other}
               </button>
             </div>
 
@@ -947,7 +888,7 @@ const startNewApplication = () => {
                 }
               >
                 <span>
-                  УКАЖИТЕ ГОД РОЖДЕНИЯ
+                  {copy.enterBirthYear}
                 </span>
 
                 <input
@@ -964,7 +905,7 @@ const startNewApplication = () => {
                       )
                     )
                   }
-                  placeholder="Например: 2017"
+                  placeholder={copy.birthYearPlaceholder}
                 />
               </label>
             )}
@@ -981,7 +922,7 @@ const startNewApplication = () => {
       >
         <span>←</span>
 
-        НАЗАД
+        {copy.back}
       </button>
 
       <button
@@ -990,7 +931,7 @@ const startNewApplication = () => {
         disabled={!isStepTwoValid}
         onClick={goToStepThree}
       >
-        ПРОДОЛЖИТЬ
+        {copy.continue}
 
         <span>→</span>
       </button>
@@ -1006,18 +947,17 @@ const startNewApplication = () => {
         mode === "tournament" && (
           <>
             <p className={styles.eyebrow}>
-              STEP THREE
+              {copy.stepThree}
             </p>
 
             <h2 className={styles.title}>
-              ПОДТВЕРДИТЕ
+              {copy.confirmTitle[0]}
               <br />
-              <span>ВЫБОР.</span>
+              <span>{copy.confirmTitle[1]}</span>
             </h2>
 
             <p className={styles.description}>
-              Проверьте выбранный турнир
-              перед продолжением.
+              {copy.confirmDescription}
             </p>
 
             {tournament && (
@@ -1036,7 +976,7 @@ const startNewApplication = () => {
                       styles.confirmationEyebrow
                     }
                   >
-                    SELECTED TOURNAMENT
+                    {copy.selectedTournament}
                   </p>
 
                   <h3
@@ -1053,7 +993,7 @@ const startNewApplication = () => {
                     }
                   >
                     <div>
-                      <span>КАТЕГОРИЯ</span>
+                      <span>{applyCopy[language].page.category}</span>
 
                       <strong>
                         {
@@ -1063,7 +1003,7 @@ const startNewApplication = () => {
                     </div>
 
                     <div>
-                      <span>ВОЗРАСТ</span>
+                      <span>{applyCopy[language].page.age}</span>
 
                       <strong>
                         {tournament.age}
@@ -1071,7 +1011,7 @@ const startNewApplication = () => {
                     </div>
 
                     <div>
-                      <span>ДАТЫ</span>
+                      <span>{applyCopy[language].page.dates}</span>
 
                       <strong>
                         {tournament.dates}
@@ -1079,7 +1019,7 @@ const startNewApplication = () => {
                     </div>
 
                     <div>
-                      <span>МЕСТО</span>
+                      <span>{applyCopy[language].page.location}</span>
 
                       <strong>
                         {tournament.location}
@@ -1106,8 +1046,8 @@ const startNewApplication = () => {
                   </span>
 
                   {formData.tournamentConfirmed
-                    ? "ВЫБОР ПОДТВЕРЖДЁН"
-                    : "ПОДТВЕРЖДАЮ ВЫБОР"}
+                    ? copy.confirmed
+                    : copy.confirm}
                 </button>
               </div>
             )}
@@ -1123,7 +1063,7 @@ const startNewApplication = () => {
                 onClick={goBack}
               >
                 <span>←</span>
-                НАЗАД
+                {copy.back}
               </button>
 
               <button
@@ -1134,7 +1074,7 @@ const startNewApplication = () => {
                 disabled={!isStepThreeValid}
                 onClick={goToStepFour}
               >
-                ПРОДОЛЖИТЬ
+                {copy.continue}
                 <span>→</span>
               </button>
             </div>
@@ -1149,18 +1089,17 @@ const startNewApplication = () => {
         mode === "custom" && (
           <>
             <p className={styles.eyebrow}>
-              STEP THREE
+              {copy.stepThree}
             </p>
 
             <h2 className={styles.title}>
-              КОГДА ВАМ
+              {copy.timingTitle[0]}
               <br />
-              <span>УДОБНО?</span>
+              <span>{copy.timingTitle[1]}</span>
             </h2>
 
             <p className={styles.description}>
-              Выберите примерные сроки.
-              Можно указать несколько периодов.
+              {copy.timingDescription}
             </p>
 
             <div
@@ -1177,7 +1116,7 @@ const startNewApplication = () => {
                       styles.questionLabel
                     }
                   >
-                    ЖЕЛАТЕЛЬНЫЙ ГОД
+                    {copy.preferredYear}
                   </p>
                 </div>
 
@@ -1222,7 +1161,7 @@ const startNewApplication = () => {
                       styles.questionLabel
                     }
                   >
-                    ПРИМЕРНЫЙ ПЕРИОД
+                    {copy.approximatePeriod}
                   </p>
 
                   <span
@@ -1230,7 +1169,7 @@ const startNewApplication = () => {
                       styles.timingHint
                     }
                   >
-                    МОЖНО НЕСКОЛЬКО
+                    {copy.multiple}
                   </span>
                 </div>
 
@@ -1285,7 +1224,7 @@ const startNewApplication = () => {
                 }
               >
                 <span>
-                  СВОЙ ВАРИАНТ ДАТ
+                  {copy.customDates}
                 </span>
 
                 <input
@@ -1297,7 +1236,7 @@ const startNewApplication = () => {
                       event.target.value
                     )
                   }
-                  placeholder="Например: 15–25 июня"
+                  placeholder={copy.datesPlaceholder}
                 />
               </label>
             </div>
@@ -1313,7 +1252,7 @@ const startNewApplication = () => {
                 onClick={goBack}
               >
                 <span>←</span>
-                НАЗАД
+                {copy.back}
               </button>
 
               <button
@@ -1324,7 +1263,7 @@ const startNewApplication = () => {
                 disabled={!isStepThreeValid}
                 onClick={goToStepFour}
               >
-                ПРОДОЛЖИТЬ
+                {copy.continue}
                 <span>→</span>
               </button>
             </div>
@@ -1338,26 +1277,24 @@ const startNewApplication = () => {
 {step === 4 && !isSubmitted && (
   <>
     <p className={styles.eyebrow}>
-      STEP FOUR
+      {copy.stepFour}
     </p>
 
     <h2 className={styles.title}>
-      КАК С ВАМИ
+      {copy.contactTitle[0]}
       <br />
-      <span>СВЯЗАТЬСЯ?</span>
+      <span>{copy.contactTitle[1]}</span>
     </h2>
 
     <p className={styles.description}>
-      Оставьте контакты представителя
-      команды. Мы свяжемся с вами после
-      получения заявки.
+      {copy.contactDescription}
     </p>
 
     <div className={styles.contactContent}>
       <div className={styles.contactFields}>
         <label className={styles.field}>
           <span>
-            ИМЯ И ФАМИЛИЯ
+            {copy.name}
           </span>
 
           <input
@@ -1369,14 +1306,14 @@ const startNewApplication = () => {
                 event.target.value
               )
             }
-            placeholder="Например: Данияр Сериков"
+            placeholder={copy.namePlaceholder}
             autoComplete="name"
           />
         </label>
 
         <label className={styles.field}>
           <span>
-            ТЕЛЕФОН / WHATSAPP
+            {copy.phone}
           </span>
 
           <input
@@ -1394,7 +1331,7 @@ const startNewApplication = () => {
         </label>
 
         <label className={styles.field}>
-          <span>EMAIL</span>
+          <span>{copy.email}</span>
 
           <input
             type="email"
@@ -1412,7 +1349,7 @@ const startNewApplication = () => {
 
         <label className={styles.commentField}>
           <span>
-            КОММЕНТАРИЙ
+            {copy.comment}
           </span>
 
           <textarea
@@ -1423,7 +1360,7 @@ const startNewApplication = () => {
                 event.target.value
               )
             }
-            placeholder="Дополнительная информация или пожелания"
+            placeholder={copy.commentPlaceholder}
             rows={3}
           />
         </label>
@@ -1445,27 +1382,14 @@ const startNewApplication = () => {
         </span>
 
         <span className={styles.consentText}>
-          СОГЛАШАЮСЬ НА ОБРАБОТКУ
-          ПРЕДОСТАВЛЕННЫХ ДАННЫХ
+          {copy.consent}
         </span>
       </button>
           
           {submitError && (
   <div className={styles.submitError}>
     <strong>
-      НЕ УДАЛОСЬ ОТПРАВИТЬ ЗАЯВКУ
-    </strong>
-
-    <span>
-      {submitError}
-    </span>
-  </div>
-)}
-
-          {submitError && (
-  <div className={styles.submitError}>
-    <strong>
-      НЕ УДАЛОСЬ ОТПРАВИТЬ ЗАЯВКУ
+      {copy.sendError}
     </strong>
 
     <span>
@@ -1484,7 +1408,7 @@ const startNewApplication = () => {
       >
         <span>←</span>
 
-        НАЗАД
+        {copy.back}
       </button>
 
       <button
@@ -1497,8 +1421,8 @@ const startNewApplication = () => {
   onClick={submitApplication}
 >
   {isSubmitting
-    ? "ОТПРАВЛЯЕМ..."
-    : "ОТПРАВИТЬ ЗАЯВКУ"}
+    ? copy.sending
+    : copy.submit}
 
   <span>
     {isSubmitting ? "…" : "→"}
@@ -1519,25 +1443,22 @@ const startNewApplication = () => {
     </div>
 
     <p className={styles.eyebrow}>
-      APPLICATION RECEIVED
+      {copy.received}
     </p>
 
     <h2 className={styles.successTitle}>
-      ЗАЯВКА
+      {copy.successTitle[0]}
       <br />
-      <span>ПРИНЯТА.</span>
+      <span>{copy.successTitle[1]}</span>
     </h2>
 
     <p className={styles.successDescription}>
-  Спасибо, {formData.contactName}.
-  Заявка вашей команды успешно отправлена.
-  Мы получили данные и свяжемся
-  с вашим представителем.
+  {copy.successStart}, {formData.contactName}. {copy.successText}
 </p>
 
     <div className={styles.successSummary}>
       <div>
-        <span>КОМАНДА</span>
+        <span>{copy.team}</span>
 
         <strong>
           {formData.teamName}
@@ -1545,7 +1466,7 @@ const startNewApplication = () => {
       </div>
 
       <div>
-        <span>КАТЕГОРИЯ</span>
+        <span>{copy.category}</span>
 
         <strong>
           {genderLabel}
@@ -1553,7 +1474,7 @@ const startNewApplication = () => {
       </div>
 
       <div>
-        <span>КОНТАКТ</span>
+        <span>{copy.contact}</span>
 
         <strong>
           {formData.phone}
@@ -1566,7 +1487,7 @@ const startNewApplication = () => {
       className={styles.newApplicationButton}
       onClick={startNewApplication}
     >
-      НОВАЯ ЗАЯВКА
+      {copy.newApplication}
 
       <span>→</span>
     </button>

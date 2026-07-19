@@ -298,7 +298,10 @@
   line-height: 0.84;
   letter-spacing: -0.02em;
 
-  white-space: nowrap;
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: keep-all;
 
   text-transform: uppercase;
 }
@@ -696,7 +699,8 @@
     }
   
     .cardTitle {
-      font-size: clamp(76px, 24vw, 120px);
+      font-size: clamp(68px, 22vw, 104px);
+      line-height: 0.82;
     }
   
     .cardFooter {

@@ -1,7 +1,15 @@
+"use client";
+
 import Image from "next/image";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { homeCopy } from "@/i18n/translations";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const copy = homeCopy[language];
+
   return (
     <section className={styles.hero}>
       {/* Декоративный фон */}
@@ -11,7 +19,7 @@ export default function Hero() {
 
       {/* Верхняя часть */}
       <header className={styles.header}>
-        <a href="#" className={styles.company}>
+        <a href="#" className={styles.company} aria-label="AIROM Junior Sport Academy">
           <Image
             src="/images/logos/airom-academy-logo.png"
             alt="Airom Junior Sport Academy"
@@ -26,32 +34,37 @@ export default function Hero() {
           </div>
         </a>
 
-        <a
-  href="#tournaments"
-  className={styles.headerButton}
->
-  ПОДАТЬ ЗАЯВКУ
-</a>
+        <nav className={styles.navigation} aria-label="Main navigation">
+          <a href="#about">{copy.nav.about}</a>
+          <a href="#videos">{copy.nav.videos}</a>
+          <a href="#contacts">{copy.nav.contacts}</a>
+        </nav>
+
+        <div className={styles.headerActions}>
+          <LanguageSwitcher />
+          <a href="#tournaments" className={styles.headerButton}>
+            {copy.nav.apply}
+          </a>
+        </div>
       </header>
 
       {/* Основной контент */}
       <div className={styles.content}>
         <div className={styles.textBlock}>
           <p className={styles.eyebrow}>
-            INTERNATIONAL BASKETBALL TOURNAMENT
+            {copy.hero.eyebrow}
           </p>
 
           <h1 className={styles.title}>
-            ТВОЯ КОМАНДА.
+            {copy.hero.title1}
             <br />
-            <span>ТВОИ ДАТЫ.</span>
+            <span>{copy.hero.title2}</span>
             <br />
-            ТВОЙ AIROM CUP.
+            {copy.hero.title3}
           </h1>
 
           <p className={styles.description}>
-            Выбери объявленный турнир или предложи свой вариант:
-            укажи команду, возраст, категорию и удобные даты.
+            {copy.hero.description}
           </p>
 
           <div className={styles.actions}>
@@ -59,14 +72,14 @@ export default function Hero() {
                 href="#tournaments"
                 className={styles.primaryButton}
             >
-                ВЫБРАТЬ ТУРНИР
+                {copy.hero.choose}
             </a>
 
             <a
                 href="#custom-request"
                 className={styles.secondaryButton}
             >
-                ПРЕДЛОЖИТЬ СВОЙ ВАРИАНТ
+                {copy.hero.custom}
             </a>
             </div>
         </div>
@@ -90,10 +103,10 @@ export default function Hero() {
 
       {/* Нижняя информация */}
       <footer className={styles.footer}>
-        <span>ATYRAU · KAZAKHSTAN</span>
+        <span>{copy.hero.location}</span>
 
         <span className={styles.footerCenter}>
-          BOYS · GIRLS · INTERNATIONAL
+          {copy.hero.categories}
         </span>
 
         <span>AIROM CUP</span>

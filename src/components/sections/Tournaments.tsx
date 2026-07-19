@@ -1,12 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { tournaments } from "@/data/tournaments";
+import { useLanguage } from "@/i18n/LanguageProvider";
+import { homeCopy, localizeTournament } from "@/i18n/translations";
 import styles from "./Tournaments.module.css";
 
 export default function Tournaments() {
+  const { language } = useLanguage();
+  const copy = homeCopy[language].tournaments;
   const activeTournaments =
     tournaments.filter(
       (tournament) => tournament.isActive
-    );
+    ).map((tournament) => localizeTournament(tournament, language));
 
   return (
 
@@ -19,20 +25,18 @@ export default function Tournaments() {
         <div className={styles.heading}>
           <div>
             <p className={styles.eyebrow}>
-              CHOOSE YOUR FORMAT
+              {copy.eyebrow}
             </p>
 
             <h2 className={styles.title}>
-              ВЫБЕРИ ТУРНИР
+              {copy.title1}
               <br />
-              <span>ИЛИ ПРЕДЛОЖИ СВОЙ.</span>
+              <span>{copy.title2}</span>
             </h2>
           </div>
 
           <p className={styles.description}>
-            Присоединяйтесь к уже объявленному Airom Cup
-            или укажите, какой турнир был бы интересен
-            именно вашей команде.
+            {copy.description}
           </p>
         </div>
 
@@ -60,7 +64,7 @@ export default function Tournaments() {
 
               <div className={styles.cardMain}>
                 <p className={styles.cardEyebrow}>
-                  INTERNATIONAL
+                  {copy.international}
                 </p>
 
                 <h3 className={styles.cardTitle}>
@@ -70,7 +74,7 @@ export default function Tournaments() {
                 <div className={styles.orangeLine} />
 
                 <div className={styles.category}>
-                  <span>КАТЕГОРИЯ</span>
+                  <span>{copy.category}</span>
 
                   <strong>
                     {tournament.categoryLabel}
@@ -85,7 +89,7 @@ export default function Tournaments() {
               <div className={styles.cardFooter}>
                 <div>
                   <span className={styles.metaLabel}>
-                    ДАТЫ
+                    {copy.dates}
                   </span>
 
                   <strong className={styles.metaValue}>
@@ -95,7 +99,7 @@ export default function Tournaments() {
 
                 <div>
                   <span className={styles.metaLabel}>
-                    МЕСТО
+                    {copy.location}
                   </span>
 
                   <strong className={styles.metaValue}>
@@ -108,7 +112,7 @@ export default function Tournaments() {
                 href={`/apply?mode=tournament&id=${tournament.id}`}
                 className={styles.applyButton}
                 >
-                ВЫБРАТЬ ЭТОТ ТУРНИР
+                {copy.choose}
                 <span>→</span>
                 </Link>
             </article>
@@ -131,36 +135,35 @@ export default function Tournaments() {
             </div>
 
             <p className={styles.customEyebrow}>
-              YOUR TOURNAMENT
+              {copy.customEyebrow}
             </p>
 
             <h3 className={styles.customTitle}>
-              НЕ НАШЁЛ
+              {copy.custom1}
               <br />
-              ПОДХОДЯЩИЙ
+              {copy.custom2}
               <br />
-              <span>ТУРНИР?</span>
+              <span>{copy.custom3}</span>
             </h3>
 
             <p className={styles.customDescription}>
-              Расскажите нам, какой турнир нужен вашей
-              команде.
+              {copy.customDescription}
             </p>
 
             <div className={styles.preferences}>
               <div>
                 <span>01</span>
-                <p>ЮНОШИ ИЛИ ДЕВУШКИ</p>
+                <p>{copy.preferences[0]}</p>
               </div>
 
               <div>
                 <span>02</span>
-                <p>ВОЗРАСТ ИГРОКОВ</p>
+                <p>{copy.preferences[1]}</p>
               </div>
 
               <div>
                 <span>03</span>
-                <p>УДОБНЫЕ ДАТЫ</p>
+                <p>{copy.preferences[2]}</p>
               </div>
             </div>
 
@@ -168,7 +171,7 @@ export default function Tournaments() {
             href="/apply?mode=custom"
             className={styles.customButton}
             >
-            ПРЕДЛОЖИТЬ СВОЙ ВАРИАНТ
+            {copy.propose}
             <span>→</span>
             </Link>
           </article>
@@ -178,7 +181,7 @@ export default function Tournaments() {
           <span>AIROM CUP</span>
 
           <span>
-            YOUR TEAM · YOUR DATES · YOUR TOURNAMENT
+            {copy.bottom}
           </span>
         </div>
       </div>
