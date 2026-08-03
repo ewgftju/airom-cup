@@ -192,15 +192,13 @@ export function ResultsSection() {
                         ))}
                       </ol>
 
-                      <a
-                        href={result.protocolUrl}
-                        target="_blank"
-                        rel="noreferrer"
+                      <Link
+                        href={`/results/${result.id}`}
                         className={styles.protocolLink}
                       >
                         {copy.results.protocol}
                         <b>↗</b>
-                      </a>
+                      </Link>
                     </article>
                   ))}
                 </div>
