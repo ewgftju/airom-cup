@@ -10,9 +10,20 @@ import styles from "./CalendarResults.module.css";
 export function CalendarSection() {
   const { language } = useLanguage();
   const copy = homeCopy[language];
-  const calendar = tournaments.map((tournament) =>
-    localizeTournament(tournament, language),
-  );
+  const calendar = tournaments
+    .filter((tournament) => tournament.isActive)
+    .map((tournament) => localizeTournament(tournament, language));
+  const months = calendar.reduce<(typeof calendar)[]>((groups, tournament) => {
+    const existing = groups.find((group) => group[0]?.dates === tournament.dates);
+
+    if (existing) {
+      existing.push(tournament);
+    } else {
+      groups.push([tournament]);
+    }
+
+    return groups;
+  }, []);
 
   return (
       <section id="calendar" className={styles.calendarSection}>
@@ -25,7 +36,7 @@ export function CalendarSection() {
               <p className={styles.eyebrow}>{copy.calendar.eyebrow}</p>
               <h2 className={styles.calendarTitle}>
                 {copy.calendar.title1}
-                <br />
+                {" "}
                 <span>{copy.calendar.title2}</span>
               </h2>
             </div>
@@ -35,41 +46,62 @@ export function CalendarSection() {
           </div>
 
           <div className={styles.schedule}>
-            {calendar.map((tournament, index) => (
-              <article key={tournament.id} className={styles.scheduleRow}>
-                <span className={styles.scheduleNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <div className={styles.scheduleDate}>
-                  <span>{copy.calendar.period}</span>
-                  <strong>{tournament.dates}</strong>
+            {months.map((month, monthIndex) => (
+              <article key={month[0].dates} className={styles.monthCard}>
+                <div className={styles.monthTopline}>
+                  <span>{String(monthIndex + 1).padStart(2, "0")}</span>
+                  <i>{copy.calendar.status}</i>
                 </div>
 
-                <div className={styles.scheduleAge}>
-                  <span>{copy.calendar.category}</span>
-                  <strong>{tournament.age}</strong>
-                  <small>{tournament.categoryLabel}</small>
+                <h3>{month[0].dates}</h3>
+
+                <div className={styles.monthEvents}>
+                  {month.map((tournament) => (
+                    <div key={tournament.id} className={styles.monthEvent}>
+                      <div>
+                        <span>{copy.calendar.category}</span>
+                        <strong>{tournament.age}</strong>
+                        <small>{tournament.categoryLabel}</small>
+                      </div>
+                      <Link
+                        href={`/apply?mode=tournament&id=${tournament.id}`}
+                        aria-label={`${copy.calendar.apply}: ${tournament.dates}, ${tournament.age}`}
+                      >
+                        {copy.calendar.apply}
+                        <b aria-hidden="true">→</b>
+                      </Link>
+                    </div>
+                  ))}
                 </div>
 
-                <div className={styles.scheduleLocation}>
+                <p className={styles.monthLocation}>
                   <span>{copy.calendar.location}</span>
-                  <strong>{tournament.location}</strong>
-                </div>
-
-                <div className={styles.scheduleAction}>
-                  <span className={styles.status}>{copy.calendar.status}</span>
-                  <Link href={`/apply?mode=tournament&tournament=${tournament.id}`}>
-                    {copy.calendar.apply} <b>→</b>
-                  </Link>
-                </div>
+                  {month[0].location}
+                </p>
               </article>
             ))}
           </div>
 
-          <div className={styles.calendarNote}>
-            <span>*</span>
-            <p>{copy.calendar.note}</p>
+          <div className={styles.calendarFooter}>
+            <div className={styles.calendarNote}>
+              <span>*</span>
+              <p>{copy.calendar.note}</p>
+            </div>
+
+            <aside id="custom-request" className={styles.customRequest}>
+              <div>
+                <p>{copy.tournaments.customEyebrow}</p>
+                <h3>
+                  {copy.tournaments.custom1} {copy.tournaments.custom2}{" "}
+                  <span>{copy.tournaments.custom3}</span>
+                </h3>
+                <small>{copy.tournaments.customDescription}</small>
+              </div>
+              <Link href="/apply?mode=custom">
+                {copy.tournaments.propose}
+                <b aria-hidden="true">→</b>
+              </Link>
+            </aside>
           </div>
         </div>
       </section>

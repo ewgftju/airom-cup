@@ -43,7 +43,7 @@ export default function Hero() {
 
         <div className={styles.headerActions}>
           <LanguageSwitcher />
-          <a href="#tournaments" className={styles.headerButton}>
+          <a href="#calendar" className={styles.headerButton}>
             {copy.nav.apply}
           </a>
         </div>
@@ -70,7 +70,7 @@ export default function Hero() {
 
           <div className={styles.actions}>
             <a
-                href="#tournaments"
+                href="#calendar"
                 className={styles.primaryButton}
             >
                 {copy.hero.choose}
