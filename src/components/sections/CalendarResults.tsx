@@ -131,7 +131,13 @@ export function ResultsSection() {
                           : copy.results.podium}
                       </p>
 
-                      <ol className={styles.standings}>
+                      <ol
+                        className={`${styles.standings} ${
+                          result.format === "groups"
+                            ? styles.groupStandings
+                            : ""
+                        }`}
+                      >
                         {result.standings.map((standing) => (
                           <li key={`${standing.place}-${standing.team}`}>
                             <span

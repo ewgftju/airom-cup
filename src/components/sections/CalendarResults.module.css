@@ -376,6 +376,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+.groupStandings li {
+  grid-template-columns: 112px minmax(0, 1fr);
+}
+
 .standings li > span {
   display: inline-flex;
   align-items: center;
@@ -408,9 +412,14 @@
 }
 
 .group {
-  width: 58px !important;
+  width: auto !important;
+  min-width: 90px;
+  height: 34px !important;
+  padding: 0 13px;
   border: 1px solid #29acc4;
   color: #29acc4;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .protocolLink {
@@ -561,6 +570,10 @@
 
   .standings li {
     grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .groupStandings li {
+    grid-template-columns: 108px minmax(0, 1fr);
   }
 
   .standings strong {
