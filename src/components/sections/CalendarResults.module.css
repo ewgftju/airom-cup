@@ -171,7 +171,7 @@
 .monthEvent {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 12px;
+  gap: 16px;
   align-items: center;
   padding: 13px 0;
   border-top: 1px solid rgba(6, 20, 38, 0.19);
@@ -375,6 +375,7 @@
 .collectionTitle {
   display: grid;
   grid-template-columns: 58px 1fr auto;
+  column-gap: 14px;
   align-items: center;
   min-height: 72px;
   border-top: 1px solid rgba(7, 27, 52, 0.22);
@@ -431,6 +432,7 @@
   font-style: normal;
   font-weight: 900;
   letter-spacing: 0.09em;
+  line-height: 1.45;
   text-transform: uppercase;
 }
 
@@ -448,12 +450,13 @@
   margin: 28px 0 30px;
   font-size: clamp(29px, 3.2vw, 47px);
   font-weight: 900;
-  line-height: 0.98;
+  line-height: 1.04;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
 }
 
 .standingsLabel {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: rgba(255, 255, 255, 0.38);
   font-size: 8px;
   font-weight: 900;
@@ -471,14 +474,16 @@
 
 .standings li {
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 18px;
   align-items: center;
-  min-height: 58px;
+  min-height: 64px;
+  padding: 9px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .groupStandings li {
-  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr);
 }
 
 .standings li > span {
@@ -493,8 +498,8 @@
 
 .standings strong {
   min-width: 0;
-  font-size: 13px;
-  line-height: 1.35;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .gold {
@@ -514,11 +519,12 @@
 
 .group {
   width: auto !important;
-  min-width: 90px;
+  min-width: 96px;
   height: 34px !important;
   padding: 0 13px;
   border: 1px solid #29acc4;
   color: #29acc4;
+  justify-self: start;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
@@ -634,7 +640,8 @@
   }
 
   .collectionTitle {
-    grid-template-columns: 42px 1fr auto;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    column-gap: 10px;
   }
 
   .collectionTitle h3 {
@@ -648,12 +655,13 @@
 
   .resultCard {
     min-height: 390px;
-    padding: 24px 20px;
+    padding: 26px 22px;
   }
 
   .resultTopline {
     flex-direction: column;
-    gap: 7px;
+    gap: 9px;
+    padding-bottom: 19px;
   }
 
   .resultTopline i {
@@ -661,23 +669,35 @@
   }
 
   .resultCard h4 {
-    margin-block: 24px;
+    margin: 26px 0 30px;
     font-size: clamp(28px, 8.8vw, 40px);
+    line-height: 1.06;
+    letter-spacing: -0.025em;
     overflow-wrap: normal;
     text-wrap: balance;
     word-break: normal;
   }
 
   .standings li {
-    grid-template-columns: 68px minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    min-height: 68px;
+    padding-block: 11px;
   }
 
   .groupStandings li {
-    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .standings strong {
+    font-size: 13px;
+    line-height: 1.5;
     overflow-wrap: anywhere;
+  }
+
+  .protocolLink {
+    padding-top: 30px;
+    line-height: 1.4;
   }
 
   .resultsNumber {
