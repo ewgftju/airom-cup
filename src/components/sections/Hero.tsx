@@ -35,6 +35,8 @@ export default function Hero() {
         </a>
 
         <nav className={styles.navigation} aria-label="Main navigation">
+          <a href="#calendar">{copy.nav.calendar}</a>
+          <a href="#results">{copy.nav.results}</a>
           <a href="#about">{copy.nav.about}</a>
           <a href="#contacts">{copy.nav.contacts}</a>
         </nav>

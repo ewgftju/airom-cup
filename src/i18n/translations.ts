@@ -10,7 +10,7 @@ export const languageLabels: Record<Language, string> = {
 
 export const homeCopy = {
   ru: {
-    nav: { about: "О AIROM CUP", videos: "ВИДЕО", contacts: "КОНТАКТЫ", apply: "ПОДАТЬ ЗАЯВКУ" },
+    nav: { calendar: "КАЛЕНДАРЬ", results: "РЕЗУЛЬТАТЫ", about: "О AIROM CUP", videos: "ВИДЕО", contacts: "КОНТАКТЫ", apply: "ПОДАТЬ ЗАЯВКУ" },
     hero: {
       eyebrow: "INTERNATIONAL BASKETBALL TOURNAMENT",
       title1: "ТВОЯ КОМАНДА.",
@@ -21,6 +21,30 @@ export const homeCopy = {
       custom: "ПРЕДЛОЖИТЬ СВОЙ ВАРИАНТ",
       location: "АТЫРАУ · КАЗАХСТАН",
       categories: "ЮНОШИ · ДЕВУШКИ · МЕЖДУНАРОДНЫЙ",
+    },
+    calendar: {
+      eyebrow: "SEASON 2026/2027",
+      title1: "ПРЕДВАРИТЕЛЬНЫЙ",
+      title2: "КАЛЕНДАРЬ КУБКОВ.",
+      description: "Пять турниров AIROM CUP в Атырау для разных возрастных категорий. Выберите подходящий этап и заранее отправьте заявку команды.",
+      period: "ПЕРИОД",
+      category: "ВОЗРАСТНАЯ КАТЕГОРИЯ",
+      location: "МЕСТО ПРОВЕДЕНИЯ",
+      status: "ПРЕДВАРИТЕЛЬНО",
+      apply: "ПОДАТЬ ЗАЯВКУ",
+      note: "Календарь является предварительным. Точные даты проведения и состав участников могут быть уточнены организаторами.",
+    },
+    results: {
+      eyebrow: "AIROM CUP ARCHIVE",
+      title1: "РЕЗУЛЬТАТЫ",
+      title2: "ПРОШЕДШИХ ТУРНИРОВ.",
+      description: "Итоговые места команд и официальные турнирные таблицы прошлых кубков AIROM CUP.",
+      current: "КУБКИ AIROM CUP 2026",
+      archive: "АРХИВНЫЕ ПРОТОКОЛЫ",
+      podium: "ПРИЗОВЫЕ МЕСТА",
+      groupLeaders: "ЛИДЕРЫ ГРУППОВОГО ЭТАПА",
+      group: "ГРУППА",
+      protocol: "ОТКРЫТЬ ПРОТОКОЛ",
     },
     tournaments: {
       eyebrow: "CHOOSE YOUR FORMAT",
@@ -59,7 +83,7 @@ export const homeCopy = {
       title2: "ПРОШЕДШИХ ТУРНИРОВ.",
       description: "Лучшие моменты, эмоции команд и атмосфера AIROM CUP.",
       watch: "СМОТРЕТЬ В INSTAGRAM",
-      items: ["AIROM CUP · АРХИВ 01", "AIROM CUP · АРХИВ 02", "AIROM CUP · АРХИВ 03"],
+      items: ["AIROM CUP · ЛУЧШИЕ МОМЕНТЫ", "AIROM CUP · ЭМОЦИИ КОМАНД", "AIROM CUP · АРХИВ 03"],
       placeholder: "ССЫЛКА НА ВИДЕО БУДЕТ ДОБАВЛЕНА",
     },
     contact: {
@@ -75,7 +99,7 @@ export const homeCopy = {
     },
   },
   kk: {
-    nav: { about: "AIROM CUP ТУРАЛЫ", videos: "ВИДЕО", contacts: "БАЙЛАНЫС", apply: "ӨТІНІМ БЕРУ" },
+    nav: { calendar: "КҮНТІЗБЕ", results: "НӘТИЖЕЛЕР", about: "AIROM CUP ТУРАЛЫ", videos: "ВИДЕО", contacts: "БАЙЛАНЫС", apply: "ӨТІНІМ БЕРУ" },
     hero: {
       eyebrow: "ХАЛЫҚАРАЛЫҚ БАСКЕТБОЛ ТУРНИРІ",
       title1: "СЕНІҢ КОМАНДАҢ.",
@@ -86,6 +110,30 @@ export const homeCopy = {
       custom: "ӨЗ НҰСҚАҢДЫ ҰСЫНУ",
       location: "АТЫРАУ · ҚАЗАҚСТАН",
       categories: "ҰЛДАР · ҚЫЗДАР · ХАЛЫҚАРАЛЫҚ",
+    },
+    calendar: {
+      eyebrow: "2026/2027 МАУСЫМЫ",
+      title1: "КУБОКТАРДЫҢ",
+      title2: "АЛДЫН АЛА КҮНТІЗБЕСІ.",
+      description: "Әртүрлі жас санаттарына арналған Атыраудағы бес AIROM CUP турнирі. Қолайлы кезеңді таңдап, команда өтінімін алдын ала жіберіңіз.",
+      period: "КЕЗЕҢ",
+      category: "ЖАС САНАТЫ",
+      location: "ӨТЕТІН ЖЕРІ",
+      status: "АЛДЫН АЛА",
+      apply: "ӨТІНІМ БЕРУ",
+      note: "Күнтізбе алдын ала жасалған. Өткізудің нақты күндері мен қатысушылар құрамы ұйымдастырушылармен нақтылануы мүмкін.",
+    },
+    results: {
+      eyebrow: "AIROM CUP МҰРАҒАТЫ",
+      title1: "ӨТКЕН ТУРНИРЛЕРДІҢ",
+      title2: "НӘТИЖЕЛЕРІ.",
+      description: "Өткен AIROM CUP кубоктарындағы командалардың қорытынды орындары және ресми турнир кестелері.",
+      current: "AIROM CUP 2026 КУБОКТАРЫ",
+      archive: "МҰРАҒАТ ХАТТАМАЛАРЫ",
+      podium: "ЖҮЛДЕЛІ ОРЫНДАР",
+      groupLeaders: "ТОПТЫҚ КЕЗЕҢ КӨШБАСШЫЛАРЫ",
+      group: "ТОП",
+      protocol: "ХАТТАМАНЫ АШУ",
     },
     tournaments: {
       eyebrow: "ФОРМАТЫҢДЫ ТАҢДА",
@@ -124,7 +172,7 @@ export const homeCopy = {
       title2: "ВИДЕОЛАРЫ.",
       description: "Үздік сәттер, командалардың эмоциялары және AIROM CUP атмосферасы.",
       watch: "INSTAGRAM-ДА КӨРУ",
-      items: ["AIROM CUP · МҰРАҒАТ 01", "AIROM CUP · МҰРАҒАТ 02", "AIROM CUP · МҰРАҒАТ 03"],
+      items: ["AIROM CUP · ҮЗДІК СӘТТЕР", "AIROM CUP · КОМАНДА ЭМОЦИЯЛАРЫ", "AIROM CUP · МҰРАҒАТ 03"],
       placeholder: "ВИДЕО СІЛТЕМЕСІ ҚОСЫЛАДЫ",
     },
     contact: {
@@ -140,7 +188,7 @@ export const homeCopy = {
     },
   },
   en: {
-    nav: { about: "ABOUT AIROM CUP", videos: "VIDEOS", contacts: "CONTACTS", apply: "APPLY NOW" },
+    nav: { calendar: "CALENDAR", results: "RESULTS", about: "ABOUT AIROM CUP", videos: "VIDEOS", contacts: "CONTACTS", apply: "APPLY NOW" },
     hero: {
       eyebrow: "INTERNATIONAL BASKETBALL TOURNAMENT",
       title1: "YOUR TEAM.",
@@ -151,6 +199,30 @@ export const homeCopy = {
       custom: "SUGGEST YOUR FORMAT",
       location: "ATYRAU · KAZAKHSTAN",
       categories: "BOYS · GIRLS · INTERNATIONAL",
+    },
+    calendar: {
+      eyebrow: "SEASON 2026/2027",
+      title1: "PROVISIONAL",
+      title2: "CUP CALENDAR.",
+      description: "Five AIROM CUP tournaments in Atyrau for different age groups. Choose the right event and submit your team application early.",
+      period: "PERIOD",
+      category: "AGE CATEGORY",
+      location: "LOCATION",
+      status: "PROVISIONAL",
+      apply: "APPLY NOW",
+      note: "This calendar is provisional. Exact tournament dates and participant line-ups may be adjusted by the organizers.",
+    },
+    results: {
+      eyebrow: "AIROM CUP ARCHIVE",
+      title1: "PAST TOURNAMENT",
+      title2: "RESULTS.",
+      description: "Final team standings and official tournament tables from previous AIROM CUP events.",
+      current: "AIROM CUP 2026 EVENTS",
+      archive: "ARCHIVE PROTOCOLS",
+      podium: "PODIUM",
+      groupLeaders: "GROUP-STAGE LEADERS",
+      group: "GROUP",
+      protocol: "OPEN PROTOCOL",
     },
     tournaments: {
       eyebrow: "CHOOSE YOUR FORMAT",
@@ -189,7 +261,7 @@ export const homeCopy = {
       title2: "VIDEOS.",
       description: "Top moments, team emotions and the atmosphere of AIROM CUP.",
       watch: "WATCH ON INSTAGRAM",
-      items: ["AIROM CUP · ARCHIVE 01", "AIROM CUP · ARCHIVE 02", "AIROM CUP · ARCHIVE 03"],
+      items: ["AIROM CUP · TOP MOMENTS", "AIROM CUP · TEAM EMOTIONS", "AIROM CUP · ARCHIVE 03"],
       placeholder: "VIDEO LINK TO BE ADDED",
     },
     contact: {

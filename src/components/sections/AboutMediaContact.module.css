@@ -215,14 +215,35 @@
 .videoCard::before {
   content: "";
   position: absolute;
+  z-index: 2;
   inset: 0;
-  opacity: 0.11;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 22px, rgba(255, 255, 255, 0.08) 23px);
+  background:
+    linear-gradient(180deg, rgba(3, 15, 29, 0.38), rgba(3, 15, 29, 0.04) 42%, rgba(3, 15, 29, 0.9)),
+    linear-gradient(90deg, rgba(3, 15, 29, 0.3), transparent 50%);
+  pointer-events: none;
 }
 
 .videoCard:hover {
   transform: translateY(-7px);
   box-shadow: 0 42px 100px rgba(0, 0, 0, 0.34);
+}
+
+.videoPreview {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  transition: transform 0.45s ease, filter 0.35s ease;
+}
+
+.videoCardAlt .videoPreview {
+  object-position: center 43%;
+}
+
+.videoCard:hover .videoPreview {
+  transform: scale(1.035);
+  filter: saturate(1.08) contrast(1.03);
 }
 
 .videoTopline,
@@ -249,22 +270,6 @@
 
 .videoTopline i {
   color: rgba(255, 255, 255, 0.45);
-}
-
-.logoMark {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: min(48%, 300px);
-  transform: translate(-50%, -50%);
-  opacity: 0.18;
-  filter: grayscale(1);
-}
-
-.logoMark img {
-  width: 100%;
-  height: auto;
 }
 
 .play {

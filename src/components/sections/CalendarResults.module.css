@@ -1,0 +1,585 @@
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.calendarSection {
+  position: relative;
+  overflow: hidden;
+  padding: 112px 54px 76px;
+  background:
+    radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.25), transparent 24%),
+    #ff8318;
+  color: #061426;
+  scroll-margin-top: 20px;
+}
+
+.calendarGrid,
+.resultsGrid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.calendarGrid {
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(6, 20, 38, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 20, 38, 0.22) 1px, transparent 1px);
+  background-size: 76px 76px;
+}
+
+.calendarBall {
+  position: absolute;
+  top: -240px;
+  right: -180px;
+  width: 620px;
+  aspect-ratio: 1;
+  border: 90px solid rgba(6, 20, 38, 0.055);
+  border-radius: 50%;
+}
+
+.calendarBall::before,
+.calendarBall::after {
+  content: "";
+  position: absolute;
+  inset: -90px 50%;
+  width: 1px;
+  background: rgba(6, 20, 38, 0.09);
+}
+
+.calendarBall::after {
+  transform: rotate(90deg);
+}
+
+.calendarHeading,
+.resultsHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 470px);
+  gap: clamp(44px, 7vw, 110px);
+  align-items: end;
+}
+
+.eyebrow,
+.resultsEyebrow {
+  margin: 0 0 18px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: rgba(6, 20, 38, 0.58);
+}
+
+.calendarTitle,
+.resultsTitle {
+  max-width: 1040px;
+  margin: 0;
+  font-size: clamp(58px, 6.2vw, 104px);
+  font-weight: 900;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.calendarTitle span {
+  color: #ffffff;
+}
+
+.calendarDescription,
+.resultsHeading > p {
+  margin: 0 0 5px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.calendarDescription {
+  color: rgba(6, 20, 38, 0.68);
+}
+
+.schedule {
+  margin-top: 58px;
+  border-top: 1px solid rgba(6, 20, 38, 0.28);
+}
+
+.scheduleRow {
+  display: grid;
+  grid-template-columns: 70px minmax(155px, 0.8fr) minmax(200px, 1.15fr) minmax(190px, 0.9fr) minmax(210px, 0.9fr);
+  gap: 26px;
+  align-items: center;
+  min-height: 132px;
+  padding: 22px 18px;
+  border-bottom: 1px solid rgba(6, 20, 38, 0.28);
+  transition: background 0.2s ease, padding 0.2s ease;
+}
+
+.scheduleRow:hover {
+  padding-inline: 28px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.scheduleNumber {
+  color: rgba(6, 20, 38, 0.28);
+  font-family: "Roboto Condensed Variable", Arial, sans-serif;
+  font-size: 39px;
+  font-weight: 900;
+}
+
+.scheduleDate,
+.scheduleAge,
+.scheduleLocation {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.scheduleDate span,
+.scheduleAge span,
+.scheduleLocation span {
+  color: rgba(6, 20, 38, 0.5);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.scheduleDate strong {
+  font-size: clamp(22px, 2vw, 31px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.scheduleAge strong {
+  font-size: clamp(18px, 1.7vw, 26px);
+  line-height: 1.05;
+}
+
+.scheduleAge small {
+  color: rgba(6, 20, 38, 0.55);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.scheduleLocation strong {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.scheduleAction {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.status {
+  padding: 7px 9px;
+  border: 1px solid rgba(6, 20, 38, 0.35);
+  color: rgba(6, 20, 38, 0.62);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.scheduleAction a {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: #061426;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.scheduleAction b {
+  font-size: 19px;
+}
+
+.calendarNote {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  max-width: 860px;
+  margin-top: 28px;
+  color: rgba(6, 20, 38, 0.63);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.calendarNote span {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 0.8;
+}
+
+.calendarNote p {
+  margin: 0;
+}
+
+.resultsSection {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 54px;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(36, 159, 185, 0.1), transparent 24%),
+    #e9e5dd;
+  color: #071b34;
+  scroll-margin-top: 20px;
+}
+
+.resultsGrid {
+  opacity: 0.14;
+  background-image:
+    linear-gradient(rgba(7, 27, 52, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(7, 27, 52, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.resultsNumber {
+  position: absolute;
+  top: 50px;
+  right: 2%;
+  color: rgba(7, 27, 52, 0.045);
+  font-family: "Roboto Condensed Variable", Arial, sans-serif;
+  font-size: 280px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.resultsEyebrow {
+  color: #1699b5;
+}
+
+.resultsTitle span {
+  color: #ff8318;
+}
+
+.resultsHeading > p {
+  color: rgba(7, 27, 52, 0.62);
+}
+
+.resultCollection {
+  margin-top: 76px;
+}
+
+.collectionTitle {
+  display: grid;
+  grid-template-columns: 58px 1fr auto;
+  align-items: center;
+  min-height: 72px;
+  border-top: 1px solid rgba(7, 27, 52, 0.22);
+  border-bottom: 1px solid rgba(7, 27, 52, 0.22);
+}
+
+.collectionTitle span,
+.collectionTitle i {
+  color: rgba(7, 27, 52, 0.35);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.collectionTitle h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resultCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.resultCard {
+  display: flex;
+  min-width: 0;
+  min-height: 420px;
+  flex-direction: column;
+  padding: 30px;
+  background:
+    radial-gradient(circle at 88% 8%, rgba(36, 159, 185, 0.18), transparent 28%),
+    linear-gradient(145deg, #092747, #061426 72%);
+  color: #ffffff;
+  box-shadow: 0 28px 70px rgba(7, 27, 52, 0.14);
+}
+
+.resultTopline {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.resultTopline span,
+.resultTopline i {
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.resultTopline span {
+  color: #29acc4;
+}
+
+.resultTopline i {
+  color: rgba(255, 255, 255, 0.44);
+  text-align: right;
+}
+
+.resultCard h4 {
+  max-width: 610px;
+  margin: 28px 0 30px;
+  font-size: clamp(29px, 3.2vw, 47px);
+  font-weight: 900;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.standingsLabel {
+  margin: 0 0 8px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.standings {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.standings li {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  align-items: center;
+  min-height: 58px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.standings li > span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 30px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.standings strong {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.gold {
+  background: #ffbd2e;
+  color: #071b34;
+}
+
+.silver {
+  background: #cbd4dc;
+  color: #071b34;
+}
+
+.bronze {
+  background: #bd7440;
+  color: #ffffff;
+}
+
+.group {
+  width: 58px !important;
+  border: 1px solid #29acc4;
+  color: #29acc4;
+}
+
+.protocolLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 25px;
+  color: #ff8318;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.protocolLink b {
+  font-size: 20px;
+}
+
+@media (max-width: 1100px) {
+  .calendarSection,
+  .resultsSection {
+    padding-inline: 30px;
+  }
+
+  .calendarHeading,
+  .resultsHeading {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .scheduleRow {
+    grid-template-columns: 58px 0.8fr 1fr 0.9fr;
+  }
+
+  .scheduleAction {
+    grid-column: 2 / -1;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 760px) {
+  .calendarSection,
+  .resultsSection {
+    padding: 82px 18px 64px;
+  }
+
+  .calendarTitle,
+  .resultsTitle {
+    max-width: 100%;
+    font-size: clamp(42px, 11.5vw, 60px);
+    line-height: 0.94;
+    overflow-wrap: normal;
+    text-wrap: balance;
+    word-break: normal;
+  }
+
+  .calendarDescription,
+  .resultsHeading > p {
+    font-size: 15px;
+  }
+
+  .schedule {
+    margin-top: 42px;
+  }
+
+  .scheduleRow {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 15px 12px;
+    padding: 24px 4px;
+  }
+
+  .scheduleRow:hover {
+    padding-inline: 4px;
+  }
+
+  .scheduleNumber {
+    grid-row: 1 / 3;
+    align-self: start;
+    padding-top: 2px;
+    font-size: 27px;
+  }
+
+  .scheduleDate,
+  .scheduleAge,
+  .scheduleLocation,
+  .scheduleAction {
+    grid-column: 2;
+  }
+
+  .scheduleDate strong {
+    font-size: 25px;
+  }
+
+  .scheduleAge strong {
+    font-size: 20px;
+  }
+
+  .scheduleLocation {
+    padding-top: 5px;
+  }
+
+  .scheduleAction {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .resultCollection {
+    margin-top: 56px;
+  }
+
+  .collectionTitle {
+    grid-template-columns: 42px 1fr auto;
+  }
+
+  .collectionTitle h3 {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+
+  .resultCards {
+    grid-template-columns: 1fr;
+  }
+
+  .resultCard {
+    min-height: 390px;
+    padding: 24px 20px;
+  }
+
+  .resultTopline {
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .resultTopline i {
+    text-align: left;
+  }
+
+  .resultCard h4 {
+    margin-block: 24px;
+    font-size: clamp(28px, 8.8vw, 40px);
+    overflow-wrap: normal;
+    text-wrap: balance;
+    word-break: normal;
+  }
+
+  .standings li {
+    grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .standings strong {
+    overflow-wrap: anywhere;
+  }
+
+  .resultsNumber {
+    font-size: 150px;
+  }
+}
+
+@media (max-width: 380px) {
+  .calendarTitle,
+  .resultsTitle {
+    font-size: 39px;
+  }
+
+  .scheduleAction {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
