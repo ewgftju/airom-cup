@@ -6,7 +6,7 @@ import { homeCopy } from "@/i18n/translations";
 import styles from "./AboutMediaContact.module.css";
 
 const instagramUrl = "https://www.instagram.com/airom_academy/";
-const email = "bcbarsy@mail.ru";
+const email = "airomacademysport@gmail.com";
 const pastVideos = [
   {
     url: "https://www.instagram.com/p/DZy7zvAoXou/",
