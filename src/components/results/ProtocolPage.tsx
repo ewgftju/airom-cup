@@ -24,18 +24,21 @@ const protocolCopy: Record<Language, {
   locationValue: string;
   organizer: string;
   organizerValue: string;
-  standings: string;
-  groupStandings: string;
+  participants: string;
+  games: string;
+  gamesDescription: string;
+  finalTable: string;
+  standingsDescription: string;
+  number: string;
+  stage: string;
+  match: string;
+  score: string;
   place: string;
   group: string;
   team: string;
-  result: string;
-  prize: string;
-  groupLeader: string;
-  sourceTitle: string;
-  sourceDescription: string;
-  openSource: string;
-  note: string;
+  points: string;
+  status: string;
+  noGames: string;
   footer: string;
 }> = {
   ru: {
@@ -54,18 +57,21 @@ const protocolCopy: Record<Language, {
     locationValue: "АТЫРАУ · КАЗАХСТАН",
     organizer: "ОРГАНИЗАТОР",
     organizerValue: "AIROM JUNIOR SPORT ACADEMY",
-    standings: "ИТОГОВЫЕ РЕЗУЛЬТАТЫ",
-    groupStandings: "ЛИДЕРЫ ГРУППОВОГО ЭТАПА",
+    participants: "УЧАСТНИКОВ",
+    games: "ВСЕ ИГРЫ ТУРНИРА",
+    gamesDescription: "Полный перечень матчей и зафиксированный итоговый счёт.",
+    finalTable: "ИТОГОВАЯ ТАБЛИЦА",
+    standingsDescription: "Все команды и их итоговое положение в турнире.",
+    number: "№",
+    stage: "ЭТАП",
+    match: "МАТЧ",
+    score: "СЧЁТ",
     place: "МЕСТО",
     group: "ГРУППА",
     team: "КОМАНДА",
-    result: "РЕЗУЛЬТАТ",
-    prize: "ПРИЗОВОЕ МЕСТО",
-    groupLeader: "ЛИДЕР ГРУППЫ",
-    sourceTitle: "ИСХОДНЫЙ ДОКУМЕНТ",
-    sourceDescription: "Веб-протокол составлен по оригинальной турнирной таблице. Исходный файл сохранён в архиве без изменений.",
-    openSource: "ОТКРЫТЬ ИСХОДНЫЙ ФАЙЛ",
-    note: "Результаты опубликованы в архиве AIROM CUP на основании предоставленного турнирного протокола.",
+    points: "ОЧКИ",
+    status: "СТАТУС",
+    noGames: "СЧЁТ МАТЧЕЙ НЕ СОХРАНЁН",
     footer: "AIROM CUP · OFFICIAL RESULTS ARCHIVE",
   },
   kk: {
@@ -84,18 +90,21 @@ const protocolCopy: Record<Language, {
     locationValue: "АТЫРАУ · ҚАЗАҚСТАН",
     organizer: "ҰЙЫМДАСТЫРУШЫ",
     organizerValue: "AIROM JUNIOR SPORT ACADEMY",
-    standings: "ҚОРЫТЫНДЫ НӘТИЖЕЛЕР",
-    groupStandings: "ТОПТЫҚ КЕЗЕҢ КӨШБАСШЫЛАРЫ",
+    participants: "ҚАТЫСУШЫ",
+    games: "ТУРНИРДІҢ БАРЛЫҚ ОЙЫНДАРЫ",
+    gamesDescription: "Матчтардың толық тізімі және тіркелген қорытынды есеп.",
+    finalTable: "ҚОРЫТЫНДЫ КЕСТЕ",
+    standingsDescription: "Барлық командалар және олардың турнирдегі қорытынды орны.",
+    number: "№",
+    stage: "КЕЗЕҢ",
+    match: "МАТЧ",
+    score: "ЕСЕП",
     place: "ОРЫН",
     group: "ТОП",
     team: "КОМАНДА",
-    result: "НӘТИЖЕ",
-    prize: "ЖҮЛДЕЛІ ОРЫН",
-    groupLeader: "ТОП КӨШБАСШЫСЫ",
-    sourceTitle: "БАСТАПҚЫ ҚҰЖАТ",
-    sourceDescription: "Веб-хаттама түпнұсқа турнир кестесі негізінде жасалды. Бастапқы файл мұрағатта өзгеріссіз сақталған.",
-    openSource: "БАСТАПҚЫ ФАЙЛДЫ АШУ",
-    note: "Нәтижелер ұсынылған турнир хаттамасы негізінде AIROM CUP мұрағатында жарияланды.",
+    points: "ҰПАЙ",
+    status: "МӘРТЕБЕ",
+    noGames: "МАТЧ ЕСЕПТЕРІ САҚТАЛМАҒАН",
     footer: "AIROM CUP · OFFICIAL RESULTS ARCHIVE",
   },
   en: {
@@ -114,18 +123,21 @@ const protocolCopy: Record<Language, {
     locationValue: "ATYRAU · KAZAKHSTAN",
     organizer: "ORGANIZER",
     organizerValue: "AIROM JUNIOR SPORT ACADEMY",
-    standings: "FINAL STANDINGS",
-    groupStandings: "GROUP-STAGE LEADERS",
+    participants: "TEAMS",
+    games: "ALL TOURNAMENT GAMES",
+    gamesDescription: "Every recorded fixture and its official final score.",
+    finalTable: "FINAL STANDINGS",
+    standingsDescription: "Every team and its final tournament position.",
+    number: "NO.",
+    stage: "STAGE",
+    match: "MATCH",
+    score: "SCORE",
     place: "PLACE",
     group: "GROUP",
     team: "TEAM",
-    result: "RESULT",
-    prize: "PODIUM FINISH",
-    groupLeader: "GROUP LEADER",
-    sourceTitle: "SOURCE DOCUMENT",
-    sourceDescription: "This web protocol is based on the original tournament table. The source file is preserved in the archive without alteration.",
-    openSource: "OPEN SOURCE FILE",
-    note: "The results are published in the AIROM CUP archive on the basis of the supplied tournament protocol.",
+    points: "PTS",
+    status: "STATUS",
+    noGames: "MATCH SCORES WERE NOT RECORDED",
     footer: "AIROM CUP · OFFICIAL RESULTS ARCHIVE",
   },
 };
@@ -133,7 +145,6 @@ const protocolCopy: Record<Language, {
 export default function ProtocolPage({ result }: { result: PastResult }) {
   const { language } = useLanguage();
   const copy = protocolCopy[language];
-  const isGroups = result.format === "groups";
   const archiveCode = `AC-${result.id.toUpperCase()}`;
 
   return (
@@ -141,19 +152,13 @@ export default function ProtocolPage({ result }: { result: PastResult }) {
       <div className={styles.grid} aria-hidden="true" />
 
       <header className={styles.header}>
-        <Link href="/#results" className={styles.backLink}>
+        <Link href="/results" className={styles.backLink}>
           <span aria-hidden="true">←</span>
           {copy.back}
         </Link>
 
         <Link href="/" className={styles.brand} aria-label="AIROM CUP">
-          <Image
-            src="/images/logos/airom-cup-logo.png"
-            alt="AIROM CUP"
-            width={64}
-            height={64}
-            priority
-          />
+          <Image src="/images/logos/airom-cup-logo.png" alt="AIROM CUP" width={64} height={64} priority />
           <div>
             <strong>AIROM CUP</strong>
             <span>RESULTS ARCHIVE</span>
@@ -171,18 +176,9 @@ export default function ProtocolPage({ result }: { result: PastResult }) {
         </div>
 
         <div className={styles.heroMeta}>
-          <span className={styles.status}>
-            <i aria-hidden="true" />
-            {copy.published}
-          </span>
-          <div>
-            <span>{copy.archiveCode}</span>
-            <strong>{archiveCode}</strong>
-          </div>
-          <div>
-            <span>{copy.discipline}</span>
-            <strong>{copy.basketball}</strong>
-          </div>
+          <span className={styles.published}><i aria-hidden="true" />{copy.published}</span>
+          <div><span>{copy.archiveCode}</span><strong>{archiveCode}</strong></div>
+          <div><span>{copy.discipline}</span><strong>{copy.basketball}</strong></div>
         </div>
       </section>
 
@@ -190,77 +186,72 @@ export default function ProtocolPage({ result }: { result: PastResult }) {
         <div className={styles.documentTopline}>
           <span>AIROM CUP</span>
           <strong>{copy.summary}</strong>
-          <span>{String(result.standings.length).padStart(2, "0")}</span>
+          <span>{String(result.standings.length).padStart(2, "0")} {copy.participants}</span>
         </div>
 
         <div className={styles.summary}>
-          <div>
-            <span>{copy.event}</span>
-            <strong>{result.event[language]}</strong>
-          </div>
-          <div>
-            <span>{copy.category}</span>
-            <strong>{result.category[language]}</strong>
-          </div>
-          <div>
-            <span>{copy.dates}</span>
-            <strong>{result.dates[language]}</strong>
-          </div>
-          <div>
-            <span>{copy.location}</span>
-            <strong>{copy.locationValue}</strong>
-          </div>
-          <div>
-            <span>{copy.organizer}</span>
-            <strong>{copy.organizerValue}</strong>
-          </div>
+          <div><span>{copy.event}</span><strong>{result.event[language]}</strong></div>
+          <div><span>{copy.category}</span><strong>{result.category[language]}</strong></div>
+          <div><span>{copy.dates}</span><strong>{result.dates[language]}</strong></div>
+          <div><span>{copy.location}</span><strong>{copy.locationValue}</strong></div>
+          <div><span>{copy.organizer}</span><strong>{copy.organizerValue}</strong></div>
         </div>
 
-        <div className={styles.standingsHeader}>
-          <div>
-            <span>02</span>
-            <h2>{isGroups ? copy.groupStandings : copy.standings}</h2>
-          </div>
-          <p>{copy.note}</p>
+        <div className={styles.sectionHeading}>
+          <div><span>01</span><h2>{copy.games}</h2></div>
+          <p>{copy.gamesDescription}</p>
         </div>
 
-        <div className={styles.table} role="table" aria-label={isGroups ? copy.groupStandings : copy.standings}>
-          <div className={styles.tableHead} role="row">
-            <span role="columnheader">{isGroups ? copy.group : copy.place}</span>
+        {result.games.length > 0 ? (
+          <div className={styles.gamesTable} role="table" aria-label={copy.games}>
+            <div className={styles.gamesHead} role="row">
+              <span role="columnheader">{copy.number}</span>
+              <span role="columnheader">{copy.stage}</span>
+              <span role="columnheader">{copy.match}</span>
+              <span role="columnheader">{copy.score}</span>
+              <span role="columnheader" aria-hidden="true" />
+            </div>
+            {result.games.map((game, index) => (
+              <div className={styles.gameRow} role="row" key={`${game.teamA}-${game.teamB}-${index}`}>
+                <span className={styles.gameNumber} role="cell">{String(index + 1).padStart(2, "0")}</span>
+                <span className={styles.gameStage} role="cell">{game.stage?.[language] ?? "—"}</span>
+                <strong className={styles.teamA} role="cell">{game.teamA}</strong>
+                <b className={styles.gameScore} role="cell">
+                  <i>{game.scoreA}</i><em>:</em><i>{game.scoreB}</i>
+                </b>
+                <strong className={styles.teamB} role="cell">{game.teamB}</strong>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className={styles.noGames}>
+            <strong>{copy.noGames}</strong>
+            <p>{result.dataNote?.[language]}</p>
+          </div>
+        )}
+
+        <div className={styles.sectionHeading}>
+          <div><span>02</span><h2>{copy.finalTable}</h2></div>
+          <p>{copy.standingsDescription}</p>
+        </div>
+
+        <div className={styles.standingsTable} role="table" aria-label={copy.finalTable}>
+          <div className={styles.standingsHead} role="row">
+            <span role="columnheader">{copy.place}</span>
+            <span role="columnheader">{copy.group}</span>
             <span role="columnheader">{copy.team}</span>
-            <span role="columnheader">{copy.result}</span>
+            <span role="columnheader">{copy.points}</span>
+            <span role="columnheader">{copy.status}</span>
           </div>
-
-          {result.standings.map((standing, index) => (
-            <div className={styles.tableRow} role="row" key={`${standing.place}-${standing.team}`}>
-              <div
-                role="cell"
-                className={`${styles.position} ${!isGroups && index < 3 ? styles[`place${index + 1}`] : ""}`}
-              >
-                <small>{isGroups ? copy.group : copy.place}</small>
-                <strong>{standing.place}</strong>
-              </div>
-              <div className={styles.team} role="cell">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <strong>{standing.team}</strong>
-              </div>
-              <div className={styles.resultBadge} role="cell">
-                {isGroups ? copy.groupLeader : copy.prize}
-              </div>
+          {result.standings.map((standing) => (
+            <div className={styles.standingRow} role="row" key={`${standing.group ?? "all"}-${standing.place}-${standing.team}`}>
+              <strong className={styles.position} role="cell">{standing.place}</strong>
+              <span className={styles.group} role="cell">{standing.group ? `${copy.group} ${standing.group}` : "—"}</span>
+              <strong className={styles.standingTeam} role="cell">{standing.team}</strong>
+              <b className={styles.points} role="cell">{standing.points ?? "—"}</b>
+              <span className={styles.note} role="cell">{standing.note?.[language] ?? "—"}</span>
             </div>
           ))}
-        </div>
-
-        <div className={styles.source}>
-          <div className={styles.sourceMark} aria-hidden="true">PDF</div>
-          <div>
-            <span>{copy.sourceTitle}</span>
-            <p>{copy.sourceDescription}</p>
-          </div>
-          <a href={result.protocolUrl} target="_blank" rel="noreferrer">
-            {copy.openSource}
-            <b aria-hidden="true">↗</b>
-          </a>
         </div>
       </section>
 

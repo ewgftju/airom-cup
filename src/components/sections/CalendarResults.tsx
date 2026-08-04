@@ -111,9 +111,10 @@ export function CalendarSection() {
 export function ResultsSection() {
   const { language } = useLanguage();
   const copy = homeCopy[language];
+  const gamesCount = pastResults.reduce((total, result) => total + result.games.length, 0);
 
   return (
-      <section id="results" className={styles.resultsSection}>
+      <section id="results" className={`${styles.resultsSection} ${styles.resultsCompact}`}>
         <div className={styles.resultsGrid} aria-hidden="true" />
         <div className={styles.resultsNumber} aria-hidden="true">03</div>
 
@@ -123,88 +124,23 @@ export function ResultsSection() {
               <p className={styles.resultsEyebrow}>{copy.results.eyebrow}</p>
               <h2 className={styles.resultsTitle}>
                 {copy.results.title1}
-                <br />
+                {" "}
                 <span>{copy.results.title2}</span>
               </h2>
             </div>
             <p>{copy.results.description}</p>
           </div>
 
-          {(["2026", "archive"] as const).map((collection) => {
-            const collectionResults = pastResults.filter(
-              (result) => result.collection === collection,
-            );
-
-            return (
-              <div key={collection} className={styles.resultCollection}>
-                <div className={styles.collectionTitle}>
-                  <span>{collection === "2026" ? "01" : "02"}</span>
-                  <h3>
-                    {collection === "2026"
-                      ? copy.results.current
-                      : copy.results.archive}
-                  </h3>
-                  <i>{String(collectionResults.length).padStart(2, "0")}</i>
-                </div>
-
-                <div className={styles.resultCards}>
-                  {collectionResults.map((result) => (
-                    <article key={result.id} className={styles.resultCard}>
-                      <div className={styles.resultTopline}>
-                        <span>{result.event[language]}</span>
-                        <i>{result.dates[language]}</i>
-                      </div>
-
-                      <h4>{result.category[language]}</h4>
-
-                      <p className={styles.standingsLabel}>
-                        {result.format === "groups"
-                          ? copy.results.groupLeaders
-                          : copy.results.podium}
-                      </p>
-
-                      <ol
-                        className={`${styles.standings} ${
-                          result.format === "groups"
-                            ? styles.groupStandings
-                            : ""
-                        }`}
-                      >
-                        {result.standings.map((standing) => (
-                          <li key={`${standing.place}-${standing.team}`}>
-                            <span
-                              className={
-                                standing.place === "1"
-                                  ? styles.gold
-                                  : standing.place === "2"
-                                    ? styles.silver
-                                    : standing.place === "3"
-                                      ? styles.bronze
-                                      : styles.group
-                              }
-                            >
-                              {result.format === "groups"
-                                ? `${copy.results.group} ${standing.place}`
-                                : standing.place}
-                            </span>
-                            <strong>{standing.team}</strong>
-                          </li>
-                        ))}
-                      </ol>
-
-                      <Link
-                        href={`/results/${result.id}`}
-                        className={styles.protocolLink}
-                      >
-                        {copy.results.protocol}
-                        <b>↗</b>
-                      </Link>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            );
-          })}
+          <div className={styles.resultsAction}>
+            <div className={styles.resultsStats}>
+              <div><strong>{String(pastResults.length).padStart(2, "0")}</strong><span>{copy.results.tournamentsLabel}</span></div>
+              <div><strong>{gamesCount}</strong><span>{copy.results.gamesLabel}</span></div>
+            </div>
+            <Link href="/results">
+              {copy.results.viewAll}
+              <b aria-hidden="true">→</b>
+            </Link>
+          </div>
         </div>
       </section>
   );

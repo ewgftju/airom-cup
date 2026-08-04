@@ -45,6 +45,9 @@ export const homeCopy = {
       groupLeaders: "ЛИДЕРЫ ГРУППОВОГО ЭТАПА",
       group: "ГРУППА",
       protocol: "ОТКРЫТЬ ПРОТОКОЛ",
+      viewAll: "ПОСМОТРЕТЬ ВСЕ РЕЗУЛЬТАТЫ",
+      tournamentsLabel: "ТУРНИРОВ В АРХИВЕ",
+      gamesLabel: "МАТЧЕЙ В ПРОТОКОЛАХ",
     },
     tournaments: {
       eyebrow: "CHOOSE YOUR FORMAT",
@@ -134,6 +137,9 @@ export const homeCopy = {
       groupLeaders: "ТОПТЫҚ КЕЗЕҢ КӨШБАСШЫЛАРЫ",
       group: "ТОП",
       protocol: "ХАТТАМАНЫ АШУ",
+      viewAll: "БАРЛЫҚ НӘТИЖЕЛЕРДІ КӨРУ",
+      tournamentsLabel: "МҰРАҒАТТАҒЫ ТУРНИР",
+      gamesLabel: "ХАТТАМАЛАРДАҒЫ МАТЧ",
     },
     tournaments: {
       eyebrow: "ФОРМАТЫҢДЫ ТАҢДА",
@@ -223,6 +229,9 @@ export const homeCopy = {
       groupLeaders: "GROUP-STAGE LEADERS",
       group: "GROUP",
       protocol: "OPEN PROTOCOL",
+      viewAll: "VIEW ALL RESULTS",
+      tournamentsLabel: "TOURNAMENTS ARCHIVED",
+      gamesLabel: "RECORDED GAMES",
     },
     tournaments: {
       eyebrow: "CHOOSE YOUR FORMAT",
