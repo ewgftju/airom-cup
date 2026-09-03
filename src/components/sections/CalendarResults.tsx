@@ -50,7 +50,7 @@ export function CalendarSection() {
               <article key={month[0].dates} className={styles.monthCard}>
                 <div className={styles.monthTopline}>
                   <span>{String(monthIndex + 1).padStart(2, "0")}</span>
-                  <i>{copy.calendar.status}</i>
+                  <i>{month[0].status}</i>
                 </div>
 
                 <h3>{month[0].dates}</h3>

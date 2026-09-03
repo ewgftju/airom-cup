@@ -14,6 +14,8 @@ export type Tournament = {
 
   dates: string;
 
+  status: string;
+
   location: string;
 
   badge: string;
@@ -27,19 +29,21 @@ export const tournaments: Tournament[] = [
 
     title: "AIROM CUP",
 
-    allowedCategories: ["boys", "girls"],
+    allowedCategories: ["boys"],
 
-    categoryLabel: "ЮНОШИ · ДЕВУШКИ",
+    categoryLabel: "ЮНОШИ",
 
     age: "2013–2014 Г.Р.",
 
     eligibleBirthYears: ["2013", "2014"],
 
-    dates: "ОКТЯБРЬ 2026",
+    dates: "30 ОКТЯБРЯ — 1 НОЯБРЯ 2026",
+
+    status: "ИГРОВЫЕ ДНИ",
 
     location: "АТЫРАУ · КАЗАХСТАН",
 
-    badge: "ОКТЯБРЬ 2026",
+    badge: "30 ОКТ — 1 НОЯ 2026",
 
     isActive: true,
   },
@@ -49,19 +53,21 @@ export const tournaments: Tournament[] = [
 
     title: "AIROM CUP",
 
-    allowedCategories: ["boys", "girls"],
+    allowedCategories: ["boys"],
 
-    categoryLabel: "ЮНОШИ · ДЕВУШКИ",
+    categoryLabel: "ЮНОШИ",
 
     age: "2012–2013 Г.Р.",
 
     eligibleBirthYears: ["2012", "2013"],
 
-    dates: "НОЯБРЬ 2026",
+    dates: "16–18 НОЯБРЯ 2026",
+
+    status: "ИГРОВЫЕ ДНИ",
 
     location: "АТЫРАУ · КАЗАХСТАН",
 
-    badge: "НОЯБРЬ 2026",
+    badge: "16–18 НОЯ 2026",
 
     isActive: true,
   },
@@ -71,19 +77,21 @@ export const tournaments: Tournament[] = [
 
     title: "AIROM CUP",
 
-    allowedCategories: ["boys", "girls"],
+    allowedCategories: ["boys"],
 
-    categoryLabel: "ЮНОШИ · ДЕВУШКИ",
+    categoryLabel: "ЮНОШИ",
 
     age: "2014–2015 Г.Р.",
 
     eligibleBirthYears: ["2014", "2015"],
 
-    dates: "НОЯБРЬ 2026",
+    dates: "23–25 НОЯБРЯ 2026",
+
+    status: "ИГРОВЫЕ ДНИ",
 
     location: "АТЫРАУ · КАЗАХСТАН",
 
-    badge: "НОЯБРЬ 2026",
+    badge: "23–25 НОЯ 2026",
 
     isActive: true,
   },
@@ -93,9 +101,9 @@ export const tournaments: Tournament[] = [
 
     title: "AIROM CUP",
 
-    allowedCategories: ["boys", "girls"],
+    allowedCategories: ["boys"],
 
-    categoryLabel: "ЮНОШИ · ДЕВУШКИ",
+    categoryLabel: "ЮНОШИ",
 
     age: "2015–2016 Г.Р.",
 
@@ -103,11 +111,13 @@ export const tournaments: Tournament[] = [
 
     dates: "ДЕКАБРЬ 2026",
 
+    status: "СНЯТ С КАЛЕНДАРЯ",
+
     location: "АТЫРАУ · КАЗАХСТАН",
 
     badge: "ДЕКАБРЬ 2026",
 
-    isActive: true,
+    isActive: false,
   },
 
   {
@@ -115,15 +125,17 @@ export const tournaments: Tournament[] = [
 
     title: "AIROM CUP",
 
-    allowedCategories: ["boys", "girls"],
+    allowedCategories: ["boys"],
 
-    categoryLabel: "ЮНОШИ · ДЕВУШКИ",
+    categoryLabel: "ЮНОШИ",
 
-    age: "2011–2012 Г.Р.",
+    age: "2011 Г.Р.",
 
-    eligibleBirthYears: ["2011", "2012"],
+    eligibleBirthYears: ["2011"],
 
     dates: "МАРТ 2027",
+
+    status: "ДАТА УТОЧНЯЕТСЯ",
 
     location: "АТЫРАУ · КАЗАХСТАН",
 

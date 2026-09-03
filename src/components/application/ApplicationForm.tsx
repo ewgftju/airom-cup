@@ -55,7 +55,7 @@ const initialFormData: ApplicationData = {
   country: "",
   city: "",
 
-  gender: "",
+  gender: "boys",
   birthYear: "",
   customBirthYear: "",
 
@@ -119,7 +119,7 @@ export default function ApplicationForm({
       tournament &&
       tournament.allowedCategories.length === 1
         ? tournament.allowedCategories[0]
-        : "",
+        : "boys",
   });
 
   const [step, setStep] = useState(1);
@@ -791,54 +791,13 @@ const startNewApplication = () => {
               {copy.teamCategory}
             </p>
 
-            <div className={styles.genderOptions}>
-              <button
-                type="button"
-                className={`${styles.genderCard} ${
-                  formData.gender === "boys"
-                    ? styles.genderCardActive
-                    : ""
-                }`}
-                onClick={() =>
-                  updateField("gender", "boys")
-                }
-              >
-                <span className={styles.optionNumber}>
-                  01
-                </span>
-
+            <div className={styles.lockedCategoryCard}>
+              <div className={styles.lockedCategoryMain}>
+                <span>{copy.setByTournament}</span>
                 <strong>{copy.boys}</strong>
+              </div>
 
-                <span className={styles.optionMark}>
-                  {formData.gender === "boys"
-                    ? "✓"
-                    : "→"}
-                </span>
-              </button>
-
-              <button
-                type="button"
-                className={`${styles.genderCard} ${
-                  formData.gender === "girls"
-                    ? styles.genderCardActive
-                    : ""
-                }`}
-                onClick={() =>
-                  updateField("gender", "girls")
-                }
-              >
-                <span className={styles.optionNumber}>
-                  02
-                </span>
-
-                <strong>{copy.girls}</strong>
-
-                <span className={styles.optionMark}>
-                  {formData.gender === "girls"
-                    ? "✓"
-                    : "→"}
-                </span>
-              </button>
+              <span className={styles.lockedCategoryMark}>✓</span>
             </div>
           </div>
 

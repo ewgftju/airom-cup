@@ -20,7 +20,7 @@ export const homeCopy = {
       choose: "ВЫБРАТЬ ТУРНИР",
       custom: "ПРЕДЛОЖИТЬ СВОЙ ВАРИАНТ",
       location: "АТЫРАУ · КАЗАХСТАН",
-      categories: "ЮНОШИ · ДЕВУШКИ · МЕЖДУНАРОДНЫЙ",
+      categories: "ЮНОШИ · МЕЖДУНАРОДНЫЙ",
     },
     calendar: {
       eyebrow: "КАЛЕНДАРЬ ТУРНИРОВ",
@@ -30,9 +30,9 @@ export const homeCopy = {
       period: "ПЕРИОД",
       category: "ВОЗРАСТНАЯ КАТЕГОРИЯ",
       location: "МЕСТО ПРОВЕДЕНИЯ",
-      status: "ПРЕДВАРИТЕЛЬНО",
+      status: "ИГРОВЫЕ ДНИ",
       apply: "ПОДАТЬ ЗАЯВКУ",
-      note: "Календарь является предварительным. Точные даты проведения и состав участников могут быть уточнены организаторами.",
+      note: "Даты осенних турниров подтверждены. Дата турнира для юношей 2011 года рождения в марте 2027 года будет опубликована дополнительно.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -64,7 +64,7 @@ export const homeCopy = {
       custom2: "ПОДХОДЯЩИЙ",
       custom3: "ТУРНИР?",
       customDescription: "Расскажите нам, какой турнир нужен вашей команде.",
-      preferences: ["ЮНОШИ ИЛИ ДЕВУШКИ", "ВОЗРАСТ ИГРОКОВ", "УДОБНЫЕ ДАТЫ"],
+      preferences: ["ЮНОШИ", "ВОЗРАСТ ИГРОКОВ", "УДОБНЫЕ ДАТЫ"],
       propose: "ПРЕДЛОЖИТЬ СВОЙ ВАРИАНТ",
       bottom: "ТВОЯ КОМАНДА · ТВОИ ДАТЫ · ТВОЙ ТУРНИР",
     },
@@ -76,7 +76,7 @@ export const homeCopy = {
       body: "Здесь будет размещена подробная информация об истории турнира, его ценностях, организаторах и формате проведения. Текст пока является тестовым — вы сможете заменить его в любое время.",
       facts: [
         { value: "01", label: "МЕЖДУНАРОДНЫЙ ФОРМАТ" },
-        { value: "02", label: "ЮНОШИ И ДЕВУШКИ" },
+        { value: "02", label: "ТУРНИРЫ СРЕДИ ЮНОШЕЙ" },
         { value: "03", label: "АТЫРАУ · КАЗАХСТАН" },
       ],
     },
@@ -112,7 +112,7 @@ export const homeCopy = {
       choose: "ТУРНИРДІ ТАҢДАУ",
       custom: "ӨЗ НҰСҚАҢДЫ ҰСЫНУ",
       location: "АТЫРАУ · ҚАЗАҚСТАН",
-      categories: "ҰЛДАР · ҚЫЗДАР · ХАЛЫҚАРАЛЫҚ",
+      categories: "ҰЛДАР · ХАЛЫҚАРАЛЫҚ",
     },
     calendar: {
       eyebrow: "ТУРНИР КҮНТІЗБЕСІ",
@@ -122,9 +122,9 @@ export const homeCopy = {
       period: "КЕЗЕҢ",
       category: "ЖАС САНАТЫ",
       location: "ӨТЕТІН ЖЕРІ",
-      status: "АЛДЫН АЛА",
+      status: "ОЙЫН КҮНДЕРІ",
       apply: "ӨТІНІМ БЕРУ",
-      note: "Күнтізбе алдын ала жасалған. Өткізудің нақты күндері мен қатысушылар құрамы ұйымдастырушылармен нақтылануы мүмкін.",
+      note: "Күзгі турнирлердің күндері бекітілді. 2011 жылы туған ұлдар турнирінің 2027 жылғы наурыздағы нақты күні қосымша жарияланады.",
     },
     results: {
       eyebrow: "AIROM CUP МҰРАҒАТЫ",
@@ -156,7 +156,7 @@ export const homeCopy = {
       custom2: "ТУРНИР",
       custom3: "ТАБЫЛМАДЫ МА?",
       customDescription: "Командаңызға қандай турнир қажет екенін айтып беріңіз.",
-      preferences: ["ҰЛДАР НЕМЕСЕ ҚЫЗДАР", "ОЙЫНШЫЛАРДЫҢ ЖАСЫ", "ЫҢҒАЙЛЫ КҮНДЕР"],
+      preferences: ["ҰЛДАР", "ОЙЫНШЫЛАРДЫҢ ЖАСЫ", "ЫҢҒАЙЛЫ КҮНДЕР"],
       propose: "ӨЗ НҰСҚАҢДЫ ҰСЫНУ",
       bottom: "СЕНІҢ КОМАНДАҢ · СЕНІҢ КҮНДЕРІҢ · СЕНІҢ ТУРНИРІҢ",
     },
@@ -168,7 +168,7 @@ export const homeCopy = {
       body: "Мұнда турнирдің тарихы, құндылықтары, ұйымдастырушылары және өткізу форматы туралы толық ақпарат орналастырылады. Бұл әзірге тестілік мәтін — оны кез келген уақытта ауыстыра аласыз.",
       facts: [
         { value: "01", label: "ХАЛЫҚАРАЛЫҚ ФОРМАТ" },
-        { value: "02", label: "ҰЛДАР МЕН ҚЫЗДАР" },
+        { value: "02", label: "ҰЛДАР АРАСЫНДАҒЫ ТУРНИРЛЕР" },
         { value: "03", label: "АТЫРАУ · ҚАЗАҚСТАН" },
       ],
     },
@@ -204,7 +204,7 @@ export const homeCopy = {
       choose: "CHOOSE A TOURNAMENT",
       custom: "SUGGEST YOUR FORMAT",
       location: "ATYRAU · KAZAKHSTAN",
-      categories: "BOYS · GIRLS · INTERNATIONAL",
+      categories: "BOYS · INTERNATIONAL",
     },
     calendar: {
       eyebrow: "TOURNAMENT CALENDAR",
@@ -214,9 +214,9 @@ export const homeCopy = {
       period: "PERIOD",
       category: "AGE CATEGORY",
       location: "LOCATION",
-      status: "PROVISIONAL",
+      status: "GAME DAYS",
       apply: "APPLY NOW",
-      note: "This calendar is provisional. Exact tournament dates and participant line-ups may be adjusted by the organizers.",
+      note: "The autumn tournament dates are confirmed. The exact March 2027 date for boys born in 2011 will be announced separately.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -248,7 +248,7 @@ export const homeCopy = {
       custom2: "THE RIGHT",
       custom3: "TOURNAMENT?",
       customDescription: "Tell us what kind of tournament your team needs.",
-      preferences: ["BOYS OR GIRLS", "PLAYERS' AGE", "PREFERRED DATES"],
+      preferences: ["BOYS", "PLAYERS' AGE", "PREFERRED DATES"],
       propose: "SUGGEST YOUR FORMAT",
       bottom: "YOUR TEAM · YOUR DATES · YOUR TOURNAMENT",
     },
@@ -260,7 +260,7 @@ export const homeCopy = {
       body: "This section will feature the tournament's story, values, organizers and competition format. This is placeholder copy for now — you can replace it at any time.",
       facts: [
         { value: "01", label: "INTERNATIONAL FORMAT" },
-        { value: "02", label: "BOYS AND GIRLS" },
+        { value: "02", label: "BOYS' TOURNAMENTS" },
         { value: "03", label: "ATYRAU · KAZAKHSTAN" },
       ],
     },
@@ -294,17 +294,17 @@ const tournamentCopy: Record<Language, Record<string, Omit<Tournament, "id" | "a
 };
 
 const tournamentDefinitions = [
-  ["airom-cup-2013-2014-oct-2026", "2013–2014", "ОКТЯБРЬ 2026", "ҚАЗАН 2026", "OCTOBER 2026"],
-  ["airom-cup-2012-2013-nov-2026", "2012–2013", "НОЯБРЬ 2026", "ҚАРАША 2026", "NOVEMBER 2026"],
-  ["airom-cup-2014-2015-nov-2026", "2014–2015", "НОЯБРЬ 2026", "ҚАРАША 2026", "NOVEMBER 2026"],
-  ["airom-cup-2015-2016-dec-2026", "2015–2016", "ДЕКАБРЬ 2026", "ЖЕЛТОҚСАН 2026", "DECEMBER 2026"],
-  ["airom-cup-2011-2012-mar-2027", "2011–2012", "МАРТ 2027", "НАУРЫЗ 2027", "MARCH 2027"],
+  ["airom-cup-2013-2014-oct-2026", "2013–2014", "30 ОКТЯБРЯ — 1 НОЯБРЯ 2026", "30 ҚАЗАН — 1 ҚАРАША 2026", "OCT 30 — NOV 1, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2012-2013-nov-2026", "2012–2013", "16–18 НОЯБРЯ 2026", "16–18 ҚАРАША 2026", "NOV 16–18, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2014-2015-nov-2026", "2014–2015", "23–25 НОЯБРЯ 2026", "23–25 ҚАРАША 2026", "NOV 23–25, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2015-2016-dec-2026", "2015–2016", "ДЕКАБРЬ 2026", "ЖЕЛТОҚСАН 2026", "DECEMBER 2026", "СНЯТ С КАЛЕНДАРЯ", "КҮНТІЗБЕДЕН АЛЫНДЫ", "REMOVED"],
+  ["airom-cup-2011-2012-mar-2027", "2011", "МАРТ 2027", "НАУРЫЗ 2027", "MARCH 2027", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
 ] as const;
 
-for (const [id, years, ruDate, kkDate, enDate] of tournamentDefinitions) {
-  tournamentCopy.ru[id] = { title: "AIROM CUP", categoryLabel: "ЮНОШИ · ДЕВУШКИ", age: `${years} Г.Р.`, dates: ruDate, location: "АТЫРАУ · КАЗАХСТАН", badge: ruDate };
-  tournamentCopy.kk[id] = { title: "AIROM CUP", categoryLabel: "ҰЛДАР · ҚЫЗДАР", age: `${years} Т.Ж.`, dates: kkDate, location: "АТЫРАУ · ҚАЗАҚСТАН", badge: kkDate };
-  tournamentCopy.en[id] = { title: "AIROM CUP", categoryLabel: "BOYS · GIRLS", age: `BORN ${years}`, dates: enDate, location: "ATYRAU · KAZAKHSTAN", badge: enDate };
+for (const [id, years, ruDate, kkDate, enDate, ruStatus, kkStatus, enStatus] of tournamentDefinitions) {
+  tournamentCopy.ru[id] = { title: "AIROM CUP", categoryLabel: "ЮНОШИ", age: `${years} Г.Р.`, dates: ruDate, status: ruStatus, location: "АТЫРАУ · КАЗАХСТАН", badge: ruDate };
+  tournamentCopy.kk[id] = { title: "AIROM CUP", categoryLabel: "ҰЛДАР", age: `${years} Т.Ж.`, dates: kkDate, status: kkStatus, location: "АТЫРАУ · ҚАЗАҚСТАН", badge: kkDate };
+  tournamentCopy.en[id] = { title: "AIROM CUP", categoryLabel: "BOYS", age: `BORN ${years}`, dates: enDate, status: enStatus, location: "ATYRAU · KAZAKHSTAN", badge: enDate };
 }
 
 export function localizeTournament(tournament: Tournament, language: Language): Tournament {
@@ -321,7 +321,7 @@ export const applyCopy = {
       choose: ["ВЫБРАТЬ", "ТУРНИР"], custom: ["СВОЙ", "ВАРИАНТ"], selected: "ВЫБРАННЫЙ ТУРНИР",
       category: "КАТЕГОРИЯ", age: "ВОЗРАСТ", dates: "ДАТЫ", location: "МЕСТО",
       customEyebrow: "YOUR TOURNAMENT", customSummary: ["МЫ ХОТИМ", "УЗНАТЬ,", "ЧТО НУЖНО ВАМ."],
-      customItems: ["КОМАНДА И ГОРОД", "ЮНОШИ ИЛИ ДЕВУШКИ", "ВОЗРАСТ ИГРОКОВ", "УДОБНЫЕ ДАТЫ"],
+      customItems: ["КОМАНДА И ГОРОД", "ВОЗРАСТ ИГРОКОВ", "УДОБНЫЕ ДАТЫ"],
       footer: "АТЫРАУ · КАЗАХСТАН",
     },
     form: {
@@ -329,7 +329,7 @@ export const applyCopy = {
       stepOne: "STEP ONE", teamTitle: ["РАССКАЖИТЕ", "О КОМАНДЕ"], teamDescription: "Начнём с основной информации о вашей команде.",
       teamName: "НАЗВАНИЕ КОМАНДЫ", country: "СТРАНА", city: "ГОРОД", teamPlaceholder: "Например: Barsy Atyrau", countryPlaceholder: "Например: Казахстан", cityPlaceholder: "Например: Атырау",
       stepTwo: "STEP TWO", tournamentTeamTitle: ["ВАША", "КОМАНДА."], customTeamTitle: ["КТО", "ПРИЕДЕТ?"],
-      tournamentTeamDescription: "Выберите категорию и год рождения команды согласно условиям выбранного турнира.", customTeamDescription: "Выберите категорию команды и год рождения игроков.",
+      tournamentTeamDescription: "Укажите год рождения команды согласно условиям выбранного турнира.", customTeamDescription: "Укажите год рождения игроков. Заявки принимаются только от команд юношей.",
       teamCategory: "КАТЕГОРИЯ КОМАНДЫ", setByTournament: "ЗАДАНО УСЛОВИЯМИ ТУРНИРА", tournamentRule: "УСЛОВИЕ ТУРНИРА", teamBirthYear: "ГОД РОЖДЕНИЯ ВАШЕЙ КОМАНДЫ", playersBirthYear: "ГОД РОЖДЕНИЯ ИГРОКОВ", enterBirthYear: "УКАЖИТЕ ГОД РОЖДЕНИЯ", birthYearPlaceholder: "Например: 2017", boys: "ЮНОШИ", girls: "ДЕВУШКИ",
       stepThree: "STEP THREE", confirmTitle: ["ПОДТВЕРДИТЕ", "ВЫБОР."], confirmDescription: "Проверьте выбранный турнир перед продолжением.", selectedTournament: "SELECTED TOURNAMENT", confirmed: "ВЫБОР ПОДТВЕРЖДЁН", confirm: "ПОДТВЕРЖДАЮ ВЫБОР",
       timingTitle: ["КОГДА ВАМ", "УДОБНО?"], timingDescription: "Выберите примерные сроки. Можно указать несколько периодов.", preferredYear: "ЖЕЛАТЕЛЬНЫЙ ГОД", flexible: "НЕ ВАЖНО", approximatePeriod: "ПРИМЕРНЫЙ ПЕРИОД", multiple: "МОЖНО НЕСКОЛЬКО", customDates: "СВОЙ ВАРИАНТ ДАТ", datesPlaceholder: "Например: 15–25 июня",
@@ -347,7 +347,7 @@ export const applyCopy = {
       choose: ["ТУРНИРДІ", "ТАҢДАУ"], custom: ["ӨЗ", "НҰСҚАҢ"], selected: "ТАҢДАЛҒАН ТУРНИР",
       category: "САНАТ", age: "ЖАСЫ", dates: "КҮНДЕРІ", location: "ӨТЕТІН ЖЕРІ",
       customEyebrow: "СІЗДІҢ ТУРНИРІҢІЗ", customSummary: ["БІЗ СІЗГЕ", "НЕ ҚАЖЕТ ЕКЕНІН", "БІЛГІМІЗ КЕЛЕДІ."],
-      customItems: ["КОМАНДА ЖӘНЕ ҚАЛА", "ҰЛДАР НЕМЕСЕ ҚЫЗДАР", "ОЙЫНШЫЛАРДЫҢ ЖАСЫ", "ЫҢҒАЙЛЫ КҮНДЕР"],
+      customItems: ["КОМАНДА ЖӘНЕ ҚАЛА", "ОЙЫНШЫЛАРДЫҢ ЖАСЫ", "ЫҢҒАЙЛЫ КҮНДЕР"],
       footer: "АТЫРАУ · ҚАЗАҚСТАН",
     },
     form: {
@@ -355,7 +355,7 @@ export const applyCopy = {
       stepOne: "БІРІНШІ ҚАДАМ", teamTitle: ["КОМАНДА", "ТУРАЛЫ"], teamDescription: "Командаңыз туралы негізгі ақпараттан бастайық.",
       teamName: "КОМАНДА АТАУЫ", country: "ЕЛ", city: "ҚАЛА", teamPlaceholder: "Мысалы: Barsy Atyrau", countryPlaceholder: "Мысалы: Қазақстан", cityPlaceholder: "Мысалы: Атырау",
       stepTwo: "ЕКІНШІ ҚАДАМ", tournamentTeamTitle: ["СІЗДІҢ", "КОМАНДАҢЫЗ."], customTeamTitle: ["КІМ", "КЕЛЕДІ?"],
-      tournamentTeamDescription: "Таңдалған турнир шарттарына сәйкес команда санаты мен туған жылын таңдаңыз.", customTeamDescription: "Команда санатын және ойыншылардың туған жылын таңдаңыз.",
+      tournamentTeamDescription: "Таңдалған турнир шарттарына сәйкес команданың туған жылын таңдаңыз.", customTeamDescription: "Ойыншылардың туған жылын көрсетіңіз. Өтінімдер тек ұлдар командаларынан қабылданады.",
       teamCategory: "КОМАНДА САНАТЫ", setByTournament: "ТУРНИР ШАРТТАРЫМЕН БЕЛГІЛЕНГЕН", tournamentRule: "ТУРНИР ШАРТЫ", teamBirthYear: "КОМАНДАҢЫЗДЫҢ ТУҒАН ЖЫЛЫ", playersBirthYear: "ОЙЫНШЫЛАРДЫҢ ТУҒАН ЖЫЛЫ", enterBirthYear: "ТУҒАН ЖЫЛЫН КӨРСЕТІҢІЗ", birthYearPlaceholder: "Мысалы: 2017", boys: "ҰЛДАР", girls: "ҚЫЗДАР",
       stepThree: "ҮШІНШІ ҚАДАМ", confirmTitle: ["ТАҢДАУДЫ", "РАСТАҢЫЗ."], confirmDescription: "Жалғастырмас бұрын таңдалған турнирді тексеріңіз.", selectedTournament: "ТАҢДАЛҒАН ТУРНИР", confirmed: "ТАҢДАУ РАСТАЛДЫ", confirm: "ТАҢДАУДЫ РАСТАЙМЫН",
       timingTitle: ["СІЗГЕ ҚАЙ КЕЗ", "ЫҢҒАЙЛЫ?"], timingDescription: "Шамамен мерзімді таңдаңыз. Бірнеше кезеңді көрсетуге болады.", preferredYear: "ҚАЛАУЛЫ ЖЫЛ", flexible: "МАҢЫЗДЫ ЕМЕС", approximatePeriod: "ШАМАМЕН КЕЗЕҢ", multiple: "БІРНЕШЕУІН ТАҢДАУҒА БОЛАДЫ", customDates: "ӨЗ КҮНДЕРІҢІЗ", datesPlaceholder: "Мысалы: 15–25 маусым",
@@ -373,7 +373,7 @@ export const applyCopy = {
       choose: ["CHOOSE A", "TOURNAMENT"], custom: ["YOUR", "FORMAT"], selected: "SELECTED TOURNAMENT",
       category: "CATEGORY", age: "AGE", dates: "DATES", location: "LOCATION",
       customEyebrow: "YOUR TOURNAMENT", customSummary: ["WE WANT", "TO KNOW", "WHAT YOU NEED."],
-      customItems: ["TEAM AND CITY", "BOYS OR GIRLS", "PLAYERS' AGE", "PREFERRED DATES"],
+      customItems: ["TEAM AND CITY", "PLAYERS' AGE", "PREFERRED DATES"],
       footer: "ATYRAU · KAZAKHSTAN",
     },
     form: {
@@ -381,7 +381,7 @@ export const applyCopy = {
       stepOne: "STEP ONE", teamTitle: ["TELL US", "ABOUT YOUR TEAM"], teamDescription: "Let's start with the basic information about your team.",
       teamName: "TEAM NAME", country: "COUNTRY", city: "CITY", teamPlaceholder: "Example: Barsy Atyrau", countryPlaceholder: "Example: Kazakhstan", cityPlaceholder: "Example: Atyrau",
       stepTwo: "STEP TWO", tournamentTeamTitle: ["YOUR", "TEAM."], customTeamTitle: ["WHO IS", "COMING?"],
-      tournamentTeamDescription: "Choose the category and birth year that meet the selected tournament's conditions.", customTeamDescription: "Choose the team category and the players' birth year.",
+      tournamentTeamDescription: "Choose the team's birth year according to the selected tournament's conditions.", customTeamDescription: "Enter the players' birth year. Applications are accepted for boys' teams only.",
       teamCategory: "TEAM CATEGORY", setByTournament: "SET BY TOURNAMENT CONDITIONS", tournamentRule: "TOURNAMENT RULE", teamBirthYear: "YOUR TEAM'S BIRTH YEAR", playersBirthYear: "PLAYERS' BIRTH YEAR", enterBirthYear: "ENTER BIRTH YEAR", birthYearPlaceholder: "Example: 2017", boys: "BOYS", girls: "GIRLS",
       stepThree: "STEP THREE", confirmTitle: ["CONFIRM YOUR", "SELECTION."], confirmDescription: "Check the selected tournament before continuing.", selectedTournament: "SELECTED TOURNAMENT", confirmed: "SELECTION CONFIRMED", confirm: "CONFIRM SELECTION",
       timingTitle: ["WHEN WORKS", "FOR YOU?"], timingDescription: "Choose approximate dates. You can select more than one period.", preferredYear: "PREFERRED YEAR", flexible: "FLEXIBLE", approximatePeriod: "APPROXIMATE PERIOD", multiple: "MULTIPLE CHOICE", customDates: "YOUR DATES", datesPlaceholder: "Example: June 15–25",
