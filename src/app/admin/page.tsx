@@ -160,8 +160,7 @@ export default async function AdminPage() {
       `)
       .order("created_at", {
         ascending: false,
-      })
-      .limit(8),
+      }),
   ]);
 
   if (recentResult.error) {
