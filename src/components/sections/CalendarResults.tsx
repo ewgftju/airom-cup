@@ -7,6 +7,22 @@ import { homeCopy, localizeTournament } from "@/i18n/translations";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import styles from "./CalendarResults.module.css";
 
+function getCalendarDateLines(date: string) {
+  const crossMonthRange = date.match(/^(.+?)\s+—\s+(.+)$/);
+
+  if (crossMonthRange) {
+    return [`${crossMonthRange[1]} —`, crossMonthRange[2]];
+  }
+
+  const datedRange = date.match(/^(.+?)(?:,\s*|\s+)(20\d{2})$/);
+
+  if (datedRange && /[–-]/.test(datedRange[1])) {
+    return [datedRange[1], datedRange[2]];
+  }
+
+  return [date];
+}
+
 export function CalendarSection() {
   const { language } = useLanguage();
   const copy = homeCopy[language];
@@ -53,7 +69,11 @@ export function CalendarSection() {
                   <i>{month[0].status}</i>
                 </div>
 
-                <h3>{month[0].dates}</h3>
+                <h3>
+                  {getCalendarDateLines(month[0].dates).map((line) => (
+                    <span key={line}>{line}</span>
+                  ))}
+                </h3>
 
                 <div className={styles.monthEvents}>
                   {month.map((tournament) => (

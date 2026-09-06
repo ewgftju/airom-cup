@@ -164,6 +164,15 @@
   text-transform: uppercase;
 }
 
+.monthCard > h3 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.monthCard > h3 span + span {
+  margin-top: 2px;
+}
+
 .monthEvents {
   display: grid;
 }
