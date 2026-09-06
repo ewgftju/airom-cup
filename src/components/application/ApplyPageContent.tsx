@@ -62,6 +62,7 @@ export default function ApplyPageContent({ selectedTournament }: { selectedTourn
                 <div><span>{copy.category}</span><strong>{tournament.categoryLabel}</strong></div>
                 <div><span>{copy.age}</span><strong>{tournament.age}</strong></div>
                 <div><span>{copy.dates}</span><strong>{tournament.dates}</strong></div>
+                <div><span>{copy.year}</span><strong>{tournament.year}</strong></div>
                 <div><span>{copy.location}</span><strong>{tournament.location}</strong></div>
               </div>
             </div>
@@ -90,4 +91,3 @@ export default function ApplyPageContent({ selectedTournament }: { selectedTourn
     </main>
   );
 }
-

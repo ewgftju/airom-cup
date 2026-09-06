@@ -99,6 +99,16 @@ export default function Tournaments() {
 
                 <div>
                   <span className={styles.metaLabel}>
+                    {copy.year}
+                  </span>
+
+                  <strong className={styles.metaValue}>
+                    {tournament.year}
+                  </strong>
+                </div>
+
+                <div>
+                  <span className={styles.metaLabel}>
                     {copy.location}
                   </span>
 

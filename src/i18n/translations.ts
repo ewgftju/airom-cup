@@ -28,11 +28,12 @@ export const homeCopy = {
       title2: "СЕЗОН 2026/2027",
       description: "Выберите подходящую возрастную категорию прямо в календаре и отправьте заявку команды.",
       period: "ПЕРИОД",
+      year: "ГОД",
       category: "ВОЗРАСТНАЯ КАТЕГОРИЯ",
       location: "МЕСТО ПРОВЕДЕНИЯ",
       status: "ИГРОВЫЕ ДНИ",
       apply: "ПОДАТЬ ЗАЯВКУ",
-      note: "Даты осенних турниров подтверждены. Дата турнира для юношей 2011 года рождения в марте 2027 года будет опубликована дополнительно.",
+      note: "Даты октября и ноября подтверждены. Точные игровые дни декабря (2015–2016 г.р.) и марта (2011 г.р.) будут опубликованы дополнительно.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -57,6 +58,7 @@ export const homeCopy = {
       international: "INTERNATIONAL",
       category: "КАТЕГОРИЯ",
       dates: "ДАТЫ",
+      year: "ГОД",
       location: "МЕСТО",
       choose: "ВЫБРАТЬ ЭТОТ ТУРНИР",
       customEyebrow: "YOUR TOURNAMENT",
@@ -120,11 +122,12 @@ export const homeCopy = {
       title2: "2026/2027 МАУСЫМЫ",
       description: "Күнтізбеден қолайлы жас санатын таңдап, команда өтінімін жіберіңіз.",
       period: "КЕЗЕҢ",
+      year: "ЖЫЛ",
       category: "ЖАС САНАТЫ",
       location: "ӨТЕТІН ЖЕРІ",
       status: "ОЙЫН КҮНДЕРІ",
       apply: "ӨТІНІМ БЕРУ",
-      note: "Күзгі турнирлердің күндері бекітілді. 2011 жылы туған ұлдар турнирінің 2027 жылғы наурыздағы нақты күні қосымша жарияланады.",
+      note: "Қазан және қараша күндері расталды. Желтоқсан (2015–2016 т.ж.) және наурыз (2011 т.ж.) ойындарының нақты күндері кейінірек жарияланады.",
     },
     results: {
       eyebrow: "AIROM CUP МҰРАҒАТЫ",
@@ -149,6 +152,7 @@ export const homeCopy = {
       international: "ХАЛЫҚАРАЛЫҚ",
       category: "САНАТ",
       dates: "КҮНДЕРІ",
+      year: "ЖЫЛ",
       location: "ӨТЕТІН ЖЕРІ",
       choose: "ОСЫ ТУРНИРДІ ТАҢДАУ",
       customEyebrow: "СІЗДІҢ ТУРНИРІҢІЗ",
@@ -212,11 +216,12 @@ export const homeCopy = {
       title2: "2026/2027 SEASON",
       description: "Choose the right age group directly in the calendar and submit your team's application.",
       period: "PERIOD",
+      year: "YEAR",
       category: "AGE CATEGORY",
       location: "LOCATION",
       status: "GAME DAYS",
       apply: "APPLY NOW",
-      note: "The autumn tournament dates are confirmed. The exact March 2027 date for boys born in 2011 will be announced separately.",
+      note: "October and November dates are confirmed. Exact game days for December (born 2015–2016) and March (born 2011) will be announced separately.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -241,6 +246,7 @@ export const homeCopy = {
       international: "INTERNATIONAL",
       category: "CATEGORY",
       dates: "DATES",
+      year: "YEAR",
       location: "LOCATION",
       choose: "CHOOSE THIS TOURNAMENT",
       customEyebrow: "YOUR TOURNAMENT",
@@ -287,24 +293,24 @@ export const homeCopy = {
   },
 } as const;
 
-const tournamentCopy: Record<Language, Record<string, Omit<Tournament, "id" | "allowedCategories" | "eligibleBirthYears" | "isActive">>> = {
+const tournamentCopy: Record<Language, Record<string, Omit<Tournament, "id" | "allowedCategories" | "eligibleBirthYears" | "year" | "isActive">>> = {
   ru: {},
   kk: {},
   en: {},
 };
 
 const tournamentDefinitions = [
-  ["airom-cup-2013-2014-oct-2026", "2013–2014", "30 ОКТЯБРЯ — 1 НОЯБРЯ 2026", "30 ҚАЗАН — 1 ҚАРАША 2026", "OCT 30 — NOV 1, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
-  ["airom-cup-2012-2013-nov-2026", "2012–2013", "16–18 НОЯБРЯ 2026", "16–18 ҚАРАША 2026", "NOV 16–18, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
-  ["airom-cup-2014-2015-nov-2026", "2014–2015", "23–25 НОЯБРЯ 2026", "23–25 ҚАРАША 2026", "NOV 23–25, 2026", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
-  ["airom-cup-2015-2016-dec-2026", "2015–2016", "ДЕКАБРЬ 2026", "ЖЕЛТОҚСАН 2026", "DECEMBER 2026", "СНЯТ С КАЛЕНДАРЯ", "КҮНТІЗБЕДЕН АЛЫНДЫ", "REMOVED"],
-  ["airom-cup-2011-2012-mar-2027", "2011", "МАРТ 2027", "НАУРЫЗ 2027", "MARCH 2027", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
+  ["airom-cup-2013-2014-oct-2026", "2013–2014", "2026", "30 ОКТЯБРЯ — 1 НОЯБРЯ", "30 ҚАЗАН — 1 ҚАРАША", "OCT 30 — NOV 1", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2012-2013-nov-2026", "2012–2013", "2026", "16–18 НОЯБРЯ", "16–18 ҚАРАША", "NOV 16–18", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2014-2015-nov-2026", "2014–2015", "2026", "23–25 НОЯБРЯ", "23–25 ҚАРАША", "NOV 23–25", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
+  ["airom-cup-2015-2016-dec-2026", "2015–2016", "2026", "ДЕКАБРЬ", "ЖЕЛТОҚСАН", "DECEMBER", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
+  ["airom-cup-2011-2012-mar-2027", "2011", "2027", "МАРТ", "НАУРЫЗ", "MARCH", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
 ] as const;
 
-for (const [id, years, ruDate, kkDate, enDate, ruStatus, kkStatus, enStatus] of tournamentDefinitions) {
-  tournamentCopy.ru[id] = { title: "AIROM CUP", categoryLabel: "ЮНОШИ", age: `${years} Г.Р.`, dates: ruDate, status: ruStatus, location: "АТЫРАУ · КАЗАХСТАН", badge: ruDate };
-  tournamentCopy.kk[id] = { title: "AIROM CUP", categoryLabel: "ҰЛДАР", age: `${years} Т.Ж.`, dates: kkDate, status: kkStatus, location: "АТЫРАУ · ҚАЗАҚСТАН", badge: kkDate };
-  tournamentCopy.en[id] = { title: "AIROM CUP", categoryLabel: "BOYS", age: `BORN ${years}`, dates: enDate, status: enStatus, location: "ATYRAU · KAZAKHSTAN", badge: enDate };
+for (const [id, years, year, ruDate, kkDate, enDate, ruStatus, kkStatus, enStatus] of tournamentDefinitions) {
+  tournamentCopy.ru[id] = { title: "AIROM CUP", categoryLabel: "ЮНОШИ", age: `${years} Г.Р.`, dates: ruDate, status: ruStatus, location: "АТЫРАУ · КАЗАХСТАН", badge: `${ruDate} · ${year}` };
+  tournamentCopy.kk[id] = { title: "AIROM CUP", categoryLabel: "ҰЛДАР", age: `${years} Т.Ж.`, dates: kkDate, status: kkStatus, location: "АТЫРАУ · ҚАЗАҚСТАН", badge: `${kkDate} · ${year}` };
+  tournamentCopy.en[id] = { title: "AIROM CUP", categoryLabel: "BOYS", age: `BORN ${years}`, dates: enDate, status: enStatus, location: "ATYRAU · KAZAKHSTAN", badge: `${enDate} · ${year}` };
 }
 
 export function localizeTournament(tournament: Tournament, language: Language): Tournament {
@@ -319,7 +325,7 @@ export const applyCopy = {
       tournamentDescription: "Расскажите нам о своей команде. Мы получим заявку и свяжемся с вашим представителем.",
       customDescription: "Укажите, какая команда хочет приехать, возраст игроков и удобные даты. Ваше предложение поможет нам определить следующий AIROM CUP.",
       choose: ["ВЫБРАТЬ", "ТУРНИР"], custom: ["СВОЙ", "ВАРИАНТ"], selected: "ВЫБРАННЫЙ ТУРНИР",
-      category: "КАТЕГОРИЯ", age: "ВОЗРАСТ", dates: "ДАТЫ", location: "МЕСТО",
+      category: "КАТЕГОРИЯ", age: "ВОЗРАСТ", dates: "ДАТЫ", year: "ГОД", location: "МЕСТО",
       customEyebrow: "YOUR TOURNAMENT", customSummary: ["МЫ ХОТИМ", "УЗНАТЬ,", "ЧТО НУЖНО ВАМ."],
       customItems: ["КОМАНДА И ГОРОД", "ВОЗРАСТ ИГРОКОВ", "УДОБНЫЕ ДАТЫ"],
       footer: "АТЫРАУ · КАЗАХСТАН",
@@ -345,7 +351,7 @@ export const applyCopy = {
       tournamentDescription: "Командаңыз туралы айтып беріңіз. Біз өтінімді алып, өкіліңізбен хабарласамыз.",
       customDescription: "Қай команда келгісі келетінін, ойыншылардың жасын және ыңғайлы күндерді көрсетіңіз. Ұсынысыңыз келесі AIROM CUP турнирін жоспарлауға көмектеседі.",
       choose: ["ТУРНИРДІ", "ТАҢДАУ"], custom: ["ӨЗ", "НҰСҚАҢ"], selected: "ТАҢДАЛҒАН ТУРНИР",
-      category: "САНАТ", age: "ЖАСЫ", dates: "КҮНДЕРІ", location: "ӨТЕТІН ЖЕРІ",
+      category: "САНАТ", age: "ЖАСЫ", dates: "КҮНДЕРІ", year: "ЖЫЛ", location: "ӨТЕТІН ЖЕРІ",
       customEyebrow: "СІЗДІҢ ТУРНИРІҢІЗ", customSummary: ["БІЗ СІЗГЕ", "НЕ ҚАЖЕТ ЕКЕНІН", "БІЛГІМІЗ КЕЛЕДІ."],
       customItems: ["КОМАНДА ЖӘНЕ ҚАЛА", "ОЙЫНШЫЛАРДЫҢ ЖАСЫ", "ЫҢҒАЙЛЫ КҮНДЕР"],
       footer: "АТЫРАУ · ҚАЗАҚСТАН",
@@ -371,7 +377,7 @@ export const applyCopy = {
       tournamentDescription: "Tell us about your team. We will receive your application and contact your representative.",
       customDescription: "Tell us which team would like to attend, the players' age group and preferred dates. Your suggestion will help shape the next AIROM CUP.",
       choose: ["CHOOSE A", "TOURNAMENT"], custom: ["YOUR", "FORMAT"], selected: "SELECTED TOURNAMENT",
-      category: "CATEGORY", age: "AGE", dates: "DATES", location: "LOCATION",
+      category: "CATEGORY", age: "AGE", dates: "DATES", year: "YEAR", location: "LOCATION",
       customEyebrow: "YOUR TOURNAMENT", customSummary: ["WE WANT", "TO KNOW", "WHAT YOU NEED."],
       customItems: ["TEAM AND CITY", "PLAYERS' AGE", "PREFERRED DATES"],
       footer: "ATYRAU · KAZAKHSTAN",

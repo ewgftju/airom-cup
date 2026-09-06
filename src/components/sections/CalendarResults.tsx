@@ -30,7 +30,11 @@ export function CalendarSection() {
     .filter((tournament) => tournament.isActive)
     .map((tournament) => localizeTournament(tournament, language));
   const months = calendar.reduce<(typeof calendar)[]>((groups, tournament) => {
-    const existing = groups.find((group) => group[0]?.dates === tournament.dates);
+    const existing = groups.find(
+      (group) =>
+        group[0]?.dates === tournament.dates &&
+        group[0]?.year === tournament.year
+    );
 
     if (existing) {
       existing.push(tournament);
@@ -63,7 +67,10 @@ export function CalendarSection() {
 
           <div className={styles.schedule}>
             {months.map((month, monthIndex) => (
-              <article key={month[0].dates} className={styles.monthCard}>
+              <article
+                key={`${month[0].dates}-${month[0].year}`}
+                className={styles.monthCard}
+              >
                 <div className={styles.monthTopline}>
                   <span>{String(monthIndex + 1).padStart(2, "0")}</span>
                   <i>{month[0].status}</i>
@@ -75,6 +82,11 @@ export function CalendarSection() {
                   ))}
                 </h3>
 
+                <p className={styles.monthYear}>
+                  <span>{copy.calendar.year}</span>
+                  <strong>{month[0].year}</strong>
+                </p>
+
                 <div className={styles.monthEvents}>
                   {month.map((tournament) => (
                     <div key={tournament.id} className={styles.monthEvent}>
@@ -85,7 +97,7 @@ export function CalendarSection() {
                       </div>
                       <Link
                         href={`/apply?mode=tournament&id=${tournament.id}`}
-                        aria-label={`${copy.calendar.apply}: ${tournament.dates}, ${tournament.age}`}
+                        aria-label={`${copy.calendar.apply}: ${tournament.dates} ${tournament.year}, ${tournament.age}`}
                       >
                         {copy.calendar.apply}
                         <b aria-hidden="true">→</b>

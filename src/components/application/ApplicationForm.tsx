@@ -22,6 +22,8 @@ type ApplicationFormProps = {
 
     dates: string;
 
+    year: string;
+
     location: string;
   };
 };
@@ -974,6 +976,14 @@ const startNewApplication = () => {
 
                       <strong>
                         {tournament.dates}
+                      </strong>
+                    </div>
+
+                    <div>
+                      <span>{applyCopy[language].page.year}</span>
+
+                      <strong>
+                        {tournament.year}
                       </strong>
                     </div>
 
