@@ -40,7 +40,7 @@ export default function ApplyPageContent({ selectedTournament }: { selectedTourn
           <p className={styles.description}>{isTournamentMode ? copy.tournamentDescription : copy.customDescription}</p>
 
           <div className={styles.modeSwitch}>
-            <Link href="/#tournaments" className={`${styles.modeButton} ${isTournamentMode ? styles.modeButtonActive : ""}`}>
+            <Link href="/#calendar" className={`${styles.modeButton} ${isTournamentMode ? styles.modeButtonActive : ""}`}>
               <span className={styles.modeNumber}>01</span>
               <span>{copy.choose[0]}<br />{copy.choose[1]}</span>
             </Link>
@@ -81,7 +81,7 @@ export default function ApplyPageContent({ selectedTournament }: { selectedTourn
             </div>
           )}
 
-          <ApplicationForm mode={isTournamentMode ? "tournament" : "custom"} tournament={tournament} />
+          <ApplicationForm key={tournament?.id ?? "custom"} mode={isTournamentMode ? "tournament" : "custom"} tournament={tournament} />
         </section>
       </div>
 

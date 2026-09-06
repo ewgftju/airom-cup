@@ -1,5 +1,6 @@
 import ApplyPageContent from "@/components/application/ApplyPageContent";
 import { tournaments } from "@/data/tournaments";
+import { redirect } from "next/navigation";
 
 type ApplyPageProps = {
   searchParams: Promise<{ mode?: string | string[]; id?: string | string[] }>;
@@ -12,6 +13,10 @@ export default async function ApplyPage({ searchParams }: ApplyPageProps) {
   const selectedTournament = mode === "tournament"
     ? tournaments.find((tournament) => tournament.id === tournamentId && tournament.isActive)
     : undefined;
+
+  if (mode === "tournament" && !selectedTournament) {
+    redirect("/#calendar");
+  }
 
   return <ApplyPageContent selectedTournament={selectedTournament} />;
 }

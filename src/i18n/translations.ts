@@ -2,6 +2,24 @@ import type { Tournament } from "@/data/tournaments";
 
 export type Language = "ru" | "kk" | "en";
 
+export const applicationFeedback = {
+  ru: {
+    steps: ["Чтобы продолжить, заполните название команды, страну и город.", "Выберите год рождения игроков.", "Подтвердите турнир или выберите год и удобный период для своего варианта.", "Укажите имя (от 2 символов), телефон (от 10 цифр), корректный email и отметьте согласие. Комментарий необязателен."],
+    network: "Не удалось получить подтверждение отправки. Проверьте соединение. Данные остались в форме; если ошибка повторяется, свяжитесь с организаторами.",
+    unavailable: "Сервис приёма заявок временно недоступен. Данные остались в форме — повторите отправку через минуту.",
+  },
+  kk: {
+    steps: ["Жалғастыру үшін команданың атауын, елін және қаласын толтырыңыз.", "Ойыншылардың туған жылын таңдаңыз.", "Турнирді растаңыз немесе өз нұсқаңыз үшін жыл мен қолайлы мерзімді таңдаңыз.", "Аты-жөніңізді (кемінде 2 таңба), телефонды (кемінде 10 цифр), дұрыс email енгізіп, келісімді белгілеңіз. Пікір міндетті емес."],
+    network: "Жіберу расталмады. Интернет байланысын тексеріңіз. Деректер нысанда сақталды; қате қайталанса, ұйымдастырушыларға хабарласыңыз.",
+    unavailable: "Өтінім қабылдау қызметі уақытша қолжетімсіз. Деректер нысанда қалды — бір минуттан кейін қайталап көріңіз.",
+  },
+  en: {
+    steps: ["Enter the team name, country and city to continue.", "Select the players' birth year.", "Confirm the tournament, or choose a year and preferred period for your own event.", "Enter a name (at least 2 characters), phone (at least 10 digits), valid email and accept the consent. The comment is optional."],
+    network: "We could not confirm submission. Check your connection. Your details remain in the form; contact the organizers if the error persists.",
+    unavailable: "Applications are temporarily unavailable. Your details remain in the form — please try again in a minute.",
+  },
+} as const;
+
 export const languageLabels: Record<Language, string> = {
   ru: "RU",
   kk: "KZ",
@@ -75,7 +93,7 @@ export const homeCopy = {
       title1: "БОЛЬШЕ, ЧЕМ",
       title2: "ПРОСТО ТУРНИР.",
       lead: "AIROM CUP — международная спортивная площадка, которая объединяет юных игроков, тренеров и команды из разных городов и стран.",
-      body: "Здесь будет размещена подробная информация об истории турнира, его ценностях, организаторах и формате проведения. Текст пока является тестовым — вы сможете заменить его в любое время.",
+      body: "Турниры проходят в Атырау по возрастным категориям. Выберите подходящий турнир в календаре и отправьте заявку команды. Если даты не подходят, предложите свой период. В архиве доступны протоколы, результаты матчей и итоговые места прошедших турниров.",
       facts: [
         { value: "01", label: "МЕЖДУНАРОДНЫЙ ФОРМАТ" },
         { value: "02", label: "ТУРНИРЫ СРЕДИ ЮНОШЕЙ" },
@@ -98,7 +116,7 @@ export const homeCopy = {
       description: "По вопросам участия, организации и сотрудничества напишите нам удобным способом.",
       instagram: "INSTAGRAM",
       email: "ЭЛЕКТРОННАЯ ПОЧТА",
-      information: "КОНТАКТ ДЛЯ ИНФОРМАЦИИ",
+      information: "WHATSAPP · УЧАСТИЕ И ВОПРОСЫ",
       informationValue: "Напишите нам в Instagram или по электронной почте",
       copyright: "AIROM CUP · ATYRAU, KAZAKHSTAN",
     },
@@ -169,7 +187,7 @@ export const homeCopy = {
       title1: "ЖАЙ ҒАНА",
       title2: "ТУРНИРДЕН АРТЫҚ.",
       lead: "AIROM CUP — түрлі қалалар мен елдерден келген жас ойыншыларды, жаттықтырушыларды және командаларды біріктіретін халықаралық спорт алаңы.",
-      body: "Мұнда турнирдің тарихы, құндылықтары, ұйымдастырушылары және өткізу форматы туралы толық ақпарат орналастырылады. Бұл әзірге тестілік мәтін — оны кез келген уақытта ауыстыра аласыз.",
+      body: "Турнирлер Атырауда жас санаттары бойынша өтеді. Күнтізбеден қолайлы турнирді таңдап, командаңыздың өтінімін жіберіңіз. Күндер сәйкес келмесе, өз мерзіміңізді ұсыныңыз. Мұрағатта өткен турнирлердің хаттамалары, матч нәтижелері және қорытынды орындары бар.",
       facts: [
         { value: "01", label: "ХАЛЫҚАРАЛЫҚ ФОРМАТ" },
         { value: "02", label: "ҰЛДАР АРАСЫНДАҒЫ ТУРНИРЛЕР" },
@@ -192,7 +210,7 @@ export const homeCopy = {
       description: "Қатысу, ұйымдастыру және ынтымақтастық мәселелері бойынша бізге ыңғайлы тәсілмен жазыңыз.",
       instagram: "INSTAGRAM",
       email: "ЭЛЕКТРОНДЫҚ ПОШТА",
-      information: "АҚПАРАТ ҮШІН БАЙЛАНЫС",
+      information: "WHATSAPP · ҚАТЫСУ ЖӘНЕ СҰРАҚТАР",
       informationValue: "Instagram немесе электрондық пошта арқылы жазыңыз",
       copyright: "AIROM CUP · АТЫРАУ, ҚАЗАҚСТАН",
     },
@@ -263,7 +281,7 @@ export const homeCopy = {
       title1: "MORE THAN",
       title2: "A TOURNAMENT.",
       lead: "AIROM CUP is an international sports platform bringing together young players, coaches and teams from different cities and countries.",
-      body: "This section will feature the tournament's story, values, organizers and competition format. This is placeholder copy for now — you can replace it at any time.",
+      body: "Tournaments take place in Atyrau by age group. Choose an event in the calendar and send your team's application. If the dates do not suit you, suggest your preferred period. The archive includes tournament protocols, match scores and final standings.",
       facts: [
         { value: "01", label: "INTERNATIONAL FORMAT" },
         { value: "02", label: "BOYS' TOURNAMENTS" },
@@ -286,7 +304,7 @@ export const homeCopy = {
       description: "For participation, organization and partnership enquiries, contact us in the way that suits you best.",
       instagram: "INSTAGRAM",
       email: "EMAIL",
-      information: "INFORMATION CONTACT",
+      information: "WHATSAPP · PARTICIPATION & QUESTIONS",
       informationValue: "Message us on Instagram or by email",
       copyright: "AIROM CUP · ATYRAU, KAZAKHSTAN",
     },

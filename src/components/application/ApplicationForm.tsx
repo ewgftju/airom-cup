@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/i18n/LanguageProvider";
-import { applyCopy } from "@/i18n/translations";
+import { applyCopy, applicationFeedback } from "@/i18n/translations";
 import styles from "./ApplicationForm.module.css";
 
 type ApplicationFormProps = {
@@ -108,6 +108,10 @@ export default function ApplicationForm({
 }: ApplicationFormProps) {
   const { language } = useLanguage();
   const copy = applyCopy[language].form;
+  const feedback = applicationFeedback[language];
+  const formRef = useRef<HTMLDivElement>(null);
+  const previousScreen = useRef("1-false");
+  const submissionPending = useRef(false);
   const categoryLabels: Record<"boys" | "girls", string> = { boys: copy.boys, girls: copy.girls };
   const preferredYears = preferredYearValues.map((value) => ({ value, label: value === "flexible" ? copy.flexible : value }));
   const periodOptions = periodValues.map((value, index) => ({ value, label: copy.periods[index] }));
@@ -131,6 +135,18 @@ export default function ApplicationForm({
 
   const [isSubmitting, setIsSubmitting] =
   useState(false);
+
+  useEffect(() => {
+    const screen = `${step}-${isSubmitted}`;
+    if (previousScreen.current === screen) return;
+    previousScreen.current = screen;
+    const heading = formRef.current?.querySelector("h2");
+    if (heading) {
+      heading.tabIndex = -1;
+      heading.focus({ preventScroll: true });
+      heading.scrollIntoView({ block: "start", behavior: "instant" });
+    }
+  }, [step, isSubmitted]);
 
   const [submitError, setSubmitError] =
   useState("");
@@ -366,12 +382,16 @@ const toggleConsent = () => {
 
   const submitApplication = async () => {
     if (
+      !isStepOneValid ||
+      !isStepTwoValid ||
+      !isStepThreeValid ||
       !isStepFourValid ||
-      isSubmitting
+      submissionPending.current
     ) {
       return;
     }
 
+    submissionPending.current = true;
     setIsSubmitting(true);
     setSubmitError("");
 
@@ -455,33 +475,29 @@ const toggleConsent = () => {
         }
       );
 
-      const result = await response.json();
+      const result = await response.json().catch(() => null);
 
       if (!response.ok) {
         throw new Error(
-          result.error ||
-            copy.sendErrorDetail
+          response.status >= 500
+            ? feedback.unavailable
+            : language === "ru" && typeof result?.error === "string"
+              ? result.error
+              : copy.sendErrorDetail
         );
       }
 
-      console.log(
-        "AIROM CUP APPLICATION SAVED:",
-        result
-      );
-
       setIsSubmitted(true);
     } catch (error) {
-      console.error(
-        "APPLICATION SUBMIT ERROR:",
-        error
-      );
-
       setSubmitError(
-        error instanceof Error
+        error instanceof TypeError
+          ? feedback.network
+          : error instanceof Error
           ? error.message
           : copy.sendErrorDetail
       );
     } finally {
+      submissionPending.current = false;
       setIsSubmitting(false);
     }
   };
@@ -507,12 +523,12 @@ const startNewApplication = () => {
   const progress = step * 25;
 
   return (
-    <div className={styles.form}>
+    <div className={styles.form} ref={formRef} aria-busy={isSubmitting}>
       {/* ================================= */}
       {/* ПРОГРЕСС */}
       {/* ================================= */}
 
-      <div className={styles.progressHeader}>
+      <div className={styles.progressHeader} aria-live="polite">
         <span>
           {copy.step} {String(step).padStart(2, "0")} / 04
         </span>
@@ -879,6 +895,7 @@ const startNewApplication = () => {
       <button
         type="button"
         className={styles.previousButton}
+        disabled={isSubmitting}
         onClick={goBack}
       >
         <span>←</span>
@@ -1029,7 +1046,8 @@ const startNewApplication = () => {
                 className={
                   styles.previousButton
                 }
-                onClick={goBack}
+                disabled={isSubmitting}
+        onClick={goBack}
               >
                 <span>←</span>
                 {copy.back}
@@ -1218,7 +1236,8 @@ const startNewApplication = () => {
                 className={
                   styles.previousButton
                 }
-                onClick={goBack}
+                disabled={isSubmitting}
+        onClick={goBack}
               >
                 <span>←</span>
                 {copy.back}
@@ -1342,6 +1361,7 @@ const startNewApplication = () => {
             ? styles.consentButtonActive
             : ""
         }`}
+        aria-pressed={formData.consentAccepted}
         onClick={toggleConsent}
       >
         <span className={styles.consentMark}>
@@ -1356,7 +1376,7 @@ const startNewApplication = () => {
       </button>
           
           {submitError && (
-  <div className={styles.submitError}>
+  <div className={styles.submitError} role="alert">
     <strong>
       {copy.sendError}
     </strong>
@@ -1373,6 +1393,7 @@ const startNewApplication = () => {
       <button
         type="button"
         className={styles.previousButton}
+        disabled={isSubmitting}
         onClick={goBack}
       >
         <span>←</span>
@@ -1463,6 +1484,9 @@ const startNewApplication = () => {
 
   </div>
 )}
+      {!isSubmitted && ![isStepOneValid, isStepTwoValid, isStepThreeValid, isStepFourValid][step - 1] && (
+        <p className={styles.validationHint}>{feedback.steps[step - 1]}</p>
+      )}
     </div>
   );
 }

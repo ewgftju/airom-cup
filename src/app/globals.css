@@ -15,6 +15,9 @@ body {
   padding: 0;
 }
 
+h1,
+h2,
+h3,
 h1[class],
 h2[class],
 h3[class] {
@@ -47,6 +50,27 @@ select {
 
 button {
   border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+body :is(a, button, input, textarea, select):focus-visible {
+  outline: 3px solid #249fb9;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 2px #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 img {

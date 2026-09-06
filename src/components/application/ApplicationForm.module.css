@@ -11,6 +11,51 @@
   color: #061426;
 }
 
+.form .field input,
+.form .customYearField input,
+.form .customDatesField input,
+.form .commentField textarea {
+  font-size: 16px;
+}
+
+.form label > span,
+.form .questionLabel,
+.form .consentText {
+  color: #475463;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+}
+
+.form .description,
+.form .successDescription {
+  color: #475463;
+  font-size: 16px;
+}
+
+.form button {
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.form .nextButton,
+.form .nextButtonCompact,
+.form .submitButton,
+.form .newApplicationButton {
+  min-height: 56px;
+  font-size: 16px;
+}
+
+.form h2 { scroll-margin-top: 24px; }
+
+.validationHint {
+  margin: 16px 0 0;
+  color: #475463;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 /* -------------------------------- */
 /* PROGRESS */
 /* -------------------------------- */
@@ -21,7 +66,7 @@
 
   color: rgba(6, 20, 38, 0.45);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.14em;
 }
@@ -56,7 +101,7 @@
 
   color: #249fb9;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.2em;
 }
@@ -119,7 +164,7 @@
 .field span {
   color: rgba(6, 20, 38, 0.52);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -191,7 +236,7 @@
   background: #061426;
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 
@@ -251,7 +296,7 @@
 .summary span {
   color: rgba(6, 20, 38, 0.42);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -276,7 +321,7 @@
   background: transparent;
   color: #061426;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.1em;
 
@@ -316,7 +361,7 @@
 
   color: rgba(6, 20, 38, 0.5);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.14em;
 }
@@ -389,7 +434,7 @@
 }
 
 .genderCard strong {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.05em;
 }
 
@@ -427,7 +472,7 @@
   background: transparent;
   color: #061426;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.05em;
 
@@ -468,7 +513,7 @@
 .customYearField span {
   color: rgba(6, 20, 38, 0.5);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -533,7 +578,7 @@
   background: transparent;
   color: #061426;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 
@@ -571,7 +616,7 @@
   background: #061426;
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 
@@ -657,7 +702,7 @@
 
   color: #249fb9;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.18em;
 }
@@ -711,13 +756,13 @@
 .confirmationMeta span {
   color: rgba(255, 255, 255, 0.35);
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.13em;
 }
 
 .confirmationMeta strong {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
@@ -742,7 +787,7 @@
   background: transparent;
   color: #061426;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.07em;
 
@@ -807,7 +852,7 @@
 .timingHint {
   color: #249fb9;
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
@@ -835,7 +880,7 @@
   background: transparent;
   color: #061426;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.04em;
 
@@ -905,7 +950,7 @@
 }
 
 .periodButton span {
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.03em;
 }
@@ -939,7 +984,7 @@
 .customDatesField > span {
   color: rgba(6, 20, 38, 0.5);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -1009,7 +1054,7 @@
 .commentField > span {
   color: rgba(6, 20, 38, 0.52);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -1109,7 +1154,7 @@
 }
 
 .consentText {
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   line-height: 1.5;
   letter-spacing: 0.07em;
@@ -1146,7 +1191,7 @@
   background: #ff8318;
   color: #061426;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 
@@ -1259,13 +1304,13 @@
 .successSummary span {
   color: rgba(6, 20, 38, 0.42);
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
 
 .successSummary strong {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .newApplicationButton {
@@ -1283,7 +1328,7 @@
   background: #061426;
   color: #ffffff;
 
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 
@@ -1301,7 +1346,7 @@
 
   color: rgba(6, 20, 38, 0.32);
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
 }
@@ -1327,7 +1372,7 @@
 .submitError strong {
   color: #a72b2b;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -1336,7 +1381,7 @@
   color:
     rgba(120, 20, 20, 0.75);
 
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -1366,7 +1411,7 @@
 .lockedCategoryMain span {
   color: #249fb9;
 
-  font-size: 7px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.14em;
 }
@@ -1397,7 +1442,7 @@
 
   color: rgba(6, 20, 38, 0.48);
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 800;
   line-height: 1.5;
   letter-spacing: 0.08em;
@@ -1428,7 +1473,7 @@
 .submitError strong {
   color: #a72b2b;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -1437,7 +1482,7 @@
   color:
     rgba(120, 20, 20, 0.75);
 
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
 }
 

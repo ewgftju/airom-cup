@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { tournaments } from "@/data/tournaments";
 
 import { logout } from "./actions";
 import styles from "./Admin.module.css";
@@ -17,6 +18,7 @@ type ApplicationRow = {
   mode: "tournament" | "custom";
 
   tournament_title: string | null;
+  tournament_id: string | null;
 
   team_name: string;
   country: string;
@@ -27,6 +29,8 @@ type ApplicationRow = {
 
   preferred_year: string | null;
   preferred_periods: string[];
+  custom_dates: string | null;
+  comment: string | null;
 
   contact_name: string;
   phone: string;
@@ -147,6 +151,7 @@ export default async function AdminPage() {
         status,
         mode,
         tournament_title,
+        tournament_id,
         team_name,
         country,
         city,
@@ -154,6 +159,8 @@ export default async function AdminPage() {
         birth_year,
         preferred_year,
         preferred_periods,
+        custom_dates,
+        comment,
         contact_name,
         phone,
         email
@@ -246,21 +253,26 @@ export default async function AdminPage() {
         <div className={styles.sectionHeader}>
           <div>
             <p className={styles.sectionEyebrow}>
-              LATEST ACTIVITY
+              APPLICATIONS
             </p>
 
             <h2>
-              ПОСЛЕДНИЕ
+              ВСЕ
               <span>ЗАЯВКИ.</span>
             </h2>
           </div>
 
           <span className={styles.resultCount}>
-            ПОКАЗАНО · {applications.length}
+            ПОКАЗАНО · {applications.length} / {totalResult.count ?? "—"}
           </span>
         </div>
 
-        {applications.length === 0 ? (
+        {recentResult.error ? (
+          <div className={styles.emptyState} role="alert">
+            <strong>НЕ УДАЛОСЬ ЗАГРУЗИТЬ ЗАЯВКИ</strong>
+            <span>Обновите страницу через минуту. Ошибка загрузки не означает, что заявки удалены.</span>
+          </div>
+        ) : applications.length === 0 ? (
           <div className={styles.emptyState}>
             <strong>
               ЗАЯВОК ПОКА НЕТ
@@ -280,7 +292,7 @@ export default async function AdminPage() {
                   <th>ТИП</th>
                   <th>КОМАНДА</th>
                   <th>КАТЕГОРИЯ</th>
-                  <th>ГОД</th>
+                  <th>ГОД РОЖДЕНИЯ</th>
                   <th>
                     ТУРНИР / ПЕРИОД
                   </th>
@@ -292,24 +304,14 @@ export default async function AdminPage() {
               <tbody>
                 {applications.map(
                   (application) => {
-                    const timing =
-                      application.mode ===
-                      "tournament"
-                        ? application
-                            .tournament_title ||
-                          "ТУРНИР"
-                        : application
-                            .preferred_periods
-                            .map(
-                              (period) =>
-                                periodLabels[
-                                  period
-                                ] ?? period
-                            )
-                            .join(", ") ||
-                          application
-                            .preferred_year ||
-                          "НЕ УКАЗАНО";
+                    const event = tournaments.find((item) => item.id === application.tournament_id);
+                    const timing = application.mode === "tournament"
+                      ? event ? `${event.dates} · ${event.year}` : application.tournament_title || "ТУРНИР"
+                      : [
+                          application.preferred_year === "flexible" ? "ГОД НЕ ВАЖЕН" : application.preferred_year,
+                          (application.preferred_periods ?? []).map((period) => periodLabels[period] ?? period).join(", "),
+                          application.custom_dates,
+                        ].filter(Boolean).join(" · ") || "НЕ УКАЗАНО";
 
                     return (
                       <tr key={application.id}>
@@ -384,6 +386,12 @@ export default async function AdminPage() {
                           >
                             {timing}
                           </span>
+                          {application.comment && (
+                            <details className={styles.comment}>
+                              <summary>Комментарий</summary>
+                              <p>{application.comment}</p>
+                            </details>
+                          )}
                         </td>
 
                         <td>
@@ -398,8 +406,9 @@ export default async function AdminPage() {
                               styles.subText
                             }
                           >
-                            {application.phone}
+                            <a href={`tel:${application.phone.replace(/[^\d+]/g, "")}`}>{application.phone}</a>
                           </span>
+                          <a className={styles.subText} href={`mailto:${application.email}`}>{application.email}</a>
                         </td>
 
                         <td>

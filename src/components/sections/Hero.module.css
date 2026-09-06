@@ -113,7 +113,7 @@
   .navigation a {
     color: rgba(255, 255, 255, 0.58);
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 900;
     letter-spacing: 0.1em;
     transition: color 0.2s ease;
@@ -148,7 +148,7 @@
     display: flex;
     flex-direction: column;
   
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.05;
     letter-spacing: 0.16em;
   }
@@ -171,8 +171,9 @@ text-decoration: none;
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 999px;
   
-    background: rgba(255, 255, 255, 0.06);
-    color: #ffffff;
+    background: #ff8318;
+    color: #061426;
+    min-height: 48px;
   
     font-size: 12px;
     font-weight: 800;
@@ -188,7 +189,7 @@ text-decoration: none;
   }
   
   .headerButton:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: #ffac55;
     transform: translateY(-2px);
   }
   
@@ -291,13 +292,10 @@ text-decoration: none;
     min-height: 58px;
   
     padding: 0 28px;
-    min-height: 58px;
-  
-    padding: 0 28px;
   
     border-radius: 4px;
   
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 900;
     letter-spacing: 0.04em;
   
@@ -469,7 +467,7 @@ text-decoration: none;
   
     color: rgba(255, 255, 255, 0.48);
   
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.18em;
   }
@@ -534,7 +532,7 @@ text-decoration: none;
     .headerButton {
       padding: 12px 17px;
   
-      font-size: 10px;
+      font-size: 12px;
     }
 
     .headerActions {
@@ -572,7 +570,7 @@ text-decoration: none;
     .eyebrow {
       margin-bottom: 20px;
   
-      font-size: 10px;
+      font-size: 12px;
       line-height: 1.5;
     }
   
@@ -636,7 +634,7 @@ text-decoration: none;
 
     .headerButton {
       padding: 10px 11px;
-      font-size: 8px;
+      font-size: 12px;
       letter-spacing: 0.04em;
     }
   }

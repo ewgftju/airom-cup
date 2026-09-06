@@ -10,28 +10,42 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+let fallbackLanguage: Language = "ru";
+
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener("airom-language-change", onStoreChange);
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener("airom-language-change", onStoreChange);
+  };
+}
+
+function getLanguage(): Language {
+  try {
+    const saved = window.localStorage.getItem("airom-cup-language");
+    return saved === "ru" || saved === "kk" || saved === "en" ? saved : fallbackLanguage;
+  } catch {
+    return fallbackLanguage;
+  }
+}
+
+function setLanguage(nextLanguage: Language) {
+  fallbackLanguage = nextLanguage;
+  try {
+    window.localStorage.setItem("airom-cup-language", nextLanguage);
+  } catch {
+    // Language switching still works when browser storage is blocked.
+  }
+  window.dispatchEvent(new Event("airom-language-change"));
+}
+
 export default function LanguageProvider({ children }: { children: React.ReactNode }) {
   const language = useSyncExternalStore(
-    (onStoreChange) => {
-      window.addEventListener("storage", onStoreChange);
-      window.addEventListener("airom-language-change", onStoreChange);
-      return () => {
-        window.removeEventListener("storage", onStoreChange);
-        window.removeEventListener("airom-language-change", onStoreChange);
-      };
-    },
-    () => {
-      const saved = window.localStorage.getItem("airom-cup-language");
-      return saved === "ru" || saved === "kk" || saved === "en" ? saved : "ru";
-    },
+    subscribe,
+    getLanguage,
     () => "ru" as Language,
   );
-
-  const setLanguage = (nextLanguage: Language) => {
-    window.localStorage.setItem("airom-cup-language", nextLanguage);
-    document.documentElement.lang = nextLanguage;
-    window.dispatchEvent(new Event("airom-language-change"));
-  };
 
   useEffect(() => {
     document.documentElement.lang = language;

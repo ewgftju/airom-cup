@@ -1,36 +1,6 @@
 import { supabaseAdmin } from "@/lib/supabaseAdmin";
-
-type ApplicationRequest = {
-  mode: "tournament" | "custom";
-
-  tournament: {
-    id: string;
-    title: string;
-  } | null;
-
-  team: {
-    name: string;
-    country: string;
-    city: string;
-    gender: "boys" | "girls";
-    birthYear: string;
-  };
-
-  preferredTiming: {
-    year: string;
-    periods: string[];
-    customDates: string;
-  } | null;
-
-  contact: {
-    name: string;
-    phone: string;
-    email: string;
-    comment: string;
-  };
-
-  consentAccepted: boolean;
-};
+import { isApplicationRequest } from "@/lib/applicationValidation";
+import { tournaments } from "@/data/tournaments";
 
 type SupabaseError = {
   message?: string;
@@ -70,8 +40,29 @@ export async function POST(
   request: Request
 ) {
   try {
-    const body =
-      (await request.json()) as ApplicationRequest;
+    const body: unknown = await request.json().catch(() => null);
+
+    if (!isApplicationRequest(body)) {
+      return Response.json(
+        { error: "Проверьте данные команды, год рождения, даты, контакты и согласие на обработку данных." },
+        { status: 400 }
+      );
+    }
+
+    const selectedTournament = body.mode === "tournament"
+      ? tournaments.find((item) => item.id === body.tournament?.id && item.isActive)
+      : undefined;
+
+    if (body.mode === "tournament" && (
+      !selectedTournament ||
+      !selectedTournament.allowedCategories.includes(body.team.gender) ||
+      !selectedTournament.eligibleBirthYears.includes(body.team.birthYear)
+    )) {
+      return Response.json(
+        { error: "Выберите действующий турнир и подходящую возрастную категорию в календаре." },
+        { status: 400 }
+      );
+    }
 
     /* ----------------------------- */
     /* ПРОВЕРКА РЕЖИМА */
@@ -167,10 +158,10 @@ export async function POST(
       mode: body.mode,
 
       tournament_id:
-        body.tournament?.id ?? null,
+        selectedTournament?.id ?? null,
 
       tournament_title:
-        body.tournament?.title ?? null,
+        selectedTournament?.title ?? null,
 
       team_name:
         body.team.name.trim(),

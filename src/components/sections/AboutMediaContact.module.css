@@ -62,7 +62,7 @@
 .eyebrow {
   margin: 0 0 18px;
   color: #29acc4;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.23em;
 }
@@ -139,7 +139,7 @@
 }
 
 .facts span {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -259,7 +259,7 @@
 
 .videoTopline b,
 .videoTopline i {
-  font-size: 9px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 900;
   letter-spacing: 0.16em;
@@ -306,7 +306,7 @@
 
 .videoBottom b {
   color: #29acc4;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-align: right;
 }
@@ -367,7 +367,7 @@
 .contactLinks span {
   margin-bottom: 12px;
   color: rgba(255, 255, 255, 0.35);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.15em;
 }
@@ -391,7 +391,7 @@
   gap: 30px;
   padding-top: 28px;
   color: rgba(255, 255, 255, 0.32);
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.13em;
 }

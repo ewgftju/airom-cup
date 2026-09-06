@@ -131,10 +131,11 @@ export default function AboutMediaContact() {
               <strong>{email}</strong>
               <b>→</b>
             </a>
-            <div>
+            <a href="https://wa.me/77755968673" target="_blank" rel="noreferrer">
               <span>{copy.contact.information}</span>
-              <strong>{copy.contact.informationValue}</strong>
-            </div>
+              <strong>+7 775 596 8673</strong>
+              <b>↗</b>
+            </a>
           </div>
 
           <div className={styles.copyright}>
