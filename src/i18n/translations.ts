@@ -51,7 +51,7 @@ export const homeCopy = {
       location: "МЕСТО ПРОВЕДЕНИЯ",
       status: "ИГРОВЫЕ ДНИ",
       apply: "ПОДАТЬ ЗАЯВКУ",
-      note: "Даты октября и ноября подтверждены. Точные игровые дни декабря (2015–2016 г.р.) и марта (2011 г.р.) будут опубликованы дополнительно.",
+      note: "Даты октября и ноября 2026 года подтверждены. Точные игровые дни февраля (2015–2016 г.р.) и марта (2011–2012 г.р.) 2027 года будут опубликованы дополнительно.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -145,7 +145,7 @@ export const homeCopy = {
       location: "ӨТЕТІН ЖЕРІ",
       status: "ОЙЫН КҮНДЕРІ",
       apply: "ӨТІНІМ БЕРУ",
-      note: "Қазан және қараша күндері расталды. Желтоқсан (2015–2016 т.ж.) және наурыз (2011 т.ж.) ойындарының нақты күндері кейінірек жарияланады.",
+      note: "2026 жылғы қазан және қараша күндері расталды. 2027 жылғы ақпан (2015–2016 т.ж.) және наурыз (2011–2012 т.ж.) ойындарының нақты күндері кейінірек жарияланады.",
     },
     results: {
       eyebrow: "AIROM CUP МҰРАҒАТЫ",
@@ -239,7 +239,7 @@ export const homeCopy = {
       location: "LOCATION",
       status: "GAME DAYS",
       apply: "APPLY NOW",
-      note: "October and November dates are confirmed. Exact game days for December (born 2015–2016) and March (born 2011) will be announced separately.",
+      note: "October and November 2026 dates are confirmed. Exact game days for February 2027 (born 2015–2016) and March 2027 (born 2011–2012) will be announced separately.",
     },
     results: {
       eyebrow: "AIROM CUP ARCHIVE",
@@ -321,8 +321,8 @@ const tournamentDefinitions = [
   ["airom-cup-2013-2014-oct-2026", "2013–2014", "2026", "30 ОКТЯБРЯ — 1 НОЯБРЯ", "30 ҚАЗАН — 1 ҚАРАША", "OCT 30 — NOV 1", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
   ["airom-cup-2012-2013-nov-2026", "2012–2013", "2026", "16–18 НОЯБРЯ", "16–18 ҚАРАША", "NOV 16–18", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
   ["airom-cup-2014-2015-nov-2026", "2014–2015", "2026", "23–25 НОЯБРЯ", "23–25 ҚАРАША", "NOV 23–25", "ИГРОВЫЕ ДНИ", "ОЙЫН КҮНДЕРІ", "GAME DAYS"],
-  ["airom-cup-2015-2016-dec-2026", "2015–2016", "2026", "ДЕКАБРЬ", "ЖЕЛТОҚСАН", "DECEMBER", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
-  ["airom-cup-2011-2012-mar-2027", "2011", "2027", "МАРТ", "НАУРЫЗ", "MARCH", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
+  ["airom-cup-2015-2016-dec-2026", "2015–2016", "2027", "ФЕВРАЛЬ", "АҚПАН", "FEBRUARY", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
+  ["airom-cup-2011-2012-mar-2027", "2011–2012", "2027", "МАРТ", "НАУРЫЗ", "MARCH", "ДАТА УТОЧНЯЕТСЯ", "КҮНІ НАҚТЫЛАНАДЫ", "DATE TBC"],
 ] as const;
 
 for (const [id, years, year, ruDate, kkDate, enDate, ruStatus, kkStatus, enStatus] of tournamentDefinitions) {

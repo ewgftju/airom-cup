@@ -105,6 +105,7 @@ export const tournaments: Tournament[] = [
   },
 
   {
+    // Keep the original ID so existing applications and shared links stay valid.
     id: "airom-cup-2015-2016-dec-2026",
 
     title: "AIROM CUP",
@@ -117,15 +118,15 @@ export const tournaments: Tournament[] = [
 
     eligibleBirthYears: ["2015", "2016"],
 
-    dates: "ДЕКАБРЬ",
+    dates: "ФЕВРАЛЬ",
 
-    year: "2026",
+    year: "2027",
 
     status: "ДАТА УТОЧНЯЕТСЯ",
 
     location: "АТЫРАУ · КАЗАХСТАН",
 
-    badge: "ДЕКАБРЬ · 2026",
+    badge: "ФЕВРАЛЬ · 2027",
 
     isActive: true,
   },
@@ -139,9 +140,9 @@ export const tournaments: Tournament[] = [
 
     categoryLabel: "ЮНОШИ",
 
-    age: "2011 Г.Р.",
+    age: "2011–2012 Г.Р.",
 
-    eligibleBirthYears: ["2011"],
+    eligibleBirthYears: ["2011", "2012"],
 
     dates: "МАРТ",
 
