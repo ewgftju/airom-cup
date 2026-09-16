@@ -5,7 +5,7 @@ import Link from "next/link";
 import { pastResults } from "@/data/pastResults";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import type { Language } from "@/i18n/translations";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import DisplayControls from "@/components/ui/DisplayControls";
 import styles from "./ResultsArchive.module.css";
 
 const archiveCopy: Record<Language, {
@@ -79,7 +79,7 @@ export default function ResultsArchive() {
           <Image src="/images/logos/airom-cup-logo.png" alt="AIROM CUP" width={60} height={60} priority />
           <strong>AIROM CUP</strong>
         </Link>
-        <LanguageSwitcher />
+        <DisplayControls />
       </header>
 
       <section className={styles.intro}>

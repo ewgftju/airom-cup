@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import ApplicationForm from "@/components/application/ApplicationForm";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import DisplayControls from "@/components/ui/DisplayControls";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { applyCopy, localizeTournament } from "@/i18n/translations";
 import type { Tournament } from "@/data/tournaments";
@@ -24,7 +24,7 @@ export default function ApplyPageContent({ selectedTournament }: { selectedTourn
         <Link href="/" className={styles.backLink}><span>←</span>{copy.back}</Link>
         <div className={styles.brand}>AIROM CUP</div>
         <div className={styles.applyHeaderActions}>
-          <LanguageSwitcher />
+          <DisplayControls />
           <span className={styles.stepIndicator}>{copy.application}</span>
         </div>
       </header>

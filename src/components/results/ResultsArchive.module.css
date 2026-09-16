@@ -73,3 +73,15 @@
 @media (max-width: 350px) {
   .metrics { flex-direction: column; gap: 12px; }
 }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .card { background: var(--surface); }
+  :global(html[data-theme="dark"]) .metrics strong { color: var(--heading-accent); }
+}
+
+@media (max-width: 720px) {
+  .header { grid-template-columns: 1fr; gap: 18px; }
+  .brand { display: none; }
+  .header > :last-child { justify-self: start; }
+}

@@ -1,3 +1,4 @@
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getAdminEmail } from "@/lib/adminAuth";
@@ -25,6 +26,7 @@ export default async function AdminPage() {
           <h1 className={styles.title}>ЗАЯВКИ <span>КОМАНД.</span></h1>
         </div>
         <div className={styles.adminActions}>
+          <ThemeSwitcher />
           <div className={styles.adminIdentity}><span>АДМИНИСТРАТОР</span><strong>{currentEmail}</strong></div>
           <form action={logout}><button type="submit" className={styles.logoutButton}>Выйти →</button></form>
         </div>

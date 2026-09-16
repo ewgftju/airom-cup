@@ -46,3 +46,12 @@
     font-size: 12px;
   }
 }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .switcher,
+  :global(html[data-theme="dark"]) .light { background: var(--surface); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .light button { color: var(--muted); }
+  :global(html[data-theme="dark"]) .light .active,
+  :global(html[data-theme="dark"]) .light button:hover { color: #061426; }
+}

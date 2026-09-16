@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { PastResult } from "@/data/pastResults";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import type { Language } from "@/i18n/translations";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import DisplayControls from "@/components/ui/DisplayControls";
 import styles from "./ProtocolPage.module.css";
 
 const protocolCopy: Record<Language, {
@@ -165,7 +165,7 @@ export default function ProtocolPage({ result }: { result: PastResult }) {
           </div>
         </Link>
 
-        <LanguageSwitcher />
+        <DisplayControls />
       </header>
 
       <section className={styles.hero}>

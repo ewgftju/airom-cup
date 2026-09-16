@@ -104,7 +104,7 @@
 }
 
 .title span {
-  color: #d96508;
+  color: var(--heading-accent);
 }
 
 .description {
@@ -246,4 +246,19 @@
   .eyebrow {
     margin-top: 50px;
   }
+}
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .card { background: var(--surface); color: var(--ink); }
+  :global(html[data-theme="dark"]) .brand { color: var(--ink); }
+  :global(html[data-theme="dark"]) .field input { color: var(--ink); background: var(--surface-soft); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .field input::placeholder { color: #92a8bc; }
+  :global(html[data-theme="dark"]) .button { background: #245577; }
+  :global(html[data-theme="dark"]) .error { background: #44252d; border-color: #9a5963; color: #ffd0cb; }
+}
+
+.themeControl { position: absolute; top: 20px; right: 30px; z-index: 5; }
+@media (max-width: 600px) {
+  .themeControl { right: 20px; top: 12px; }
+  .page { padding-top: 90px; padding-bottom: 70px; }
 }

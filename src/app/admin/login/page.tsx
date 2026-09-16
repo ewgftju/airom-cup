@@ -1,3 +1,4 @@
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 import Link from "next/link";
 
 import { login } from "./actions";
@@ -45,6 +46,8 @@ export default async function AdminLoginPage({
       >
         ← НА САЙТ
       </Link>
+
+      <div className={styles.themeControl}><ThemeSwitcher /></div>
 
       <section className={styles.card}>
         <div className={styles.brand}>

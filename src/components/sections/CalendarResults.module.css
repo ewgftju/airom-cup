@@ -412,7 +412,7 @@
 }
 
 .resultsTitle span {
-  color: #d96508;
+  color: var(--heading-accent);
 }
 
 .resultsHeading > p {
@@ -880,4 +880,32 @@
     grid-template-columns: 1fr;
   }
 
+}
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .calendarSection { background: var(--surface-soft); color: var(--ink); }
+  :global(html[data-theme="dark"]) .monthCard { background: var(--surface); border-color: #4b5762; border-top-color: #ff8318; }
+  :global(html[data-theme="dark"]) .monthCard:hover { background: #15324e; }
+  :global(html[data-theme="dark"]) .monthTopline > span { color: var(--muted); }
+  :global(html[data-theme="dark"]) .monthTopline i { background: #16384f; border-color: var(--line); color: #c0e2eb; }
+  :global(html[data-theme="dark"]) .monthYear span,
+  :global(html[data-theme="dark"]) .monthEvent span,
+  :global(html[data-theme="dark"]) .monthEvent small,
+  :global(html[data-theme="dark"]) .monthLocation span,
+  :global(html[data-theme="dark"]) .calendarNote { color: var(--muted); }
+  :global(html[data-theme="dark"]) .monthYear strong,
+  :global(html[data-theme="dark"]) .calendarNote span { color: var(--heading-accent); }
+  :global(html[data-theme="dark"]) .applyButton,
+  :global(html[data-theme="dark"]) .resultsAction > a { background: #ff9b43; color: #071b34; }
+  :global(html[data-theme="dark"]) .applyButton:hover,
+  :global(html[data-theme="dark"]) .resultsAction > a:hover { background: #ffb773; }
+  :global(html[data-theme="dark"]) .applyButton b,
+  :global(html[data-theme="dark"]) .resultsAction > a b { color: #071b34; }
+  :global(html[data-theme="dark"]) .customRequest { border: 1px solid var(--line); }
+  :global(html[data-theme="dark"]) .resultsSection { background: var(--paper-texture), var(--paper); color: var(--ink); }
+  :global(html[data-theme="dark"]) .resultsHeading > p,
+  :global(html[data-theme="dark"]) .resultsStats span { color: var(--muted); }
+  :global(html[data-theme="dark"]) .resultsAction { border-top-color: var(--line); }
+  :global(html[data-theme="dark"]) .resultsNumber { color: #ffffff08; }
 }

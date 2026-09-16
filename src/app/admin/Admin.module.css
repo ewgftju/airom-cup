@@ -97,3 +97,39 @@
   .pagination > div { width: 100%; justify-content: space-between; }
   .dialog { padding: 24px; }
 }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .statCard,
+  :global(html[data-theme="dark"]) .filters,
+  :global(html[data-theme="dark"]) .tableWrapper,
+  :global(html[data-theme="dark"]) .emptyState,
+  :global(html[data-theme="dark"]) .dialog { background: var(--surface); }
+  :global(html[data-theme="dark"]) .statCardAccent { background: #382d25; }
+  :global(html[data-theme="dark"]) .title span { color: var(--heading-accent); }
+  :global(html[data-theme="dark"]) .logoutButton,
+  :global(html[data-theme="dark"]) .resetButton,
+  :global(html[data-theme="dark"]) .pagination button { background: var(--surface); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .logoutButton:hover,
+  :global(html[data-theme="dark"]) .resetButton:hover,
+  :global(html[data-theme="dark"]) .pagination button:hover:enabled { background: #193b56; }
+  :global(html[data-theme="dark"]) .exportButton { background: #ff9b43; color: #071b34; }
+  :global(html[data-theme="dark"]) .exportButton span { color: #071b34; }
+  :global(html[data-theme="dark"]) .exportButton:hover:enabled { background: #ffb773; }
+  :global(html[data-theme="dark"]) .filters input,
+  :global(html[data-theme="dark"]) .filters select { background: var(--surface-soft); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .filters input::placeholder { color: #92a8bc; }
+  :global(html[data-theme="dark"]) .table th { background: #16354e; }
+  :global(html[data-theme="dark"]) .table tbody tr:hover { background: #153550; }
+  :global(html[data-theme="dark"]) .table a { color: #7ccbdd; }
+  :global(html[data-theme="dark"]) .typeTournament { background: #233e59; color: #d1e6f8; }
+  :global(html[data-theme="dark"]) .typeCustom { background: #16444d; color: #b5e5e4; }
+  :global(html[data-theme="dark"]) .status { background: #4b3823; color: #ffd293; }
+  :global(html[data-theme="dark"]) .deleteButton { background: #44252d; border-color: #9a5963; color: #ffc8c2; }
+  :global(html[data-theme="dark"]) .deleteButton:hover:enabled { background: #592e36; border-color: #d1868b; }
+  :global(html[data-theme="dark"]) .notice { background: #173d36; border-color: #478e7b; color: #c2efdf; }
+  :global(html[data-theme="dark"]) .error { background: #44252d; border-color: #9a5963; color: #ffd0cb; }
+}
+
+.adminActions { flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 650px) { .adminActions { justify-content: space-between; } }

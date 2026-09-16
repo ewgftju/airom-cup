@@ -242,7 +242,7 @@ text-decoration: none;
   }
 
   .title span {
-    color: #d96508;
+    color: var(--heading-accent);
   }
 
   .title:lang(kk) {
@@ -621,3 +621,25 @@ text-decoration: none;
       letter-spacing: 0.04em;
     }
   }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .hero { background: var(--paper-texture), linear-gradient(135deg, #071b34, #0a2547 60%, #061426); }
+  :global(html[data-theme="dark"]) .secondaryButton { background: var(--surface); color: var(--ink); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .logoCircle { background: radial-gradient(circle, #153451, #0a223b); border-color: var(--line); box-shadow: 0 24px 70px #00000033; }
+  :global(html[data-theme="dark"]) .logoCircle::after { border-color: var(--line); }
+  :global(html[data-theme="dark"]) .logoNumber { color: #ffffff0d; }
+  :global(html[data-theme="dark"]) .verticalText { color: #ffffff07; }
+}
+
+/* Keep both preferences and the application button reachable on narrow screens. */
+@media (min-width: 1101px) and (max-width: 1400px) {
+  .header { flex-wrap: wrap; }
+  .navigation { order: 3; width: 100%; margin-left: 0; justify-content: flex-start; }
+  .headerActions { margin-left: auto; }
+}
+@media (max-width: 800px) {
+  .header { align-items: flex-start; }
+  .headerActions { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 60px); }
+  .headerButton { min-height: 42px; }
+}

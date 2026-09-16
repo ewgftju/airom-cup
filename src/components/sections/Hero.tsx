@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import DisplayControls from "@/components/ui/DisplayControls";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { homeCopy } from "@/i18n/translations";
 import styles from "./Hero.module.css";
@@ -42,7 +42,7 @@ export default function Hero() {
         </nav>
 
         <div className={styles.headerActions}>
-          <LanguageSwitcher />
+          <DisplayControls />
           <a href="#calendar" className={styles.headerButton}>
             {copy.nav.apply}
           </a>

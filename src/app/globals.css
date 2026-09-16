@@ -88,3 +88,25 @@ img {
   --paper-texture: repeating-linear-gradient(-30deg, transparent 0 17px, rgba(7, 27, 52, 0.025) 17px 18px);
   color-scheme: light;
 }
+
+:root {
+  --surface: #ffffff;
+  --surface-soft: #eef3f5;
+  --control-border: #bacbd4;
+  --heading-accent: #d96508;
+}
+@media screen {
+  html[data-theme="dark"] {
+    --paper: #071b34;
+    --ink: #edf3f8;
+    --muted: #aabccc;
+    --line: #2b435b;
+    --teal: #54bfd2;
+    --surface: #102a44;
+    --surface-soft: #0b223a;
+    --control-border: #4a647c;
+    --heading-accent: #ff9b43;
+    --paper-texture: repeating-linear-gradient(-30deg, transparent 0 17px, rgba(255,255,255,.018) 17px 18px);
+    color-scheme: dark;
+  }
+}

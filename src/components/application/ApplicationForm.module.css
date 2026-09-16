@@ -1576,3 +1576,80 @@
     gap: 6px;
   }
 }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .form { background: var(--surface); color: var(--ink); }
+  :global(html[data-theme="dark"]) .form label > span,
+  :global(html[data-theme="dark"]) .form .questionLabel,
+  :global(html[data-theme="dark"]) .form .consentText,
+  :global(html[data-theme="dark"]) .form .description,
+  :global(html[data-theme="dark"]) .form .successDescription,
+  :global(html[data-theme="dark"]) .validationHint,
+  :global(html[data-theme="dark"]) .progressHeader,
+  :global(html[data-theme="dark"]) .summary span,
+  :global(html[data-theme="dark"]) .optionNumber,
+  :global(html[data-theme="dark"]) .testNotice,
+  :global(html[data-theme="dark"]) .tournamentAgeRule,
+  :global(html[data-theme="dark"]) .successSummary span { color: var(--muted); }
+  :global(html[data-theme="dark"]) .field input,
+  :global(html[data-theme="dark"]) .customYearField input,
+  :global(html[data-theme="dark"]) .customDatesField input,
+  :global(html[data-theme="dark"]) .commentField textarea { background: var(--surface-soft); color: var(--ink); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .field input::placeholder,
+  :global(html[data-theme="dark"]) .customYearField input::placeholder,
+  :global(html[data-theme="dark"]) .customDatesField input::placeholder,
+  :global(html[data-theme="dark"]) .commentField textarea::placeholder { color: #92a8bc; }
+  :global(html[data-theme="dark"]) .field input:focus,
+  :global(html[data-theme="dark"]) .customYearField input:focus,
+  :global(html[data-theme="dark"]) .customDatesField input:focus,
+  :global(html[data-theme="dark"]) .commentField textarea:focus { background: #123451; border-color: var(--teal); }
+  :global(html[data-theme="dark"]) .progressTrack { background: var(--line); }
+  :global(html[data-theme="dark"]) .summary,
+  :global(html[data-theme="dark"]) .summary > div,
+  :global(html[data-theme="dark"]) .successSummary,
+  :global(html[data-theme="dark"]) .successSummary > div { border-color: var(--line); }
+  :global(html[data-theme="dark"]) .eyebrow,
+  :global(html[data-theme="dark"]) .timingHint { color: var(--teal); }
+  :global(html[data-theme="dark"]) .backButton,
+  :global(html[data-theme="dark"]) .previousButton,
+  :global(html[data-theme="dark"]) .genderCard,
+  :global(html[data-theme="dark"]) .yearButton,
+  :global(html[data-theme="dark"]) .preferredYearButton,
+  :global(html[data-theme="dark"]) .periodButton,
+  :global(html[data-theme="dark"]) .confirmButton,
+  :global(html[data-theme="dark"]) .consentButton { color: var(--ink); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .genderCard:hover,
+  :global(html[data-theme="dark"]) .yearButton:hover,
+  :global(html[data-theme="dark"]) .preferredYearButton:hover,
+  :global(html[data-theme="dark"]) .periodButton:hover,
+  :global(html[data-theme="dark"]) .confirmButton:hover,
+  :global(html[data-theme="dark"]) .previousButton:hover,
+  :global(html[data-theme="dark"]) .consentButton:hover { border-color: var(--teal); }
+  :global(html[data-theme="dark"]) .genderCardActive,
+  :global(html[data-theme="dark"]) .yearButtonActive,
+  :global(html[data-theme="dark"]) .preferredYearButtonActive,
+  :global(html[data-theme="dark"]) .periodButtonActive,
+  :global(html[data-theme="dark"]) .confirmButtonActive { background: #ff9b43; color: #071b34; border-color: #ff9b43; }
+  :global(html[data-theme="dark"]) .genderCardActive .optionNumber,
+  :global(html[data-theme="dark"]) .genderCardActive .optionMark,
+  :global(html[data-theme="dark"]) .periodButtonActive strong { color: #071b34; }
+  :global(html[data-theme="dark"]) .confirmButton span,
+  :global(html[data-theme="dark"]) .consentMark { border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .confirmButtonActive span { border-color: #071b34; }
+  :global(html[data-theme="dark"]) .consentButtonActive { border-color: #ff9b43; background: #ff831814; }
+  :global(html[data-theme="dark"]) .consentButtonActive .consentMark { background: #ff9b43; color: #071b34; border-color: #ff9b43; }
+  :global(html[data-theme="dark"]) .tournamentAgeRule strong { color: var(--ink); }
+  :global(html[data-theme="dark"]) .nextButton,
+  :global(html[data-theme="dark"]) .nextButtonCompact,
+  :global(html[data-theme="dark"]) .newApplicationButton { background: #245577; color: #ffffff; }
+  :global(html[data-theme="dark"]) .nextButton:hover:not(:disabled),
+  :global(html[data-theme="dark"]) .nextButtonCompact:hover:not(:disabled),
+  :global(html[data-theme="dark"]) .newApplicationButton:hover { background: #2a648c; }
+  :global(html[data-theme="dark"]) .confirmationCard,
+  :global(html[data-theme="dark"]) .lockedCategoryCard { border: 1px solid var(--line); }
+  :global(html[data-theme="dark"]) .confirmationMeta span { color: var(--muted); }
+  :global(html[data-theme="dark"]) .submitError { background: #4d252b; border-color: #a85861; }
+  :global(html[data-theme="dark"]) .submitError strong,
+  :global(html[data-theme="dark"]) .submitError span { color: #ffd0cb; }
+}

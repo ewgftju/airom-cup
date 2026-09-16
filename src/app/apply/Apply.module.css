@@ -215,7 +215,7 @@
   }
 
   .title span {
-    color: #d96508;
+    color: var(--heading-accent);
   }
 
   .description {
@@ -898,3 +898,16 @@
       padding: 46px 0;
     }
   }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .modeButton { background: var(--surface); border-color: var(--control-border); }
+  :global(html[data-theme="dark"]) .modeButtonActive { background: #ff8318; border-color: #ff8318; color: #071b34; }
+  :global(html[data-theme="dark"]) .formArea { box-shadow: 0 18px 48px #00000022; }
+  :global(html[data-theme="dark"]) .pageNumber { color: #ffffff06; }
+}
+
+@media (max-width: 760px) {
+  .header { grid-template-columns: 1fr; gap: 18px; }
+  .applyHeaderActions { justify-content: space-between; }
+}

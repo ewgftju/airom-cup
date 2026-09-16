@@ -81,7 +81,7 @@
 .title span,
 .contactTitle span,
 .archiveTitle span {
-  color: #d96508;
+  color: var(--heading-accent);
 }
 
 .title:lang(kk),
@@ -544,4 +544,11 @@
 @media (max-width: 700px) {
   .videosSection { padding: 72px 18px; }
   .facts > div { border-right: 0; border-bottom: 1px solid var(--line); }
+}
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .aboutSection { background: var(--paper-texture), var(--surface-soft); }
+  :global(html[data-theme="dark"]) .videosSection { background: var(--paper); }
+  :global(html[data-theme="dark"]) .number { color: #ffffff08; }
 }

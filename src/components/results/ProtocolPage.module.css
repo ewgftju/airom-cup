@@ -178,3 +178,36 @@
   .hero { padding: 32px 0; color: #071b34; }
   .document { padding: 24px; box-shadow: none; }
 }
+
+/* Dark palette; layout and light palette stay shared. */
+@media screen {
+  :global(html[data-theme="dark"]) .document { background: var(--surface); color: var(--ink); }
+  :global(html[data-theme="dark"]) .documentTopline,
+  :global(html[data-theme="dark"]) .summary,
+  :global(html[data-theme="dark"]) .summary > div,
+  :global(html[data-theme="dark"]) .gamesTable,
+  :global(html[data-theme="dark"]) .standingsTable,
+  :global(html[data-theme="dark"]) .gameRow,
+  :global(html[data-theme="dark"]) .standingRow,
+  :global(html[data-theme="dark"]) .gameScore,
+  :global(html[data-theme="dark"]) .position { border-color: var(--line); }
+  :global(html[data-theme="dark"]) .documentTopline span:last-child,
+  :global(html[data-theme="dark"]) .summary span,
+  :global(html[data-theme="dark"]) .sectionHeading p,
+  :global(html[data-theme="dark"]) .gamesHead,
+  :global(html[data-theme="dark"]) .standingsHead,
+  :global(html[data-theme="dark"]) .gameNumber,
+  :global(html[data-theme="dark"]) .note,
+  :global(html[data-theme="dark"]) .noGames p { color: var(--muted); }
+  :global(html[data-theme="dark"]) .gameStage,
+  :global(html[data-theme="dark"]) .group,
+  :global(html[data-theme="dark"]) .noGames strong { color: var(--teal); }
+  :global(html[data-theme="dark"]) .noGames { background: var(--surface-soft); border-color: var(--line); }
+  :global(html[data-theme="dark"]) .standingRow:nth-child(2) .position { color: #071b34; }
+}
+
+@media (max-width: 720px) {
+  .header { grid-template-columns: 1fr; gap: 18px; }
+  .header > :last-child { justify-self: start; }
+  .backLink { max-width: none; }
+}
