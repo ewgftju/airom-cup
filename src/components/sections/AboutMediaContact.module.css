@@ -42,10 +42,10 @@
   position: absolute;
   top: 50px;
   right: 3%;
-  color: rgba(255, 255, 255, 0.035);
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: 280px;
   line-height: 1;
+  color: rgba(7,27,52,.035);
 }
 
 .aboutIntro {
@@ -81,7 +81,7 @@
 .title span,
 .contactTitle span,
 .archiveTitle span {
-  color: #ff8318;
+  color: #d96508;
 }
 
 .title:lang(kk),
@@ -94,9 +94,9 @@
   display: grid;
   gap: 28px;
   max-width: 650px;
-  color: rgba(255, 255, 255, 0.58);
   font-size: 16px;
   line-height: 1.75;
+  color: var(--muted);
 }
 
 .aboutText p {
@@ -104,18 +104,18 @@
 }
 
 .aboutText .lead {
-  color: #ffffff;
   font-size: clamp(20px, 1.75vw, 28px);
   font-weight: 800;
   line-height: 1.42;
+  color: var(--ink);
 }
 
 .facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   margin-top: 72px;
-  border-top: 1px solid rgba(255, 255, 255, 0.13);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .facts > div {
@@ -125,7 +125,7 @@
   align-items: center;
   min-height: 112px;
   padding: 22px 28px;
-  border-right: 1px solid rgba(255, 255, 255, 0.13);
+  border-right: 1px solid var(--line);
 }
 
 .facts > div:last-child {
@@ -133,9 +133,9 @@
 }
 
 .facts strong {
-  color: rgba(255, 255, 255, 0.2);
   font-family: Impact, sans-serif;
   font-size: 34px;
+  color: var(--teal);
 }
 
 .facts span {
@@ -177,9 +177,9 @@
 .archiveHeading > p {
   max-width: 470px;
   margin: 0 0 5px;
-  color: rgba(255, 255, 255, 0.56);
   font-size: 16px;
   line-height: 1.7;
+  color: var(--muted);
 }
 
 .videoGrid {
@@ -203,8 +203,8 @@
     linear-gradient(145deg, #0b3155, #051426 70%);
   color: #ffffff;
   text-decoration: none;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 14px 36px rgba(7,27,52,.1);
 }
 
 .videoCardAlt {
@@ -226,7 +226,7 @@
 
 .videoCard:hover {
   transform: translateY(-7px);
-  box-shadow: 0 42px 100px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 20px 45px rgba(7,27,52,.17);
 }
 
 .videoPreview {
@@ -270,7 +270,7 @@
 }
 
 .videoTopline i {
-  color: rgba(255, 255, 255, 0.45);
+  color: #e3eaf1;
 }
 
 .play {
@@ -366,10 +366,10 @@
 
 .contactLinks span {
   margin-bottom: 12px;
-  color: rgba(255, 255, 255, 0.35);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.15em;
+  color: #aebdca;
 }
 
 .contactLinks strong {
@@ -390,10 +390,10 @@
   justify-content: space-between;
   gap: 30px;
   padding-top: 28px;
-  color: rgba(255, 255, 255, 0.32);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.13em;
+  color: #aebdca;
 }
 
 @media (max-width: 1000px) {
@@ -507,4 +507,41 @@
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.aboutSection {
+  background: var(--paper-texture), #edf3f5;
+  color: var(--ink);
+}
+
+.aboutSection .grid {
+  display: none;
+}
+
+.aboutSection .glow {
+  opacity: .035;
+}
+
+.aboutSection .eyebrow {
+  color: var(--teal);
+}
+
+.videosSection {
+  position: relative;
+  padding: 100px 54px;
+  background: #ffffff;
+  color: var(--ink);
+  scroll-margin-top: 20px;
+}
+
+.videosSection .eyebrow {
+  color: var(--teal);
+}
+
+@media (max-width: 1000px) {
+  .videosSection { padding: 82px 30px; }
+}
+@media (max-width: 700px) {
+  .videosSection { padding: 72px 18px; }
+  .facts > div { border-right: 0; border-bottom: 1px solid var(--line); }
 }

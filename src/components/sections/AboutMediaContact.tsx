@@ -18,13 +18,12 @@ const pastVideos = [
   },
 ];
 
-export default function AboutMediaContact() {
+export function AboutSection() {
   const { language } = useLanguage();
   const copy = homeCopy[language];
 
   return (
-    <>
-      <section id="about" className={styles.aboutSection}>
+    <section id="about" className={styles.aboutSection}>
         <div className={styles.grid} aria-hidden="true" />
         <div className={styles.glow} aria-hidden="true" />
         <div className={styles.number} aria-hidden="true">04</div>
@@ -55,13 +54,22 @@ export default function AboutMediaContact() {
             ))}
           </div>
 
-          <div id="videos" className={styles.archive}>
+        </div>
+      </section>
+  );
+}
+
+export function VideosSection() {
+  const { language } = useLanguage();
+  const copy = homeCopy[language];
+  return (
+          <section id="videos" className={styles.videosSection}><div className={styles.inner}>
             <div className={styles.archiveHeading}>
               <div>
                 <p className={styles.eyebrow}>{copy.videos.eyebrow}</p>
-                <h3 className={styles.archiveTitle}>
+                <h2 className={styles.archiveTitle}>
                   {copy.videos.title1} <span>{copy.videos.title2}</span>
-                </h3>
+                </h2>
               </div>
               <p>{copy.videos.description}</p>
             </div>
@@ -102,10 +110,14 @@ export default function AboutMediaContact() {
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
+          </div></section>
+  );
+}
 
+export function ContactSection() {
+  const { language } = useLanguage();
+  const copy = homeCopy[language];
+  return (
       <footer id="contacts" className={styles.contactSection}>
         <div className={styles.grid} aria-hidden="true" />
         <div className={styles.contactGlow} aria-hidden="true" />
@@ -144,6 +156,5 @@ export default function AboutMediaContact() {
           </div>
         </div>
       </footer>
-    </>
   );
 }

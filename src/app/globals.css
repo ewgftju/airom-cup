@@ -32,13 +32,14 @@ h3[class] {
 body {
   min-width: 320px;
 
-  background: #071b34;
-  color: #ffffff;
-
   font-family:
     Arial,
     Helvetica,
     sans-serif;
+
+  background: var(--paper);
+
+  color: var(--ink);
 }
 
 button,
@@ -76,4 +77,14 @@ body :is(a, button, input, textarea, select):focus-visible {
 img {
   display: block;
   max-width: 100%;
+}
+
+:root{
+  --paper: #f7f9fa;
+  --ink: #071b34;
+  --muted: #536579;
+  --line: #d5e0e6;
+  --teal: #237d91;
+  --paper-texture: repeating-linear-gradient(-30deg, transparent 0 17px, rgba(7, 27, 52, 0.025) 17px 18px);
+  color-scheme: light;
 }

@@ -10,20 +10,9 @@
 
   padding: 40px 20px;
 
-  background:
-    radial-gradient(
-      circle at 15% 85%,
-      rgba(255, 131, 24, 0.18),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(36, 159, 185, 0.16),
-      transparent 30%
-    ),
-    #06182d;
+  background: var(--paper-texture), var(--paper);
 
-  color: #ffffff;
+  color: var(--ink);
 }
 
 .grid {
@@ -44,6 +33,8 @@
     );
 
   background-size: 70px 70px;
+
+  display: none;
 }
 
 .backLink {
@@ -54,14 +45,12 @@
 
   z-index: 5;
 
-  color:
-    rgba(255, 255, 255, 0.55);
-
   text-decoration: none;
 
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.14em;
+  color: var(--muted);
 }
 
 .card {
@@ -71,13 +60,15 @@
   width: min(100%, 520px);
 
   padding: 46px;
-
-  background: #f3f0e9;
   color: #061426;
 
-  box-shadow:
-    0 50px 140px
-    rgba(0, 0, 0, 0.35);
+  background: #fff;
+
+  border: 1px solid var(--line);
+
+  border-top: 4px solid #ff8318;
+
+  box-shadow: 0 20px 70px rgba(7,27,52,.08);
 }
 
 .brand {
@@ -91,11 +82,10 @@
 .eyebrow {
   margin: 65px 0 12px;
 
-  color: #249fb9;
-
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.2em;
+  color: var(--teal);
 }
 
 .title {
@@ -114,7 +104,7 @@
 }
 
 .title span {
-  color: #ff8318;
+  color: #d96508;
 }
 
 .description {
@@ -122,11 +112,9 @@
 
   margin: 24px 0 34px;
 
-  color:
-    rgba(6, 20, 38, 0.55);
-
   font-size: 13px;
   line-height: 1.6;
+  color: var(--muted);
 }
 
 .form {
@@ -141,12 +129,11 @@
 }
 
 .field span {
-  color:
-    rgba(6, 20, 38, 0.48);
 
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.12em;
+  color: var(--muted);
 }
 
 .field input {
@@ -164,9 +151,8 @@
 
   background: transparent;
   color: #061426;
-
-  font-size: 13px;
   font-weight: 700;
+  font-size: 16px;
 }
 
 .field input:focus {
@@ -227,14 +213,13 @@
   right: -50px;
   bottom: -170px;
 
-  color:
-    rgba(255, 255, 255, 0.025);
-
   font-family:
     Impact,
     sans-serif;
 
   font-size: 600px;
+
+  color: rgba(7,27,52,.025);
 }
 
 .footer {
@@ -242,12 +227,10 @@
 
   bottom: 25px;
 
-  color:
-    rgba(255, 255, 255, 0.25);
-
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.16em;
+  color: var(--muted);
 }
 
 @media (max-width: 600px) {

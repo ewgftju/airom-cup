@@ -143,7 +143,7 @@ export function ResultsSection() {
   return (
       <section id="results" className={`${styles.resultsSection} ${styles.resultsCompact}`}>
         <div className={styles.resultsGrid} aria-hidden="true" />
-        <div className={styles.resultsNumber} aria-hidden="true">03</div>
+        <div className={styles.resultsNumber} aria-hidden="true">05</div>
 
         <div className={styles.inner}>
           <div className={styles.resultsHeading}>
