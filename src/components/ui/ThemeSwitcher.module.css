@@ -1,11 +1,12 @@
 .switcher { position: relative; display: inline-flex; align-items: center; min-height: 44px; border: 1px solid var(--control-border); border-radius: 999px; background: var(--surface); color: var(--ink); }
+.switcher::after { content: ""; position: absolute; right: 14px; top: 50%; width: 6px; height: 6px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
 .switcher svg { position: absolute; left: 12px; pointer-events: none; color: var(--teal); }
-.switcher select { width: 122px; min-height: 42px; padding: 0 8px 0 36px; border: 0; border-radius: inherit; background: transparent; color: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.switcher select { appearance: none; -webkit-appearance: none; width: 134px; min-height: 42px; padding: 0 32px 0 36px; border: 0; border-radius: inherit; background: transparent; color: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
 .switcher option { background: var(--surface); color: var(--ink); }
 .moon { display: none; }
 :global(html[data-theme="dark"]) .sun { display: none; }
 :global(html[data-theme="dark"]) .moon { display: block; }
 @media (max-width: 520px) {
-  .switcher select { width: 114px; font-size: 12px; }
+  .switcher select { width: 126px; font-size: 12px; }
 }
 @media print { .switcher { display: none; } }
