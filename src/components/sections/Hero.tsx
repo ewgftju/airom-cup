@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import DisplayControls from "@/components/ui/DisplayControls";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { homeCopy } from "@/i18n/translations";
@@ -38,6 +39,7 @@ export default function Hero() {
           <a href="#calendar">{copy.nav.calendar}</a>
           <a href="#results">{copy.nav.results}</a>
           <a href="#about">{copy.nav.about}</a>
+          <Link href="/regulations">{copy.nav.regulations}</Link>
           <a href="#contacts">{copy.nav.contacts}</a>
         </nav>
 

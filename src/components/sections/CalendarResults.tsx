@@ -97,6 +97,12 @@ export function CalendarSection() {
                         {copy.calendar.apply}
                         <b aria-hidden="true">→</b>
                       </Link>
+                      {tournament.regulationsPath && (
+                        <Link className={styles.regulationsLink} href={tournament.regulationsPath}>
+                          {copy.nav.regulations}
+                          <b aria-hidden="true">→</b>
+                        </Link>
+                      )}
                     </div>
                   ))}
                 </div>
