@@ -110,6 +110,20 @@
   color: var(--ink);
 }
 
+.regulationsLink {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 16px;
+  min-height: 44px;
+  border-bottom: 2px solid var(--heading-accent);
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.regulationsLink:hover { color: var(--teal); }
+
 .facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

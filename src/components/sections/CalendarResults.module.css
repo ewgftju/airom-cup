@@ -268,6 +268,20 @@
   background: #123d61;
 }
 
+.regulationsLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 40px;
+  color: var(--teal);
+  font-size: 13px;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.regulationsLink:hover { color: var(--ink); }
+
 .applyButton b {
   color: #ffac55;
   font-size: 22px;

@@ -28,7 +28,7 @@ export const languageLabels: Record<Language, string> = {
 
 export const homeCopy = {
   ru: {
-    nav: { calendar: "КАЛЕНДАРЬ", results: "РЕЗУЛЬТАТЫ", about: "О AIROM CUP", videos: "ВИДЕО", contacts: "КОНТАКТЫ", apply: "ПОДАТЬ ЗАЯВКУ" },
+    nav: { calendar: "КАЛЕНДАРЬ", results: "РЕЗУЛЬТАТЫ", about: "О AIROM CUP", regulations: "ПОЛОЖЕНИЕ", videos: "ВИДЕО", contacts: "КОНТАКТЫ", apply: "ПОДАТЬ ЗАЯВКУ" },
     hero: {
       eyebrow: "INTERNATIONAL BASKETBALL TOURNAMENT",
       title1: "ТВОЯ КОМАНДА.",
@@ -89,6 +89,7 @@ export const homeCopy = {
       bottom: "ТВОЯ КОМАНДА · ТВОИ ДАТЫ · ТВОЙ ТУРНИР",
     },
     about: {
+      regulations: "Читать положение турнира",
       eyebrow: "ABOUT AIROM CUP",
       title1: "БОЛЬШЕ, ЧЕМ",
       title2: "ПРОСТО ТУРНИР.",
@@ -122,7 +123,7 @@ export const homeCopy = {
     },
   },
   kk: {
-    nav: { calendar: "КҮНТІЗБЕ", results: "НӘТИЖЕЛЕР", about: "AIROM CUP ТУРАЛЫ", videos: "ВИДЕО", contacts: "БАЙЛАНЫС", apply: "ӨТІНІМ БЕРУ" },
+    nav: { calendar: "КҮНТІЗБЕ", results: "НӘТИЖЕЛЕР", about: "AIROM CUP ТУРАЛЫ", regulations: "ЕРЕЖЕ", videos: "ВИДЕО", contacts: "БАЙЛАНЫС", apply: "ӨТІНІМ БЕРУ" },
     hero: {
       eyebrow: "ХАЛЫҚАРАЛЫҚ БАСКЕТБОЛ ТУРНИРІ",
       title1: "СЕНІҢ КОМАНДАҢ.",
@@ -183,6 +184,7 @@ export const homeCopy = {
       bottom: "СЕНІҢ КОМАНДАҢ · СЕНІҢ КҮНДЕРІҢ · СЕНІҢ ТУРНИРІҢ",
     },
     about: {
+      regulations: "Турнир ережесін оқу",
       eyebrow: "AIROM CUP ТУРАЛЫ",
       title1: "ЖАЙ ҒАНА",
       title2: "ТУРНИРДЕН АРТЫҚ.",
@@ -216,7 +218,7 @@ export const homeCopy = {
     },
   },
   en: {
-    nav: { calendar: "CALENDAR", results: "RESULTS", about: "ABOUT AIROM CUP", videos: "VIDEOS", contacts: "CONTACTS", apply: "APPLY NOW" },
+    nav: { calendar: "CALENDAR", results: "RESULTS", about: "ABOUT AIROM CUP", regulations: "REGULATIONS", videos: "VIDEOS", contacts: "CONTACTS", apply: "APPLY NOW" },
     hero: {
       eyebrow: "INTERNATIONAL BASKETBALL TOURNAMENT",
       title1: "YOUR TEAM.",
@@ -277,6 +279,7 @@ export const homeCopy = {
       bottom: "YOUR TEAM · YOUR DATES · YOUR TOURNAMENT",
     },
     about: {
+      regulations: "Read the tournament regulations",
       eyebrow: "ABOUT AIROM CUP",
       title1: "MORE THAN",
       title2: "A TOURNAMENT.",

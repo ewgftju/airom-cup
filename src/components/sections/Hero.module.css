@@ -484,8 +484,28 @@ text-decoration: none;
       font-size: clamp(56px, 7vw, 88px);
     }
 
+    .header {
+      flex-wrap: wrap;
+    }
+
     .navigation {
-      display: none;
+      order: 3;
+      width: 100%;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      column-gap: 18px;
+      row-gap: 0;
+      margin-left: 0;
+      border-top: 1px solid var(--line);
+      padding-top: 4px;
+    }
+
+    .navigation a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
     }
   }
 

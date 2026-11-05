@@ -13,6 +13,7 @@ export type Tournament = {
   eligibleBirthYears: string[];
 
   dates: string;
+  regulationsPath?: string;
 
   year: string;
 
@@ -92,6 +93,7 @@ export const tournaments: Tournament[] = [
     eligibleBirthYears: ["2014", "2015"],
 
     dates: "23–25 НОЯБРЯ",
+    regulationsPath: "/regulations",
 
     year: "2026",
 

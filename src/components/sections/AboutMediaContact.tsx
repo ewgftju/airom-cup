@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { homeCopy } from "@/i18n/translations";
 import styles from "./AboutMediaContact.module.css";
@@ -42,6 +43,10 @@ export function AboutSection() {
             <div className={styles.aboutText}>
               <p className={styles.lead}>{copy.about.lead}</p>
               <p>{copy.about.body}</p>
+              <Link href="/regulations" className={styles.regulationsLink}>
+                {copy.about.regulations}
+                <span aria-hidden="true">→</span>
+              </Link>
             </div>
           </div>
 
