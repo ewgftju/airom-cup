@@ -89,7 +89,7 @@ export const homeCopy = {
       bottom: "ТВОЯ КОМАНДА · ТВОИ ДАТЫ · ТВОЙ ТУРНИР",
     },
     about: {
-      regulations: "Читать положение турнира",
+      regulations: "Положения турниров",
       eyebrow: "ABOUT AIROM CUP",
       title1: "БОЛЬШЕ, ЧЕМ",
       title2: "ПРОСТО ТУРНИР.",
@@ -184,7 +184,7 @@ export const homeCopy = {
       bottom: "СЕНІҢ КОМАНДАҢ · СЕНІҢ КҮНДЕРІҢ · СЕНІҢ ТУРНИРІҢ",
     },
     about: {
-      regulations: "Турнир ережесін оқу",
+      regulations: "Турнир ережелері",
       eyebrow: "AIROM CUP ТУРАЛЫ",
       title1: "ЖАЙ ҒАНА",
       title2: "ТУРНИРДЕН АРТЫҚ.",
@@ -279,7 +279,7 @@ export const homeCopy = {
       bottom: "YOUR TEAM · YOUR DATES · YOUR TOURNAMENT",
     },
     about: {
-      regulations: "Read the tournament regulations",
+      regulations: "Tournament regulations",
       eyebrow: "ABOUT AIROM CUP",
       title1: "MORE THAN",
       title2: "A TOURNAMENT.",

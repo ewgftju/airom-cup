@@ -67,6 +67,7 @@ export const tournaments: Tournament[] = [
     eligibleBirthYears: ["2012", "2013"],
 
     dates: "16–18 НОЯБРЯ",
+    regulationsPath: "/regulations/2026-2012",
 
     year: "2026",
 
@@ -93,7 +94,7 @@ export const tournaments: Tournament[] = [
     eligibleBirthYears: ["2014", "2015"],
 
     dates: "23–25 НОЯБРЯ",
-    regulationsPath: "/regulations",
+    regulationsPath: "/regulations/2026-2014",
 
     year: "2026",
 

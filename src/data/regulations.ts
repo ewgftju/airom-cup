@@ -1,9 +1,5 @@
 import type { Language } from "@/i18n/translations";
-
-export const regulationsDocument = {
-  pdf: "/regulations/airom-cup-2026-2014.pdf",
-  cover: "/regulations/airom-cup-2026-2014-cover.jpg",
-};
+import type { RegulationEdition } from "./regulationEditions";
 
 export const sectionIds = [
   "goals", "venue", "participants", "admission", "format", "rules", "medical", "fees",
@@ -16,8 +12,6 @@ type Section = { title: string; clauses: Clause[] };
 type Regulations = {
   title: [string, string];
   subtitle: string;
-  dates: string;
-  location: string;
   approval: string;
   original: string;
   fileInfo: string;
@@ -29,12 +23,10 @@ type Regulations = {
   sections: Record<(typeof sectionIds)[number], Section>;
 };
 
-export const regulations: Record<Language, Regulations> = {
-  ru: {
+export const regulations: Record<Language, (edition: RegulationEdition) => Regulations> = {
+  ru: ({ birthYear, guestYear, dates }) => ({
     title: ["Положение", "турнира"],
-    subtitle: "Международный кубок «AIROM CUP» по баскетболу среди юношей 2014 года рождения и младше",
-    dates: "23–25 ноября 2026",
-    location: "Атырау, Казахстан",
+    subtitle: `Международный кубок «AIROM CUP» по баскетболу среди юношей ${birthYear} года рождения и младше`,
     approval: "Утвердил О. Н. Пастух, директор ТОО «AiRom World Service».",
     original: "Подписанный оригинал",
     fileInfo: "PDF · 3 стр. · 1,5 МБ · на русском",
@@ -57,8 +49,8 @@ export const regulations: Record<Language, Regulations> = {
       venue: {
         title: "Место и время проведения турнира",
         clauses: [{
-          text: "Сроки и место проведения МЕЖДУНАРОДНОГО КУБКА «AIROM CUP» по баскетболу среди юношей 2014 г.р. и младше:",
-          points: ["Место проведения: г. Атырау, Казахстан.", "Даты проведения: 23–25 ноября 2026 года."],
+          text: `Сроки и место проведения МЕЖДУНАРОДНОГО КУБКА «AIROM CUP» по баскетболу среди юношей ${birthYear} г.р. и младше:`,
+          points: ["Место проведения: г. Атырау, Казахстан.", `Даты проведения: ${dates.ru} года.`],
         }],
       },
       participants: {
@@ -66,7 +58,7 @@ export const regulations: Record<Language, Regulations> = {
         clauses: [
           { text: "В Кубке могут принимать участие игроки из зарубежных стран, а также сборные команды РК." },
           { text: "К участию допускаются команды численностью не менее 10 человек. Команды, в составе которых менее 10 человек, не допускаются к участию в соревнованиях." },
-          { text: "В случае невозможности сформировать команду исключительно из игроков одного года рождения, допускается включение двух игроков 2013 г.р., и игроков младшего возраста." },
+          { text: `В случае невозможности сформировать команду исключительно из игроков одного года рождения, допускается включение двух игроков ${guestYear} г.р., и игроков младшего возраста.` },
         ],
       },
       admission: {
@@ -131,12 +123,10 @@ export const regulations: Record<Language, Regulations> = {
         ],
       },
     },
-  },
-  kk: {
+  }),
+  kk: ({ birthYear, guestYear, dates }) => ({
     title: ["Турнир", "ережесі"],
-    subtitle: "2014 жылы туған және одан кіші жасөспірім ұлдар арасындағы баскетболдан «AIROM CUP» халықаралық кубогы",
-    dates: "2026 жылғы 23–25 қараша",
-    location: "Атырау, Қазақстан",
+    subtitle: `${birthYear} жылы туған және одан кіші жасөспірім ұлдар арасындағы баскетболдан «AIROM CUP» халықаралық кубогы`,
     approval: "«AiRom World Service» ЖШС директоры О. Н. Пастух бекіткен.",
     original: "Қол қойылған түпнұсқа",
     fileInfo: "PDF · 3 бет · 1,5 МБ · орыс тілінде",
@@ -160,8 +150,8 @@ export const regulations: Record<Language, Regulations> = {
       venue: {
         title: "Турнирдің өтетін орны мен мерзімі",
         clauses: [{
-          text: "2014 жылы туған және одан кіші жасөспірім ұлдар арасындағы баскетболдан «AIROM CUP» халықаралық кубогының өтетін орны мен мерзімі:",
-          points: ["Өтетін орны: Атырау қаласы, Қазақстан.", "Өтетін мерзімі: 2026 жылғы 23–25 қараша."],
+          text: `${birthYear} жылы туған және одан кіші жасөспірім ұлдар арасындағы баскетболдан «AIROM CUP» халықаралық кубогының өтетін орны мен мерзімі:`,
+          points: ["Өтетін орны: Атырау қаласы, Қазақстан.", `Өтетін мерзімі: ${dates.kk}.`],
         }],
       },
       participants: {
@@ -169,7 +159,7 @@ export const regulations: Record<Language, Regulations> = {
         clauses: [
           { text: "Кубокқа шет елдердің ойыншылары, сондай-ақ Қазақстан Республикасының құрама командалары қатыса алады." },
           { text: "Жарысқа кемінде 10 адамнан тұратын командалар жіберіледі. Құрамында 10 адамнан аз команда жарысқа жіберілмейді." },
-          { text: "Команданы тек бір жылы туған ойыншылардан жасақтау мүмкін болмаған жағдайда, оның құрамына 2013 жылы туған екі ойыншыны және жасы кіші ойыншыларды қосуға рұқсат етіледі." },
+          { text: `Команданы тек бір жылы туған ойыншылардан жасақтау мүмкін болмаған жағдайда, оның құрамына ${guestYear} жылы туған екі ойыншыны және жасы кіші ойыншыларды қосуға рұқсат етіледі.` },
         ],
       },
       admission: {
@@ -225,12 +215,10 @@ export const regulations: Record<Language, Regulations> = {
         ],
       },
     },
-  },
-  en: {
+  }),
+  en: ({ birthYear, guestYear, dates }) => ({
     title: ["Tournament", "regulations"],
-    subtitle: "AIROM CUP international basketball tournament for boys born in 2014 or later",
-    dates: "23–25 November 2026",
-    location: "Atyrau, Kazakhstan",
+    subtitle: `AIROM CUP international basketball tournament for boys born in ${birthYear} or later`,
     approval: "Approved by O. N. Pastukh, Director of AiRom World Service LLP.",
     original: "Signed original",
     fileInfo: "PDF · 3 pages · 1.5 MB · in Russian",
@@ -254,8 +242,8 @@ export const regulations: Record<Language, Regulations> = {
       venue: {
         title: "Tournament venue and dates",
         clauses: [{
-          text: "The AIROM CUP international basketball tournament for boys born in 2014 or later will take place as follows:",
-          points: ["Venue: Atyrau, Kazakhstan.", "Dates: 23–25 November 2026."],
+          text: `The AIROM CUP international basketball tournament for boys born in ${birthYear} or later will take place as follows:`,
+          points: ["Venue: Atyrau, Kazakhstan.", `Dates: ${dates.en}.`],
         }],
       },
       participants: {
@@ -263,7 +251,7 @@ export const regulations: Record<Language, Regulations> = {
         clauses: [
           { text: "Players from other countries and representative teams from Kazakhstan may participate in the Cup." },
           { text: "Teams must have at least 10 members. Teams with fewer than 10 members will not be admitted to the competition." },
-          { text: "If a team cannot field a squad made up entirely of players born in the same year, it may include two players born in 2013 as well as younger players." },
+          { text: `If a team cannot field a squad made up entirely of players born in the same year, it may include two players born in ${guestYear} as well as younger players.` },
         ],
       },
       admission: {
@@ -319,5 +307,5 @@ export const regulations: Record<Language, Regulations> = {
         ],
       },
     },
-  },
+  }),
 };

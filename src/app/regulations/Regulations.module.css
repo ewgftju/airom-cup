@@ -53,14 +53,14 @@
   text-transform: uppercase;
 }
 .event > span + span { border-left: 1px solid var(--control-border); padding-left: 12px; }
-.intro h1 {
+.intro h1, .catalogIntro h1 {
   margin: 0;
   font-size: clamp(52px, 6.6vw, 98px);
   line-height: 0.94;
   letter-spacing: -0.045em;
   text-transform: uppercase;
 }
-.intro h1 em { display: block; color: var(--heading-accent); font-style: normal; }
+.intro h1 em, .catalogIntro h1 em { display: block; color: var(--heading-accent); font-style: normal; }
 .subtitle {
   max-width: 55ch;
   margin: 22px 0 0;
@@ -188,6 +188,28 @@
 .fees dd p { margin-top: 5px; }
 .toContents { margin-top: 20px; }
 
+.catalogIntro { padding: 32px 0 clamp(32px, 4.5vw, 60px); }
+.catalogGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.5vw, 32px); }
+.editionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: clamp(20px, 2.8vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--heading-accent);
+}
+.editionHeading { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+.editionDate { color: var(--teal); font-size: 15px; font-weight: 800; margin: 0 0 12px; }
+.editionHeading h2 { max-width: 20ch; font-size: clamp(25px, 2.25vw, 35px); line-height: 1.1; margin: 0; }
+.editionCover { flex: none; width: clamp(68px, 7vw, 96px); height: auto; border: 1px solid var(--line); box-shadow: 2px 2px 0 var(--control-border); }
+.editionActions { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 22px; margin-top: auto; border-top: 1px solid var(--line); padding-top: 18px; }
+.pdfLink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--teal); font-size: 14px; font-weight: 800; text-underline-offset: 4px; }
+.pdfLink:hover { color: var(--ink); }
+@media (max-width: 790px) {
+  .catalogGrid { grid-template-columns: 1fr; }
+  .catalogIntro { padding-top: 18px; }
+}
 @media (max-width: 790px) {
   .intro { grid-template-columns: 1fr; gap: 26px; padding-top: 18px; }
   .event { margin-top: 20px; }
@@ -206,7 +228,7 @@
   .header { padding: 12px 0; }
   .brand { gap: 6px; font-size: 18px; }
   .brand img { width: 34px; height: 34px; }
-  .intro h1 { font-size: clamp(43px, 11vw, 56px); }
+  .intro h1, .catalogIntro h1 { font-size: clamp(43px, 11vw, 56px); }
   .subtitle { margin-top: 14px; }
   .clause { grid-template-columns: 34px minmax(0, 1fr); }
   .chapter { padding: 22px 0; }
@@ -216,8 +238,8 @@
   .page { width: 100%; padding: 0; background: white; color: black; }
   .header, .back, .original, .contents, .toContents { display: none; }
   .intro, .reader { display: block; padding: 0; }
-  .intro h1 { font-size: 32pt; }
-  .intro h1 em { display: inline; }
+  .intro h1, .catalogIntro h1 { font-size: 32pt; }
+  .intro h1 em, .catalogIntro h1 em { display: inline; }
   .event { margin: 0 0 10px; }
   .reader { border: 0; margin-top: 24px; }
   .chapter h2 { break-after: avoid; }
